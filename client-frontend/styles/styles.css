@@ -25,6 +25,7 @@ body {
 /* Signin Signup page */
 .index-body-wrapper {
     display: flex;
+    background-color: #F9F9F9;
 }
 
 .index-body-wrapper > div {
@@ -47,6 +48,10 @@ body {
     display: flex;
     flex-direction: column;
     width: 50%;
+    padding: 20px 0px;
+    background-color: #FFFFFF;
+    border: 1px solid #8367C7;
+    border-radius: 15px;
 }
 
 .form-wrapper > input {
@@ -73,6 +78,21 @@ body {
 .remember-wrapper > input {
     zoom: 1.2;
     margin: 15px 10px;
+}
+
+/* Sign up */
+.signup-wrapper {
+    margin: 10px 0px;
+}
+
+.signup-wrapper span {
+    text-decoration: underline;
+    color: #8367C7;
+}
+
+.signup-wrapper span:hover {
+    cursor: pointer;
+    color: #493A6F;
 }
 
 /* Utilities */
