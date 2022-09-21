@@ -401,7 +401,39 @@ body {
 }
 
 .chat-messages {
+    overflow: scroll;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #8367C7;
+    border-left: 2px solid #8367C7;
+}
 
+.message-input-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.message-input-wrapper > form {
+    display: flex;
+    align-items: center;
+}
+
+.message-input-wrapper input {
+    flex-grow: 1;
+    margin: 15px 10px;
+    padding: 10px 10px;
+    border: 2px solid #8367C7;
+    border-radius: 15px;
+}
+
+.message-input-wrapper button {
+    height: fit-content;
+}
+
+.message-input-wrapper input:focus {
+    outline: none;
 }
 
 
