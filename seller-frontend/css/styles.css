@@ -6,6 +6,7 @@ box-sizing: border-box;
 
 body {
     font-family: Roboto, sans-serif;
+    background-color: #F9F9F9;
   }
 
 /* --------------- top navigation bar --------------- */
@@ -77,13 +78,22 @@ a{
     background: #003945;
     height: 100%;
     margin-top: 80px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bar .side-menu:first-child{
+margin-top: 20px;
 }
 
 .side-menu{
     display: flex;
-    padding: 1rem;
+    justify-content: space-between;
+    padding: 1rem 0;
     color:white;
-    transition: 500ms;
+    width: 80%;
+    align-items: center;
 }
 
 .side-menu:hover{
@@ -91,11 +101,14 @@ a{
 }
 
 .side-bar img{
+    flex-basis: 10%;
     width: 30px;
     height: 30px;
 }
 
 .side-bar p{
+    text-align: left;
+    flex-basis: 80%;
     font-size: 20px;
     padding-left:10px ;
 }
