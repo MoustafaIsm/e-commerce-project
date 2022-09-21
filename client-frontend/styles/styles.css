@@ -8,3 +8,26 @@
 img {
     height: 100%;
 }
+
+/** Website sections **/
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.contianer {
+    margin: 10px;
+}
+
+/* Signin Signup page */
+.index-body-wrapper {
+    display: flex;
+}
+
+.index-body-wrapper > div {
+    width: 50vw;
+}
+
+/* sign in form */
+.page-content-wrapper {
+
+}
