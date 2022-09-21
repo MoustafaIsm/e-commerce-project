@@ -22,7 +22,9 @@ body{
 
 
 /* Sections Styles */
+/* Top Bar Styling Start */
 .top-bar{
+  position: fixed;
   padding: 1rem 2rem;
   width: 100%;
   justify-content: space-between;
@@ -47,6 +49,7 @@ body{
   align-items: center;
   background-color: white;
   box-shadow: 0 0 4px #000000;
+  position: relative;
 }
 .admin-pic{
   width:60px;
@@ -59,4 +62,20 @@ body{
   font-weight: bold;
   margin-right: 1rem;
 }
+/* Top Bar Styling End */
+
+/* Logout Container Styling Start */
+.logout-container{
+  cursor: pointer;
+  position: absolute;
+  right:2rem;
+  border-radius: 20px;
+  justify-content: center;
+  width:250px;
+  background-color: white;
+  padding: 1rem;
+}
+/* Logout Container Styling End */
+
+
 /* Media Queries */
