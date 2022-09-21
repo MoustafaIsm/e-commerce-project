@@ -19,8 +19,10 @@ body{
 .hidden {
   display: none;
 }
-
-
+.flex-wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
 /* Sections Styles */
 /* Top Bar Styling Start */
 .top-bar{
@@ -28,6 +30,8 @@ body{
   padding: 1rem 2rem;
   width: 100%;
   justify-content: space-between;
+  overflow: hidden;
+  top:0;
 }
 
 .top-title{
@@ -95,6 +99,7 @@ body{
   margin-bottom: 1rem;
 }
 .nav-item:hover{
+  transition: 500ms;
   background-color: gray;
   border-radius: 20px;
 }
@@ -104,12 +109,107 @@ body{
 .nav-link{
   margin-left: 1rem;
   font-family: 'Roboto';
-  font-weight: bold;
   font-size: 20px;
   color: white;
+  letter-spacing: 1px;
 }
 
 /* Left Navbar Styling End */
+
+/* Clients Section Styling Start */
+.client-tab{
+  margin-top: 8rem;
+  margin-left: 22rem;
+  width: 70%;
+}
+
+.client-types{
+  font-family: 'Roboto';
+  font-size: 30px;
+  font-weight: bold;
+  width:30%;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+.active-clients, .banned-clients{
+  padding-bottom: 1rem;
+}
+
+.selected {
+border-bottom: 3px solid #8367C7;
+
+}
+.clients-cards{
+  align-self:center;
+  width: 90%;
+  justify-content: space-evenly;
+}
+.client-card{
+  background-color: white;
+  box-shadow: 0 0 4px #000000;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+.client-info{
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.client-pp{
+  width:60px;
+  height: 60px;
+  margin-right: 1rem;
+}
+.client-name{
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 20px;
+}
+.client-username{
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: gray;
+}
+.name-username{
+  margin-right: 4rem;
+}
+
+.btn-ban{
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  color: white;
+  background-color: #8367C7;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+}
+.line{
+  border-bottom: 1px solid gray;
+  margin-bottom: 1rem;
+}
+.items-purchased{
+  margin-bottom: 1rem;
+}
+
+.items-count{
+  margin-left: 1rem;
+}
+
+.total-purchases{
+  margin-bottom: 1rem;
+}
+
+.purchases{
+  margin-left: 1rem;
+}
+
+.more-info{
+  align-self: flex-end;
+border-bottom: 1px solid #8367C7;
+cursor: pointer;
+}
+/* Clients Section Styling End */
 
 
 /* Media Queries */
