@@ -133,6 +133,7 @@ body{
 }
 .active-clients, .banned-clients{
   padding-bottom: 1rem;
+  cursor: pointer;
 }
 
 .selected {
@@ -181,8 +182,14 @@ border-bottom: 3px solid #8367C7;
   background-color: #8367C7;
   border: none;
   cursor: pointer;
-  padding: 0.5rem 2rem;
+  width:100px;
+  padding: 0.5rem;
   border-radius: 50px;
+}
+
+.btn-ban:hover{
+  transition: 500ms;
+  background-color: #493A6F;
 }
 .line{
   border-bottom: 1px solid gray;

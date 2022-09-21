@@ -1,13 +1,19 @@
 const admininfo = document.querySelector('.admin-info');
 const logoutContainer = document.querySelector('.logout-container');
-const clientscards = document.querySelector('.clients-cards');
+const activeclientscards = document.querySelector('#active-clients');
+const bannedclientscards = document.querySelector('#banned-clients');
+const bannedClients = document.querySelector('.banned-clients');
+const activeClients = document.querySelector('.active-clients');
+const bannedSection = document.getElementById('banned');
+const activeSection = document.getElementById('active');
 let banned = false;
 
 // function to create client cards dynamicly
-const createCards = (data, banned) => {
+const createCards = (data, banned, clientscards) => {
 let btnText = "ban";
 
 if(banned){
+  console.log('true');
    btnText = 'Unban';
 }
 
@@ -83,8 +89,21 @@ purchases.textContent = `${data.total} $.`;
 totalPurchases.appendChild(purchases);
 };
 
+// function to display Banned Clients
+const displayBanned = () => {
+  activeSection.classList.add('hidden');
+  bannedSection.classList.remove('hidden');
+  activeClients.classList.remove('selected');
+  bannedClients.classList.add('selected');
+};
 
-
+// function to display active clients
+const displayActive = () => {
+  bannedSection.classList.add('hidden');
+  activeSection.classList.remove('hidden');
+  bannedClients.classList.remove('selected');
+  activeClients.classList.add('selected');
+};
 
 
 const clientData = {
@@ -95,7 +114,11 @@ const clientData = {
   'total': 500
 }
 for(let i=0; i<6;i++){
-createCards(clientData, banned);
+createCards(clientData, banned, activeclientscards);
+}
+banned = true;
+for(let j=0; j<6;j++){
+createCards(clientData, banned, bannedclientscards);
 }
 
 // Function to display Logout Container
@@ -107,4 +130,12 @@ const displayLogoutContainer = () => {
 // Event Listeners
 admininfo.addEventListener('click', () => {
   displayLogoutContainer();
+});
+
+bannedClients.addEventListener('click', () => {
+  displayBanned();
+});
+
+activeClients.addEventListener('click', () => {
+  displayActive();
 });
