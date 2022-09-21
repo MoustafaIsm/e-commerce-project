@@ -9,36 +9,38 @@ body {
   }
 
 .topnav {
-overflow: hidden;
+display: flex;
 background-color: #D9D9D9;
 color: black;
-}
+height: 80px;
+padding: 1rem 2rem;
+justify-content: space-between;
+align-items: center;}
 
 a{
     text-align: center;
     text-decoration: none;
 }
 
+
 .logo{
-    float: left;
-    font-size: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer; 
 }
 
 .logo h1{
-    display: inline;
     color:black;
+    font-size: 40px;
 }
 
 .logo img{
-    width: 50px;
+    width: 72px;
 }
 
 .nav-right{
-    float:right;
-    display: inline-block;
-    padding: 10x;
-    margin: 10px;
-    font-size: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-right img{
@@ -46,7 +48,6 @@ a{
     width: 60px;
     border-radius: 50%;
     padding: 5px;
-    vertical-align: middle;
 }
 .nav-right button{
     padding: 10px;
@@ -54,4 +55,11 @@ a{
     border-radius: 10px;
     background: transparent;
     margin-right: 2rem;
+    cursor: pointer;
+}
+
+.nav-right button:hover{
+    background-color:#003945;
+    transition: 500ms;
+    color: white;
 }
