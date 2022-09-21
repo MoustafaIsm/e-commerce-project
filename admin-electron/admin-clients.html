@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Shop Clients</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script type="text/javascript" src="js/admin-clients.js" defer></script>
+    <script type="text/javascript" src="js/admin-sellers.js" defer></script>
+
+
+
+  </head>
+  <body>
+    <!-- Top Bar Section Start -->
+    <section class = 'top-bar flex'>
+      <div class="shop-title flex">
+        <img class = 'logo' src="assets/default.png"  alt="">
+        <h3 class ='top-title'>Dream Stop</h3>
+      </div>
+      <div class="admin-info flex">
+        <img class = 'admin-pic' src="assets/pp.png" alt="">
+        <h4 class = 'admin-username'>Ramzi El Ashkar</h4>
+        <i class = 'fa fa-caret-down logout-dropdown' aria-hidden="true"></i>
+      </div>
+    </section>
+    <!-- Top Bar Section End -->
+
+    <!-- Logout Container Start -->
+    <div class="logout-container flex hidden">
+      <p class = 'logout' id= 'logout'> Logout as <b id = "username">Ramzi El Ashkar</b></p>
+    </div>
+    <!-- Logout Container End -->
+
+    <!-- Left Navbar Start -->
+    <nav class='left-nav flex column'>
+      <div class="nav-item flex" id="clients-page">
+        <img src="assets/icons/clients.svg" width="30px" height="25px" alt="">
+        <p class='nav-link'>Clients</p>
+      </div>
+      <div class="nav-item flex"  id="sellers-page">
+        <img src="assets/icons/sellers.png" width="30px" height="25px" alt="">
+        <p class='nav-link'>Service providers</p>
+      </div>
+      <div class="nav-item flex" id="stats-page">
+        <img src="assets/icons/stats.svg" width="30px" height="25px" alt="">
+        <p class='nav-link'>Statistics</p>
+      </div>
+    </nav>
+    <!-- Left Navbar End -->
+
+    <!-- Clients Section Start -->
+    <section class = "client-tab flex column">
+      <div class="client-types flex">
+        <div class="active-clients selected">Clients</div>
+        <div class="banned-clients">Banned</div>
+      </div>
+      <div class="" id = 'active'>
+      <div class="clients-cards flex-wrap" id="active-clients">
+        </div>
+        </div>
+        <!-- Banned Clients Section Start -->
+        <div id = 'banned' class = 'hidden'>
+          <div class="clients-cards flex-wrap " id="banned-clients" hidden>
+            </div>
+        </div>
+
+        <!-- Banned Clients Section End -->
+    </section>
+    <!-- Clients Section End -->
+
+    <!-- Sellers Section Start -->
+    <section class = "sellers-tab flex column hidden">
+      <div class="sellers-tab-title">Sellers or Service Providers</div>
+      <div class="">
+        <div class="btn flex">
+        <button type="button" name="newseller" class = "btn-ban btn-new" id ="newseller">New Seller</button>
+          </div>
+        <div class="sellers-cards flex-wrap">
+        </div>
+      </div>
+
+    </section>
+    <!-- Sellers Section End -->
+
+
+  </body>
+</html>
