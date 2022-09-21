@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- data for table `ads`
---
+
 INSERT INTO `ads` (`add_id`, `product_id`, `ad_cost`) VALUES
 (1, 1, '100'),
 (2, 2, '70');
