@@ -1,0 +1,118 @@
+/* CSS Reset */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+img {
+    height: 100%;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+/** Website sections **/
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.contianer {
+    margin: 10px;
+}
+
+/* Signin Signup page */
+.index-body-wrapper {
+    display: flex;
+    background-color: #F9F9F9;
+}
+
+.index-body-wrapper > div {
+    width: 50vw;
+}
+
+/* sign in form */
+.page-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.page-content-wrapper > h1 {
+    margin: 15px 10px;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px 0px;
+    background-color: #FFFFFF;
+    border: 1px solid #8367C7;
+    border-radius: 15px;
+}
+
+.form-wrapper > input {
+    margin: 15px 10px;
+    padding: 10px 10px;
+    border: 2px solid #8367C7;
+    border-radius: 15px;
+}
+
+.form-wrapper > button {
+    align-self: center;
+}
+
+.form-wrapper > input:focus {
+    border: 2px solid #493A6F;
+}
+
+.remember-wrapper {
+    align-self: center;
+    display: flex;
+    align-items: center;
+}
+
+.remember-wrapper > input {
+    zoom: 1.2;
+    margin: 15px 10px;
+}
+
+/* Sign up */
+.signup-wrapper {
+    margin: 10px 0px;
+}
+
+.signup-wrapper span {
+    text-decoration: underline;
+    color: #8367C7;
+}
+
+.signup-wrapper span:hover {
+    cursor: pointer;
+    color: #493A6F;
+}
+
+/* Utilities */
+.btn {
+    width:  fit-content;
+    padding: 10px 50px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn-purpule {
+    background-color: #8367C7;
+    color: #FFFFFF;
+    border: none;
+}
+
+.btn-purpule:hover {
+    cursor: pointer;
+    background-color: #493A6F;
+}
+
+/* Media query */
