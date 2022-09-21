@@ -358,6 +358,52 @@ body {
     width: 100%;
 }
 
+/* Chat page */
+.chat-page-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 85vh;
+    margin: 15px 30px;
+}
+
+.chat-list-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    border-right: 2px solid #8367C7;
+}
+
+.chat-list-item {
+    display: flex;
+    border-bottom: 2px solid #8367C7;
+    padding: 5px;
+}
+
+.seller-img-wrapper {
+    background-color: antiquewhite;
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+}
+
+.seller-info-last-message {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    flex-grow: 1;
+    margin: 0px 20px;
+}
+
+.messgae-date {
+    align-self: flex-end;
+    justify-self: end;
+}
+
+.chat-messages {
+
+}
+
 
 
 /* Utilities */
@@ -393,6 +439,11 @@ body {
     cursor: pointer;
     background-color: #493A6F;
     transition: 500ms;
+}
+
+.grey-background:hover {
+    cursor: pointer;
+    background-color: gainsboro;
 }
 
 .material-symbols-outlined {
