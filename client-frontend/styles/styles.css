@@ -9,6 +9,10 @@ img {
     height: 100%;
 }
 
+h1 {
+    font-size: 40px;
+}
+
 /** Website sections **/
 body {
     font-family: 'Roboto', sans-serif;
@@ -32,6 +36,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 30px;
+}
+
+.page-content-wrapper > h1 {
+    margin: 15px 10px;
 }
 
 .form-wrapper {
@@ -45,7 +54,10 @@ body {
     padding: 10px 10px;
     border: 2px solid #8367C7;
     border-radius: 15px;
+}
 
+.form-wrapper > button {
+    align-self: center;
 }
 
 .form-wrapper > input:focus {
@@ -63,3 +75,24 @@ body {
     margin: 15px 10px;
 }
 
+/* Utilities */
+.btn {
+    width:  fit-content;
+    padding: 10px 50px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn-purpule {
+    background-color: #8367C7;
+    color: #FFFFFF;
+    border: none;
+}
+
+.btn-purpule:hover {
+    cursor: pointer;
+    background-color: #493A6F;
+}
+
+/* Media query */
