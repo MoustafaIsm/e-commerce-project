@@ -436,7 +436,38 @@ body {
     outline: none;
 }
 
+.messages-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
+.user-sent-message {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-sent-message > p:first-child {
+    color: gainsboro;
+}
+
+.user-sent-message > p:last-child {
+    align-self: flex-end;
+}
+
+.user-recieved-message {
+    background-color: rgb(203, 203, 203);
+    display: flex;
+    flex-direction: column;
+}
+
+.user-recieved-message > p:first-child {
+    color: rgb(0, 0, 0);
+}
+
+.user-recieved-message > p:last-child {
+    align-self: flex-end;
+}
 
 /* Utilities */
 .hide {
