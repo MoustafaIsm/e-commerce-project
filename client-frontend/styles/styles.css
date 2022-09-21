@@ -98,7 +98,7 @@ body {
 
 /* Client main page */
 .client-main-page-wrapper {
-
+    background-color: #F9F9F9;
 }
 
 /* Navigation bar */
@@ -142,6 +142,24 @@ body {
 .nav-bar-item {
     color: #FFFFFF;
     font-size: 20px;
+    margin: 5px 20px;
+    width: 110px;
+    text-align: center;
+}
+
+.nav-bar-item:hover {
+    cursor: pointer;
+    font-weight: bold;
+    transition: 500ms;
+}
+
+.nav-bar-item-active {
+    font-weight: bold;
+}
+
+.nav-bar-item-active > p {
+    width: fit-content;
+    border-bottom: 3px solid #FFFFFF;
 }
 
 /* Utilities */
