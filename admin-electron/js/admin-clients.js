@@ -6,6 +6,7 @@ const bannedClients = document.querySelector('.banned-clients');
 const activeClients = document.querySelector('.active-clients');
 const bannedSection = document.getElementById('banned');
 const activeSection = document.getElementById('active');
+const topbar = document.querySelector('.top-bar');
 let banned = false;
 
 // function to create client cards dynamicly
@@ -125,6 +126,16 @@ const displayLogoutContainer = () => {
   logoutContainer.classList.toggle('hidden');
 };
 
+// Function to Adjust Topbar on Scroll
+const adjustTopbar = () => {
+  if(document.body.scrollTop > 25 || document.documentElement.scrollTop > 25){
+    topbar.classList.add('scrolled');
+  }
+  else{
+    topbar.classList.remove('scrolled');
+  }
+};
+
 
 // Event Listeners
 admininfo.addEventListener('click', () => {
@@ -138,3 +149,7 @@ bannedClients.addEventListener('click', () => {
 activeClients.addEventListener('click', () => {
   displayActive();
 });
+
+window.onscroll = () => {
+  adjustTopbar();
+};
