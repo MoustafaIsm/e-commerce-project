@@ -33,7 +33,9 @@ body{
   overflow: hidden;
   top:0;
 }
-
+.scrolled{
+  background-color: lightgray;
+}
 .top-title{
   font-family: 'Roboto';
   font-size: 40px;
@@ -127,7 +129,7 @@ body{
   font-family: 'Roboto';
   font-size: 30px;
   font-weight: bold;
-  width:30%;
+  width:400px;
   justify-content: space-between;
   margin-bottom: 3rem;
 }
@@ -172,6 +174,7 @@ border-bottom: 3px solid #8367C7;
 }
 .name-username{
   margin-right: 4rem;
+  flex-grow: 1;
 }
 
 .btn-ban{
@@ -218,4 +221,18 @@ cursor: pointer;
 }
 /* Clients Section Styling End */
 
+
+
 /* Media Queries */
+@media only screen and (max-width: 1329px) {
+  .client-card{
+    width:90%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .name-username{
+    margin-right: 0;
+    flex-grow: 1;
+  }
+}
