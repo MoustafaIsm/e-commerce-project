@@ -97,6 +97,7 @@ const clientData = {
 for(let i=0; i<6;i++){
 createCards(clientData, banned);
 }
+
 // Function to display Logout Container
 const displayLogoutContainer = () => {
   logoutContainer.classList.toggle('hidden');
