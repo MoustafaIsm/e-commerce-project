@@ -17,6 +17,8 @@ height: 80px;
 padding: 1rem 2rem;
 justify-content: space-between;
 align-items: center;
+width: 100%;
+position: fixed;
 }
 
 a{
@@ -67,15 +69,33 @@ a{
 
 
 /* ------------ side navigation bar -------------- */
-.main{
-    display: flex;
-}
+
 .side-bar{
-    flex-basis:20% ;
+
+    position: fixed;
+    width: 250px;
     background: #003945;
     height: 100%;
+    margin-top: 80px;
 }
 
-.main-bar{
-    flex-basis: 80%;
+.side-menu{
+    display: flex;
+    padding: 1rem;
+    color:white;
+    transition: 500ms;
+}
+
+.side-menu:hover{
+    text-decoration: underline;
+}
+
+.side-bar img{
+    width: 30px;
+    height: 30px;
+}
+
+.side-bar p{
+    font-size: 20px;
+    padding-left:10px ;
 }
