@@ -4,3 +4,31 @@ padding: 0;
 box-sizing: border-box;
 }
 
+body {
+    font-family: Roboto, sans-serif;
+  }
+
+.topnav {
+overflow: hidden;
+background-color: #D9D9D9;
+color: black;
+padding: 1rem;
+}
+
+a{
+    text-align: center;
+    text-decoration: none;
+}
+
+.logo{
+    float: left;
+    font-size: 40px;
+}
+
+.logo h1{
+    display: inline;
+}
+
+.nav-right{
+    float: right;
+}
