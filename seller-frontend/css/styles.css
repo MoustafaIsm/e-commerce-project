@@ -9,6 +9,11 @@ body {
     background-color: #F9F9F9;
   }
 
+hr{
+    border-top: 1px solid #003945;
+    width: 50%;
+    margin: 2rem auto 0 auto;
+}
 /* --------------- top navigation bar --------------- */
 .topnav {
 position:fixed;
@@ -63,6 +68,7 @@ a{
     background: transparent;
     margin-right: 2rem;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .nav-right button:hover{
