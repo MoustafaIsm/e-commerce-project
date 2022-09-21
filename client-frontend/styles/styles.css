@@ -293,6 +293,13 @@ body {
     cursor: pointer;
 }
 
+/* Cart page */
+.cart-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* Utilities */
 .hide {
     display: none;
