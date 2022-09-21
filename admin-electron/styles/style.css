@@ -69,6 +69,7 @@ body{
   cursor: pointer;
   position: absolute;
   right:2rem;
+  top: 6rem;
   border-radius: 20px;
   justify-content: center;
   width:250px;
