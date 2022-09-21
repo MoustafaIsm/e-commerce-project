@@ -29,5 +29,37 @@ body {
 
 /* sign in form */
 .page-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.form-wrapper > input {
+    margin: 15px 10px;
+    padding: 10px 10px;
+    border: 2px solid #8367C7;
+    border-radius: 15px;
 
 }
+
+.form-wrapper > input:focus {
+    border: 2px solid #493A6F;
+}
+
+.remember-wrapper {
+    align-self: center;
+    display: flex;
+    align-items: center;
+}
+
+.remember-wrapper > input {
+    zoom: 1.2;
+    margin: 15px 10px;
+}
+
