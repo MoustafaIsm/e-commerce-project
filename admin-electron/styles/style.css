@@ -78,5 +78,38 @@ body{
 }
 /* Logout Container Styling End */
 
+/* Left Navbar Styling Start */
+.left-nav{
+  padding: 2rem 1rem;
+  position: fixed;
+  top:6.5rem;
+  left:0;
+  background-color: #3A3A3A;
+  height: 100%;
+}
+.nav-item{
+  cursor: pointer;
+  align-items: center;
+  padding: 1rem;
+  padding-right: 2rem;
+  margin-bottom: 1rem;
+}
+.nav-item:hover{
+  background-color: gray;
+  border-radius: 20px;
+}
+.nav-item img{
+  color: white;
+}
+.nav-link{
+  margin-left: 1rem;
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+
+/* Left Navbar Styling End */
+
 
 /* Media Queries */
