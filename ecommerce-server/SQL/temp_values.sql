@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2022 at 03:44 PM
+-- Generation Time: Sep 21, 2022 at 04:04 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -213,7 +213,6 @@ INSERT INTO `product_categories` (`category_id`, `product_id`) VALUES
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
@@ -228,11 +227,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `address`, `telephone`, `profile_picture`, `role_id`) VALUES
-(1, 'mismail', '12345', 'mustafa', 'ismail', 'mustafa1@gmail.com', 'sour', 70123456, 'jpg', 1),
-(2, 'mohamadk', '8976', 'mohamad', 'kayali', 'mohamad3@gmail.com', 'beirut', 70898765, 'png', 2),
-(4, 'fatimak', '999666', 'fatima', 'kabalan', 'fkabalan1@gmail.com', 'meis', 70456311, 'jpg', 3),
-(5, 'ahmadp', '111888', 'ahmad', 'moussa', 'ahamd3@gmail.com', 'jbeil', 70895321, 'jpg', 2);
+INSERT INTO `users` (`user_id`, `password`, `first_name`, `last_name`, `email`, `address`, `telephone`, `profile_picture`, `role_id`) VALUES
+(1, '12345', 'mustafa', 'ismail', 'mustafa1@gmail.com', 'sour', 70123456, 'jpg', 1),
+(2, '8976', 'mohamad', 'kayali', 'mohamad3@gmail.com', 'beirut', 70898765, 'png', 2),
+(4, '999666', 'fatima', 'kabalan', 'fkabalan1@gmail.com', 'meis', 70456311, 'jpg', 3),
+(5, '111888', 'ahmad', 'moussa', 'ahamd3@gmail.com', 'jbeil', 70895321, 'jpg', 2);
 
 -- --------------------------------------------------------
 
