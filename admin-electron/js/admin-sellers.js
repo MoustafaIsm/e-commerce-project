@@ -1,14 +1,60 @@
 const sellersCards = document.querySelector('.sellers-cards');
+const moreInfoSection = document.querySelector('.sellers-more-section');
 
-console.log('hellooo');
+
+
+
+
+// function to show more info popup
+const displaymoreInfo = (data) => {
+  let moreInfoPopup = `<input class="seller-id" type="hidden" name="" value="ramzi">
+  <div class="sellers-info flex column">
+    <div class="seller-info flex">
+      <img class="seller-pp" src="${data.img}" alt="">
+      <div class="seller-name-info">
+          <p class = "seller-name">${data.name}</p>
+          <p class = "seller-username">${data.email}</p>
+      </div>
+      <i class="fa fa-times close-popup" aria-hidden="true"></i>
+    </div>
+    <div class="line"></div>
+    <div class="seller-more-info flex">
+      <p class="info">Total Customers:</p>
+      <p class="specified-info">${data.items}.</p>
+    </div>
+    <div class="seller-more-info flex">
+      <p class="info">Total Items:</p>
+      <p class="specified-info">${data.total}.</p>
+    </div>
+    <div class="seller-more-info flex">
+      <p class="info">Address:</p>
+      <p class="specified-info">Beirut.</p>
+    </div>
+
+    <div class="seller-more-info ph-number flex">
+      <p class="info">Phone Number:</p>
+      <p class="specified-info">+961 71487328.</p>
+    </div>
+  </div>`;
+  moreInfoSection.classList.remove('hidden');
+  moreInfoSection.innerHTML= moreInfoPopup;
+
+};
 // function to create client cards dynamicly
 const createCard = (data) => {
-console.log("hll");
+
+
 const sellersCard = document.createElement('div');
 sellersCard.classList.add('flex');
 sellersCard.classList.add('column');
 sellersCard.classList.add('client-card');
 sellersCards.appendChild(sellersCard);
+
+const seller_id = document.createElement('input');
+seller_id.setAttribute("type", "hidden");
+seller_id.classList.add('hidden-input')
+seller_id.value = "ramzi";
+sellersCard.appendChild(seller_id);
 
 const clientInfo = document.createElement('div');
 clientInfo.classList.add('flex');
@@ -80,7 +126,7 @@ purchases.classList.add('purchases');
 purchases.textContent = `${data.total} items.`;
 totalPurchases.appendChild(purchases);
 
-const moreInfo = document.createElement('div');
+var moreInfo = document.createElement('div');
 moreInfo.classList.add('more-info');
 moreInfo.textContent = "More info";
 sellersCard.appendChild(moreInfo);
@@ -96,6 +142,35 @@ const sellersData = {
   'total': 500
 }
 
-for(let k=0; k<6;k++){
+const data = {
+  'img':'./assets/pp.png',
+  'name':'Ramzi El ',
+  'email': 'Ramzi@gmail.com',
+  'items': 5,
+  'total': 500
+}
+
+
+for(let k=0; k<3;k++){
 createCard(sellersData);
 };
+for(let k=0; k<3;k++){
+createCard(data);
+};
+
+
+// Event Listeners
+const moreinfoBtn = document.querySelectorAll('.more-info');
+moreinfoBtn.forEach((item, i) => {
+  item.addEventListener("click", () => {
+    let input = item.parentElement.querySelector('.hidden-input');
+    console.log(input.defaultValue);
+    displaymoreInfo(data);
+    const closeInfopopup = document.querySelector('.close-popup');
+
+    closeInfopopup.addEventListener("click", () => {
+    moreInfoSection.classList.add('hidden');
+    });
+  });
+
+});
