@@ -528,10 +528,45 @@ body {
     height: 470px;
     margin: auto;
     border: none;
+    padding: 15px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-popup-wrapper > div:first-child {
+    text-align: end;
+}
+
+.close-popup:hover {
+    cursor: pointer;
+    background-color: gainsboro;
 }
 
 .popup-product-details-wrapper {
-    
+    display: flex;
+}
+
+.popup-product-img {
+    background-color: antiquewhite;
+    width: 350px;
+    height: 250px;
+}
+
+.popup-product-info {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-product-info > div {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+}
+
+.popup-product-info > div > p {
+    margin: 5px 0px;
 }
 
 /* Utilities */
