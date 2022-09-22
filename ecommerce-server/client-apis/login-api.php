@@ -15,4 +15,30 @@ $query->bind_param("s", $email);
 $query->execute();
 $array = $query->get_result();
 
+// Constructing empty array
+$response = [];
+
+// Check initially if the user exists
+echo mysqli_num_rows($array);
+if ($array->num_rows > 0) {
+    $response["ispresent"] = true;
+
+    // fetching the data base password 
+    $data_base_pass = $array->fetch_assoc()['password'];
+
+    //  Check for the validity of input password
+    if ($data_base_pass != $password) {
+        $response["pass_valid"] = false;
+    } else {
+        $response["pass_valid"] = true;
+    }
+} else {
+    $response["ispresent"] = false;
+}
+
+// Sending the json object
+$json = json_encode($response);
+echo $json;
+
+
 ?>
