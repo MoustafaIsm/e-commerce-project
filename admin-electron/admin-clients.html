@@ -10,6 +10,8 @@
     <script type="text/javascript" src="js/admin-sellers.js" defer></script>
     <script type="text/javascript" src="js/editsellers.js" defer></script>
     <script type="text/javascript" src="js/addseller.js" defer></script>
+    <script type="text/javascript" src="js/statistics.js" defer></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
 
 
 
@@ -145,7 +147,7 @@
 <!-- Add Seller Section End -->
 
 <!-- Stats Page Section Start-->
-<section class ="stats-page flex column">
+<section class ="stats-page flex column hidden">
   <div class="stats-page-title">
     Statistics
   </div>
@@ -155,8 +157,8 @@
   <option value="Per Year">Per Year</option>
 </select>
 <div class="stats-graphs flex">
-  <canvas id="top-sellers" class="stats-graph" width="300" height="300"></canvas>
-  <canvas id="top-clients" class="stats-graph" width="300" height="300"></canvas>
+  <canvas id="top-sellers" class="stats-graph" width="500" height="300"></canvas>
+  <canvas id="top-clients" class="stats-graph" width="500" height="300"></canvas>
 </div>
 <div class="line"></div>
 <select name="filter" class="stats-filter" id="second-stats-filter">
@@ -165,21 +167,8 @@
 <option value="This Year">This Year</option>
 </select>
 <div class="numbers-graph flex">
-  <canvas id="insights" class="insights" width="300" height="300"></canvas>
-  <div class="indicators flex column">
-    <div class="indicator-color flex">
-      <div class="client-color"></div>
-      <p class="indicator">Clients</p>
-    </div>
-    <div class="indicator-color flex">
-      <div class="seller-color"></div>
-      <p class="indicator">Sellers</p>
-    </div>
-    <div class="indicator-color flex">
-          <div class="products-color"></div>
-          <p class="indicator">Products</p>
-    </div>
-  </div>
+  <canvas id="insights" class="insights" width="700" height="300"></canvas>
+
 </div>
 </section>
 <!-- Stats Page Section End-->
