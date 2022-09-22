@@ -8,8 +8,8 @@ use Firebase\JWT\Key;
 include("../connection.php");
 
 //getting the data from the frontend 
-$email = $_GET["email"];
-$password = $_GET["password"];
+$email = $_POST["email"];
+$password = $_POST["password"];
 
 // hashing the password
 // $password = hash("sha256", $_POST["password"]);
