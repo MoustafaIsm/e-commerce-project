@@ -9,6 +9,7 @@
     <script type="text/javascript" src="js/admin-clients.js" defer></script>
     <script type="text/javascript" src="js/admin-sellers.js" defer></script>
     <script type="text/javascript" src="js/editsellers.js" defer></script>
+    <script type="text/javascript" src="js/addseller.js" defer></script>
 
 
 
@@ -97,43 +98,53 @@
 
 <!-- Edit Seller Section Start -->
 <section class="edit-seller-section flex column hidden">
-  <!-- <div class="edit-seller-info flex column">
-  <input type="hidden" name="" class="seller-token" value="">
-  <div class="seller-heading flex">
-    <i class="fa fa-times close-edit" aria-hidden="true"></i>
-    <img src="assets/pp.png" class="seller-img" alt="">
-    <button type="button" class="save-edit" name="save">Save</button>
-  </div>
-  <div class="line"></div>
-  <div class="seller-changes flex column">
-    <div class="change-inputs flex column">
-      <label class="change-label" for="edited-fname">First Name:</label>
-      <input type="text" name="fname" id="edited-fname" class = "change-input" value="">
-    </div>
-    <div class="change-inputs flex column">
-      <label class="change-label" for="edited-lname">Last Name:</label>
-      <input type="text" name="fname" id="edited-lname" class = "change-input" value="">
-    </div>
-    <div class="change-inputs flex column">
-      <label class="change-label" for="edited-email">Email:</label>
-      <input type="email" name="fname" id="edited-email" class = "change-input" value="">
-    </div>
-    <div class="change-inputs flex column">
-      <label class="change-label" for="edited-phone-nb">Phone Number:</label>
-      <input type="text" name="fname" id="edited-phone-nb" class = "change-input" value="">
-    </div>
-    <div class="change-inputs flex column">
-      <label class="change-label" for="edited-address">Address:</label>
-      <input type="text" name="fname" id="edited-address" class = "change-input" value="">
-    </div>
-    <div class="change-inputs flex column">
-      <label class="change-label" for="edited-password">New Password:</label>
-      <input type="password" name="fname" id="edited-password" class = "change-input" value="">
-    </div>
-  </div>
-</div> -->
+
 </section>
-<!-- Edit Seller Section Start -->
+<!-- Edit Seller Section End -->
+
+<!-- Add Seller Section Start -->
+<section class = "add-seller-section flex column hidden">
+  <div class="add-seller flex column">
+    <div class="addseller-heading flex">
+      <h2 class="add-seller-title">Add a Seller</h2>
+      <i class="fa fa-times close-newseller" aria-hidden="true"></i>
+    </div>
+    <div class="line"></div>
+    <div class="newseller-inputs flex column">
+        <div class="change-inputs flex column">
+        <label class="change-label" for="fname">First Name:</label>
+        <input type="text" name="fname" id="fname" class = "change-input" value="" required>
+      </div>
+      <div class="change-inputs flex column">
+        <label class="change-label" for="lname">Last Name:</label>
+        <input type="text" name="fname" id="lname" class = "change-input" value="" required>
+      </div>
+      <div class="change-inputs flex column">
+        <label class="change-label" for="email">Email:</label>
+        <input type="email" name="fname" id="email" class = "change-input" value="" required>
+      </div>
+      <div class="change-inputs flex column">
+        <label class="change-label" for="phone-nb">Phone Number:</label>
+        <input type="text" name="fname" id="phone-nb" class = "change-input" value="" required>
+      </div>
+      <div class="change-inputs flex column">
+        <label class="change-label" for="address">Address:</label>
+        <input type="text" name="fname" id="address" class = "change-input" value="" required>
+      </div>
+      <div class="change-inputs flex column">
+        <label class="change-label" for="password">Password:</label>
+        <input type="password" name="fname" id="password" class = "change-input" value="" required>
+      </div>
+    </div>
+    <div class="addseller-bottom flex">
+      <button type="submit" name="save-newseller" class="save-newseller btn-ban">Save</button>
+    </div>
+    <div class="error flex hidden">
+      Some Fields Are Missing!!
+    </div>
+  </div>
+</section>
+<!-- Add Seller Section End -->
 
 
   </body>

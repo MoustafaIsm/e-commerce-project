@@ -1,7 +1,8 @@
 const sellersCards = document.querySelector('.sellers-cards');
 const moreInfoSection = document.querySelector('.sellers-more-section');
-
-
+const newsellerSection = document.querySelector('.add-seller-section');
+const closeNewsellerSection = document.querySelector('.close-newseller');
+const newSellerbtn = document.getElementById('newseller');
 
 
 
@@ -174,3 +175,11 @@ moreinfoBtn.forEach((item, i) => {
   });
 
 });
+
+newSellerbtn.addEventListener("click", () => {
+  newsellerSection.classList.remove('hidden');
+});
+closeNewsellerSection.addEventListener("click", () => {
+  newsellerSection.classList.add('hidden');
+});
+

@@ -13,8 +13,8 @@ const statsPage = document.getElementById('stats-page');
 const clientstab = document.querySelector('.client-tab');
 const sellerstab = document.querySelector('.sellers-tab');
 
-clientsPage.classList.add('active');
 let banned = false;
+clientsPage.classList.add('active');
 
 // function to create client cards dynamicly
 const createCards = (data, banned, clientscards) => {

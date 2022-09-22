@@ -201,6 +201,7 @@ border-bottom: 3px solid #8367C7;
   background-color: #493A6F;
 }
 .line{
+  width:100%;
   border-bottom: 1px solid gray;
   margin-bottom: 1rem;
 }
@@ -218,7 +219,8 @@ border-bottom: 3px solid #8367C7;
   font-size: 20px;
   cursor: pointer;
 }
-}
+
+
 
 .total-purchases{
   margin-bottom: 1rem;
@@ -230,7 +232,6 @@ border-bottom: 3px solid #8367C7;
 
 .more-info{
 align-self: flex-end;
-  align-self: flex-end;
 border-bottom: 1px solid #8367C7;
 cursor: pointer;
 }
@@ -390,6 +391,44 @@ width: 30%;
   outline: none;
 }
 /* Sellers More Info Popup Styling End */
+
+/* Add new Seller Section Styling Start */
+.add-seller-section{
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+}
+.add-seller{
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.addseller-heading{
+  width: 100%;
+  align-items: center;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+.close-newseller{
+  font-size: 25px;
+  cursor: pointer;
+}
+.addseller-bottom{
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: flex-end;
+
+}
+.error{
+  color:red;
+}
+/* Add new Seller Section Styling End */
 
 
 /* Media Queries */
