@@ -15,9 +15,6 @@ hr{
     margin: 2rem auto 0 auto;
 }
 
-.hidden{
-    display: none;
-}
 
 /* --------------- top navigation bar --------------- */
 .topnav {
@@ -422,4 +419,8 @@ flex-wrap: wrap;
     align-self: flex-end;
 }
 
-  
+
+/* --------- hide section ---------- */
+.hidden{
+    display: none;
+}
