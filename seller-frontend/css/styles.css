@@ -109,10 +109,12 @@ margin-top: 20px;
     color:white;
     width: 80%;
     align-items: center;
+    transition-duration: 500ms;
+    cursor: pointer;
 }
 
-.side-menu:hover{
-    text-decoration: underline;
+.side-menu-active > p{
+    border-bottom: 1px solid white;
 }
 
 .side-bar img{
@@ -260,7 +262,7 @@ flex-wrap: wrap;
     width: 100%;
     }
 
-.add-button{
+.popup-add-button{
     padding: 2% 10%;
 }
 
