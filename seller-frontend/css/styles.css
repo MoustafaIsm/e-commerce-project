@@ -310,5 +310,116 @@ flex-wrap: wrap;
     margin: 2rem auto 0 auto;
   }
 
+/*  --------------- Chat page ----------------*/
+.chat-page-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 85vh;
+    margin: 15px 30px;
+    border: 2px solid #003945;
+}
+
+.chat-list-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    border-right: 2px solid #003945;
+}
+
+.chat-list-item {
+    display: flex;
+    border-bottom: 2px solid #003945;
+    padding: 5px;
+}
+
+.seller-img-wrapper {
+    background-color: antiquewhite;
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+}
+
+.seller-info-last-message {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    flex-grow: 1;
+    margin: 0px 20px;
+}
+
+.message-date {
+    align-self: flex-end;
+    justify-self: end;
+}
+
+.chat-messages {
+    overflow: scroll;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #003945;
+    border-left: 2px solid #003945;
+}
+
+.message-input-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.message-input-wrapper > form {
+    display: flex;
+    align-items: center;
+}
+
+.message-input-wrapper input {
+    flex-grow: 1;
+    margin: 15px 10px;
+    padding: 10px 10px;
+    border: 2px solid #003945;
+    border-radius: 15px;
+}
+
+.message-input-wrapper button {
+    height: fit-content;
+}
+
+.message-input-wrapper input:focus {
+    outline: none;
+}
+
+.messages-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.user-sent-message {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-sent-message > p:first-child {
+    color: gainsboro;
+}
+
+.user-sent-message > p:last-child {
+    align-self: flex-end;
+}
+
+.user-recieved-message {
+    background-color: rgb(203, 203, 203);
+    display: flex;
+    flex-direction: column;
+}
+
+.user-recieved-message > p:first-child {
+    color: rgb(0, 0, 0);
+}
+
+.user-recieved-message > p:last-child {
+    align-self: flex-end;
+}
 
   
