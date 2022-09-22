@@ -12,6 +12,9 @@ const sellersPage = document.getElementById('sellers-page');
 const statsPage = document.getElementById('stats-page');
 const clientstab = document.querySelector('.client-tab');
 const sellerstab = document.querySelector('.sellers-tab');
+const statstab = document.querySelector('.stats-page');
+
+
 
 let banned = false;
 clientsPage.classList.add('active');
@@ -158,6 +161,7 @@ if(navitem == clientsPage){
   statsPage.classList.remove('active');
   clientstab.classList.remove('hidden');
   sellerstab.classList.add('hidden');
+  statstab.classList.add('hidden');
 
 }
 else if(navitem == sellersPage){
@@ -166,12 +170,18 @@ else if(navitem == sellersPage){
   statsPage.classList.remove('active');
   clientstab.classList.add('hidden');
   sellerstab.classList.remove('hidden');
+  statstab.classList.add('hidden');
+
 
 }
 else{
   navitem.classList.add('active');
   clientsPage.classList.remove('active');
   sellersPage.classList.remove('active');
+  clientstab.classList.add('hidden');
+  sellerstab.classList.add('hidden');
+  statstab.classList.remove('hidden');
+
 }
 };
 

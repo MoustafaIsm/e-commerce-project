@@ -220,8 +220,6 @@ border-bottom: 3px solid #8367C7;
   cursor: pointer;
 }
 
-
-
 .total-purchases{
   margin-bottom: 1rem;
 }
@@ -430,6 +428,50 @@ width: 30%;
 }
 /* Add new Seller Section Styling End */
 
+/* Stats Page Section Styling Start */
+.stats-page{
+  margin-top: 8rem;
+  margin-left: 22rem;
+  width: 70%;
+}
+.stats-page-title{
+  font-family: 'Roboto';
+  font-size: 30px;
+  font-weight: bold;
+  width:400px;
+  margin-bottom: 2rem;
+}
+.stats-filter{
+  outline: none;
+  width: 15%;
+  padding: 0.5rem 1rem;
+  padding-right: 0!important;
+  margin-bottom: 2rem;
+}
+.stats-graphs{
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+.stats-graph{
+  background-color: white;
+  box-shadow: 0 0 4px #000000;
+  margin-right: 1rem;
+}
+
+.numbers-graph{
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+.insights{
+  max-width: 700px;
+  background-color: white;
+  box-shadow: 0 0 4px #000000;
+  margin-bottom: 2rem;
+}
+
+/* Stats Page Section Styling End */
 
 /* Media Queries */
 @media only screen and (max-width: 1329px) {
