@@ -182,3 +182,37 @@ flex-wrap: wrap;
     padding: 1rem;
     color:#003945
 }
+
+
+/* -------- popup box --------- */
+.popup{
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 30%;
+    background-color: #003945;
+    border-radius: 20px;
+}
+
+/* ----------- popup learn more ----------- */
+.popup .card{
+    margin: 5%;
+    width: 90%;
+    padding: 5%;
+    height: fit-content;
+    border: 1px solid white;
+    /* border-radius: 20px; */
+}
+
+.popup .card:hover{
+    transform: scale(1);
+}
+
+.popup-buttons{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
