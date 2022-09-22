@@ -193,6 +193,7 @@ flex-wrap: wrap;
     width: 30%;
     background-color: #003945;
     border-radius: 20px;
+    z-index: 12;
 }
 
 /* ----------- popup learn more ----------- */
@@ -211,8 +212,14 @@ flex-wrap: wrap;
 
 .popup-buttons{
     padding-top: 10px;
+    margin: auto;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.popup-buttons img{
+    width: 25px;
+    height: 25px;
+}
