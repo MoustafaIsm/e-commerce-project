@@ -505,6 +505,19 @@ body {
     align-self: flex-end;
 }
 
+.favorites-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.favorites-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 20vw);
+    column-gap: 2vw;
+    row-gap: 2vw;
+    justify-content: center;
+}
+
 /* Utilities */
 .hide {
     display: none;
