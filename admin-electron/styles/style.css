@@ -151,6 +151,7 @@ border-bottom: 3px solid #8367C7;
   justify-content: space-evenly;
 }
 .client-card{
+  width:450px;
   background-color: white;
   box-shadow: 0 0 4px #000000;
   padding: 1rem;
