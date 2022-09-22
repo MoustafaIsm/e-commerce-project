@@ -317,6 +317,72 @@ width: 30%;
 .ph-number{
   margin-bottom: 0;
 }
+
+.edit-seller-section{
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+}
+.edit-seller-info{
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  align-items: center;
+}
+.seller-heading{
+  width: 100%;
+  justify-content: space-between;
+}
+.close-edit{
+  align-self: flex-start;
+  font-size: 25px;
+  cursor: pointer;
+  width:70px;
+}
+.seller-img{
+  width: 80px;
+  height:80px;
+  align-self: center;
+  justify-self:center;
+}
+.save-edit{
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  color: white;
+  background-color: #8367C7;
+  border: none;
+  cursor: pointer;
+  width:100px;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 50px;
+  align-self: center;
+}
+
+
+.save-edit:hover{
+  transition: 500ms;
+  background-color: #493A6F;
+}
+
+.change-label{
+  font-family: 'Roboto';
+  margin-bottom: 0.5rem;
+}
+.change-input{
+  width: 400px;
+  padding: 0.75rem 1rem;
+  border-radius: 50px;
+  border: none;
+  background-color: lightgray;
+  margin-bottom: 0.5rem;
+  outline: none;
+}
 /* Sellers More Info Popup Styling End */
 
 /* Media Queries */
