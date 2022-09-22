@@ -260,3 +260,7 @@ flex-wrap: wrap;
 .add-product-card button{
     padding: 1% 10%;
 }
+
+.add-category-btn{
+    width: 73%;
+}
