@@ -28,19 +28,19 @@
             </div>
             <!-- Navigation items -->
             <ul class="nav-bar-btns">
-                <li class="nav-bar-item nav-bar-item-active">
+                <li class="nav-bar-item nav-bar-item-active" id="discover-nav-btn">
                     <p>Discover</p>
                 </li>
-                <li class="nav-bar-item">
+                <li class="nav-bar-item" id="wishlist-nav-btn">
                     <p>Wishlist</p>
                 </li>
-                <li class="nav-bar-item">
+                <li class="nav-bar-item" id="cart-nav-btn">
                     <p>Cart</p>
                 </li>
-                <li class="nav-bar-item">
+                <li class="nav-bar-item" id="chat-nav-btn">
                     <p>Chat</p>
                 </li>
-                <li class="nav-bar-item">
+                <li class="nav-bar-item" id="profile-nav-btn">
                     <p>Profile</p>
                 </li>
             </ul>
@@ -48,7 +48,7 @@
         <!-- Pages -->
         <div class="client-pages-wrapper container">
             <!-- Discover page -->
-            <section class="discover-page-wrapper hide">
+            <section class="discover-page-wrapper" id="discover-page">
                 <!-- Suggestions -->
                 <div class="suggestions-wrapper">
                     <!-- Titile -->
@@ -340,7 +340,7 @@
                 </div>
             </section>
             <!-- Wishlist page -->
-            <section class="wishlist-page-wrapper hide">
+            <section class="wishlist-page-wrapper hide" id="wishlist-page">
                 <!-- Titile -->
                 <p class="bold-text section-title">Wishlist: </p>
                 <!-- Content -->
@@ -556,7 +556,7 @@
                 </div>
             </section>
             <!-- Cart page -->
-            <section class="cart-page-wrapper hide">
+            <section class="cart-page-wrapper hide" id="cart-page">
                 <!-- Titile -->
                 <p class="bold-text section-title cart-title">Your cart: </p>
                 <!-- Content -->
@@ -694,7 +694,7 @@
                 </div>
             </section>
             <!-- Chat page -->
-            <section class="chat-page-wrapper hide">
+            <section class="chat-page-wrapper hide" id="chat-page">
                 <!-- Chat list -->
                 <div class="chat-list-wrapper">
                     <div class="chat-list-item grey-background">
@@ -738,7 +738,7 @@
                 </div>
             </section>
             <!-- Profile page -->
-            <section class="profile-page-wrapper ">
+            <section class="profile-page-wrapper hide" id="profile-page">
                 <!-- Profile -->
                 <div class="user-info-wrapper">
                     <!-- Profile picture -->
@@ -896,6 +896,7 @@
         </div>
     </div>
 
+    <script src="./scripts/scripts.js"></script>
 </body>
 
 </html>
