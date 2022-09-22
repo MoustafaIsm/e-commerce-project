@@ -447,52 +447,26 @@ width: 30%;
 .stats-graphs{
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
+  width: 50%;
+  margin-bottom: 2rem;
 }
 .stats-graph{
   background-color: white;
   box-shadow: 0 0 4px #000000;
+  margin-right: 1rem;
 }
-.reference{
-  align-self: center;
-  width:60%;
-  justify-content: space-between;
-  font-family: 'Roboto';
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
+
 .numbers-graph{
   margin-top: 1rem;
   justify-content: space-between;
 }
 .insights{
+  max-width: 700px;
   background-color: white;
   box-shadow: 0 0 4px #000000;
   margin-bottom: 2rem;
 }
-.indicator-color{
-  margin-bottom: 1rem;
-}
-.client-color{
-  width: 20px;
-  border-radius: 50px;
-  background-color: #8367C7;
-  margin-right: 1rem;
-}
-.seller-color{
-  width: 20px;
-  border-radius: 50px;
-  background-color: #C51F64;
-  margin-right: 1rem;
-}
-.products-color{
-  width: 20px;
-  border-radius: 50px;
-  background-color: #1C98A9;
-  margin-right: 1rem;
-}
+
 /* Stats Page Section Styling End */
 /* Media Queries */
 @media only screen and (max-width: 1329px) {
