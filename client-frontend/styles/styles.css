@@ -522,6 +522,18 @@ body {
     justify-content: center;
 }
 
+/* Product details popup */
+.product-popup-wrapper {
+    width: 900px;
+    height: 470px;
+    margin: auto;
+    border: none;
+}
+
+.popup-product-details-wrapper {
+    
+}
+
 /* Utilities */
 .hide {
     display: none;

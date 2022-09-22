@@ -14,6 +14,16 @@ const cartPage = document.getElementById("cart-page");
 const chatPage = document.getElementById("chat-page");
 const profilePage = document.getElementById("profile-page");
 
+// Product details popup
+const productPopup = document.getElementById("product-popup");
+const closeProductPopup = document.getElementById("close-popup");
+//Temporary variable for testing
+const temp = document.getElementById("temp");
+// If a browser doesn't support the dialog, then hide it
+if (typeof productPopup.showModal !== 'function') {
+    productPopup.hidden = true;
+}
+
 /* Eventlisteners functions */
 
 const openDiscoverPage = () => {
@@ -41,6 +51,10 @@ const openProfilePage = () => {
     openPage("profile");
 }
 
+const closeProductPopupFun = () => {
+    productPopup.close();
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
@@ -48,6 +62,13 @@ wishlistNavBtn.addEventListener("click", openWishlistPage);
 cartNavBtn.addEventListener("click", openCartPage);
 chatNavBtn.addEventListener("click", openChatPage);
 profileNavBtn.addEventListener("click", openProfilePage);
+
+closeProductPopup.addEventListener("click", closeProductPopupFun);
+
+// temporary
+temp.addEventListener("click", () => {
+    productPopup.showModal();
+});
 
 /* Helper functions */
 
