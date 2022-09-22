@@ -5,6 +5,7 @@ const closeNewsellerSection = document.querySelector('.close-newseller');
 const newSellerbtn = document.getElementById('newseller');
 
 
+
 // function to show more info popup
 const displaymoreInfo = (data) => {
   let moreInfoPopup = `<input class="seller-id" type="hidden" name="" value="ramzi">
@@ -181,3 +182,4 @@ newSellerbtn.addEventListener("click", () => {
 closeNewsellerSection.addEventListener("click", () => {
   newsellerSection.classList.add('hidden');
 });
+
