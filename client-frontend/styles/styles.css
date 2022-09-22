@@ -135,6 +135,26 @@ body {
     margin: 0px 10px;
 }
 
+.search-bar-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: #f1f1f1;
+    border-radius: 30px;
+}
+
+.search-bar-wrapper span {
+    color: rgb(118, 118, 118);
+}
+
+.search-bar-wrapper input {
+    padding: 7px;
+    border-radius: 30px;
+    background-color: #f1f1f1;
+    outline: none;
+    border: none;
+}
+
 .nav-bar-btns {
     display: flex;
     list-style: none;
