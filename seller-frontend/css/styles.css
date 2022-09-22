@@ -419,6 +419,36 @@ flex-wrap: wrap;
     align-self: flex-end;
 }
 
+/* ------- discount page ------------ */
+.discount-page h2{
+    color: #003945;
+    margin: auto;
+    text-align: center;
+    padding: 1rem;
+}
+
+.add-discount-card{
+    padding: 2rem;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #003945;
+    border-radius: 10px;
+    align-items: center;
+    background-color: white;
+    margin: auto;
+}
+
+.add-discount-card p{
+    color:#003945;
+}
+
+.add-discount-card input{
+    padding: 5px 2rem;
+    border: 1px solid #003945;
+    border-radius: 10px;
+
+}
 
 /* --------- hide section ---------- */
 .hidden{
