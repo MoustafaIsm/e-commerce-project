@@ -5,7 +5,7 @@ const discoverNavBtn = document.getElementById("discover-nav-btn");
 const wishlistNavBtn = document.getElementById("wishlist-nav-btn");
 const cartNavBtn = document.getElementById("cart-nav-btn");
 const chatNavBtn = document.getElementById("chat-nav-btn");
-const profileNavBtn = document.getElementById("chat-nav-btn");
+const profileNavBtn = document.getElementById("profile-nav-btn");
 
 // Pages
 const discoverPage = document.getElementById("discover-page");
@@ -31,11 +31,17 @@ const openCartPage = () => {
     openPage("cart");
 }
 
+const openChatPage = () => {
+    changeNavBtn("chat");
+    openPage("chat");
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
 wishlistNavBtn.addEventListener("click", openWishlistPage);
 cartNavBtn.addEventListener("click", openCartPage);
+chatNavBtn.addEventListener("click", openChatPage);
 
 /* Helper functions */
 
@@ -58,6 +64,12 @@ const changeNavBtn = (pageToOpen) => {
         cartNavBtn.classList.add("nav-bar-item-active");
         chatNavBtn.classList.remove("nav-bar-item-active");
         profileNavBtn.classList.remove("nav-bar-item-active");
+    } else if (pageToOpen == "chat") {
+        discoverNavBtn.classList.remove("nav-bar-item-active");
+        wishlistNavBtn.classList.remove("nav-bar-item-active");
+        cartNavBtn.classList.remove("nav-bar-item-active");
+        chatNavBtn.classList.add("nav-bar-item-active");
+        profileNavBtn.classList.remove("nav-bar-item-active");
     }
 }
 
@@ -79,6 +91,12 @@ const openPage = (pageToOpen) => {
         wishlistPage.classList.add("hide");
         cartPage.classList.remove("hide");
         chatPage.classList.add("hide");
+        profilePage.classList.add("hide");
+    } else if (pageToOpen == "chat") {
+        discoverPage.classList.add("hide");
+        wishlistPage.classList.add("hide");
+        cartPage.classList.add("hide");
+        chatPage.classList.remove("hide");
         profilePage.classList.add("hide");
     }
 }
