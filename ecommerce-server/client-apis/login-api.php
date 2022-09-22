@@ -25,7 +25,6 @@ $array = $query->get_result();
 $response = [];
 
 // Check initially if the user exists
-echo mysqli_num_rows($array);
 if ($array->num_rows > 0) {
     $response["ispresent"] = true;
 
@@ -49,7 +48,7 @@ if ($array->num_rows > 0) {
         $payload = [
             "userId" => $user["user_id"],
             "email" => $user["email"],
-            "exp" => time() + 1
+            "exp" => time() + 1000
         ];
 
         $jwt = JWT::encode($payload, $key, 'HS256');
