@@ -149,6 +149,10 @@ body {
     transition-duration: 500ms;
 }
 
+.nav-bar-item > p {
+    width: fit-content;
+}
+
 .nav-bar-item:hover {
     cursor: pointer;
     font-weight: bold;
