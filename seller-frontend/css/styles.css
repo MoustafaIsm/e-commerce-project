@@ -191,9 +191,12 @@ flex-wrap: wrap;
     left:50%;
     transform: translate(-50%,-50%);
     width: 30%;
-    background-color: #D9D9D9;
+    background-color: white;
+    color: #003945;
     border-radius: 20px;
-    z-index: 12;
+    z-index: 100;
+    border: 1px solid #003945;
+    font-weight: bold;
 }
 
 /* ----------- popup learn more ----------- */
