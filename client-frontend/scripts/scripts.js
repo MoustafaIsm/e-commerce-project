@@ -21,9 +21,15 @@ const openDiscoverPage = () => {
     openPage("discover");
 }
 
+const openWishlistPage = () => {
+    changeNavBtn("wishlist");
+    openPage("wishlist");
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
+wishlistNavBtn.addEventListener("click", openWishlistPage);
 
 /* Helper functions */
 
@@ -34,16 +40,27 @@ const changeNavBtn = (pageToOpen) => {
         cartNavBtn.classList.remove("nav-bar-item-active");
         chatNavBtn.classList.remove("nav-bar-item-active");
         profileNavBtn.classList.remove("nav-bar-item-active");
+    } else if (pageToOpen == "wishlist") {
+        discoverNavBtn.classList.remove("nav-bar-item-active");
+        wishlistNavBtn.classList.add("nav-bar-item-active");
+        cartNavBtn.classList.remove("nav-bar-item-active");
+        chatNavBtn.classList.remove("nav-bar-item-active");
+        profileNavBtn.classList.remove("nav-bar-item-active");
     }
 }
 
 const openPage = (pageToOpen) => {
     if (pageToOpen == "discover") {
-        discoverPage.classList.add("nav-bar-item-active");
-        wishlistPage.classList.remove("nav-bar-item-active");
-        cartPage.classList.remove("nav-bar-item-active");
-        chatPage.classList.remove("nav-bar-item-active");
-        profilePage.classList.remove("nav-bar-item-active");
-        console.log("donre");
+        discoverPage.classList.remove("hide");
+        wishlistPage.classList.add("hide");
+        cartPage.classList.add("hide");
+        chatPage.classList.add("hide");
+        profilePage.classList.add("hide");
+    } else if (pageToOpen == "wishlist") {
+        discoverPage.classList.add("hide");
+        wishlistPage.classList.remove("hide");
+        cartPage.classList.add("hide");
+        chatPage.classList.add("hide");
+        profilePage.classList.add("hide");
     }
 }
