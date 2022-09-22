@@ -26,6 +26,7 @@ body{
 .active{
   font-weight: bold;
 }
+
 /* Sections Styles */
 /* Top Bar Styling Start */
 .top-bar{
@@ -152,6 +153,7 @@ border-bottom: 3px solid #8367C7;
 }
 .client-card{
   width:450px;
+
   background-color: white;
   box-shadow: 0 0 4px #000000;
   padding: 1rem;
@@ -206,6 +208,7 @@ border-bottom: 3px solid #8367C7;
 .items-purchased{
   margin-bottom: 1rem;
   align-items: center;
+
 }
 
 .items-count{
@@ -216,6 +219,7 @@ border-bottom: 3px solid #8367C7;
   font-size: 20px;
   cursor: pointer;
 }
+
 .total-purchases{
   margin-bottom: 1rem;
 }
@@ -468,6 +472,7 @@ width: 30%;
 }
 
 /* Stats Page Section Styling End */
+
 /* Media Queries */
 @media only screen and (max-width: 1329px) {
   .client-card{

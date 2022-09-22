@@ -14,8 +14,11 @@ const clientstab = document.querySelector('.client-tab');
 const sellerstab = document.querySelector('.sellers-tab');
 const statstab = document.querySelector('.stats-page');
 
+
+
 let banned = false;
 clientsPage.classList.add('active');
+
 // function to create client cards dynamicly
 const createCards = (data, banned, clientscards) => {
 let btnText = "ban";
@@ -36,6 +39,7 @@ client_id.setAttribute("type", "hidden");
 client_id.classList.add('hidden-input');
 client_id.value = "ramzi";
 clientCard.appendChild(client_id);
+
 const clientInfo = document.createElement('div');
 clientInfo.classList.add('flex');
 clientInfo.classList.add('client-info');
@@ -133,6 +137,7 @@ banned = true;
 for(let j=0; j<6;j++){
 createCards(clientData, banned, bannedclientscards);
 }
+
 // Function to display Logout Container
 const displayLogoutContainer = () => {
   logoutContainer.classList.toggle('hidden');
@@ -157,6 +162,7 @@ if(navitem == clientsPage){
   clientstab.classList.remove('hidden');
   sellerstab.classList.add('hidden');
   statstab.classList.add('hidden');
+
 }
 else if(navitem == sellersPage){
   navitem.classList.add('active');
@@ -165,6 +171,7 @@ else if(navitem == sellersPage){
   clientstab.classList.add('hidden');
   sellerstab.classList.remove('hidden');
   statstab.classList.add('hidden');
+
 
 }
 else{
@@ -177,6 +184,7 @@ else{
 
 }
 };
+
 // Event Listeners
 admininfo.addEventListener('click', () => {
   displayLogoutContainer();
@@ -204,3 +212,4 @@ sellersPage.addEventListener("click", () => {
 statsPage.addEventListener("click", () => {
   changeTab(statsPage);
 });
+
