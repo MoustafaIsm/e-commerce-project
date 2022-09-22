@@ -55,7 +55,6 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`products` (
   `product_name` VARCHAR(255) NOT NULL,
   `product_price` DECIMAL NOT NULL,
   `description` VARCHAR(255) NOT NULL,
-  `product_quantity` INT NOT NULL,
   `sponsered` TINYINT(1) NULL DEFAULT 0,
   `stock` INT NOT NULL,
   `viewing_count` INT NOT NULL DEFAULT 0,

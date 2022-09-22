@@ -43,9 +43,9 @@ INSERT INTO `favorite_products` (`user_id`, `product_id`) VALUES
 -- --------------------------------------------------------
 -- data for table `products`
 
-INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `description`, `product_quantity`, `sponsered`, `stock`, `viewing_count`) VALUES
-(1, 'shampoo', '18', 'for dry hair', 2, 'elvive', 6, 0),
-(2, 'perfum', '13', 'nice scent', 8, 'far away', 7, 0);
+INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `description`, `sponsered`, `stock`, `viewing_count`) VALUES
+(1, 'shampoo', '18', 'for dry hair','elvive', 6, 0),
+(2, 'perfum', '13', 'nice scent','far away', 7, 0);
 -- --------------------------------------------------------
 -- data for table `product_categories`
 
