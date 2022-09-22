@@ -433,6 +433,7 @@ flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
     border: 1px solid #003945;
+    box-shadow: 0px 0px 5px 0.5px #003945;
     border-radius: 10px;
     align-items: center;
     background-color: white;
@@ -444,11 +445,52 @@ flex-wrap: wrap;
 }
 
 .add-discount-card input{
-    padding: 5px 2rem;
+    padding: 5px 3rem;
     border: 1px solid #003945;
     border-radius: 10px;
 
 }
+
+.discount-codes{
+    display: flex;
+    width: 90%;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-top: 2%;
+}
+
+.discount-codes-details{
+    flex-basis: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.discount-codes-details img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.discount-codes-details input{
+    width: 70%;
+    padding: 5px;
+}
+
+.discount-codes-details label{
+    padding: 5px 10px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+
+/* .discount-codes > label{
+    fle
+} */
+
 
 /* --------- hide section ---------- */
 .hidden{
