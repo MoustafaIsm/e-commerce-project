@@ -301,3 +301,9 @@ flex-wrap: wrap;
     color: #003945;
     background-color: white;
   }
+
+  .line-devider{
+    border-top: 1px solid #003945;
+    width: 50%;
+    margin: 2rem auto 0 auto;
+  }
