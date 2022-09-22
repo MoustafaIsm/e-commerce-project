@@ -23,6 +23,10 @@ body{
   display: flex;
   flex-wrap: wrap;
 }
+.active{
+  font-weight: bold;
+}
+
 /* Sections Styles */
 /* Top Bar Styling Start */
 .top-bar{
@@ -148,6 +152,8 @@ border-bottom: 3px solid #8367C7;
   justify-content: space-evenly;
 }
 .client-card{
+  width:450px;
+
   background-color: white;
   box-shadow: 0 0 4px #000000;
   padding: 1rem;
@@ -200,10 +206,18 @@ border-bottom: 3px solid #8367C7;
 }
 .items-purchased{
   margin-bottom: 1rem;
+  align-items: center;
+
 }
 
 .items-count{
   margin-left: 1rem;
+  flex-grow: 1;
+}
+.edit-seller{
+  font-size: 20px;
+  cursor: pointer;
+}
 }
 
 .total-purchases{
@@ -215,12 +229,167 @@ border-bottom: 3px solid #8367C7;
 }
 
 .more-info{
+align-self: flex-end;
   align-self: flex-end;
 border-bottom: 1px solid #8367C7;
 cursor: pointer;
 }
 /* Clients Section Styling End */
 
+/* Sellers Section Styling Start */
+.sellers-tab{
+  margin-top: 8rem;
+  margin-left: 22rem;
+  width: 70%;
+}
+.sellers-tab-title{
+  font-family: 'Roboto';
+  font-size: 30px;
+  font-weight: bold;
+  width:400px;
+  margin-bottom: 2rem;
+}
+
+.sellers-cards{
+  align-self:center;
+  width: 90%;
+  justify-content: space-evenly;
+}
+
+.btn-new{
+width: 150px;
+justify-content: flex-end;
+}
+.btn{
+  width: 85%;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+/* Sellers Section Styling End */
+
+/* Sellers More Info Popup Styling Start */
+.sellers-more-section{
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+}
+.sellers-info{
+padding: 2rem;
+background: white;
+border-radius: 20px;
+width: 30%;
+}
+.seller-info{
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.seller-pp{
+  width:60px;
+  height: 60px;
+  margin-right: 1rem;
+}
+.seller-name-info{
+  margin-right: 4rem;
+  flex-grow: 1;
+}
+.seller-name{
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 20px;
+}
+.seller-username{
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: gray;
+}
+.close-popup{
+  align-self: flex-start;
+  font-size: 25px;
+  cursor: pointer;
+}
+.seller-more-info{
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.specified-info{
+  margin-left: 1rem;
+}
+.ph-number{
+  margin-bottom: 0;
+}
+
+.edit-seller-section{
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+}
+.edit-seller-info{
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  align-items: center;
+}
+.seller-heading{
+  width: 100%;
+  justify-content: space-between;
+}
+.close-edit{
+  align-self: flex-start;
+  font-size: 25px;
+  cursor: pointer;
+  width:70px;
+}
+.seller-img{
+  width: 80px;
+  height:80px;
+  align-self: center;
+  justify-self:center;
+}
+.save-edit{
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  color: white;
+  background-color: #8367C7;
+  border: none;
+  cursor: pointer;
+  width:100px;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 50px;
+  align-self: center;
+}
+
+
+.save-edit:hover{
+  transition: 500ms;
+  background-color: #493A6F;
+}
+
+.change-label{
+  font-family: 'Roboto';
+  margin-bottom: 0.5rem;
+}
+.change-input{
+  width: 400px;
+  padding: 0.75rem 1rem;
+  border-radius: 50px;
+  border: none;
+  background-color: lightgray;
+  margin-bottom: 0.5rem;
+  outline: none;
+}
+/* Sellers More Info Popup Styling End */
 
 
 /* Media Queries */

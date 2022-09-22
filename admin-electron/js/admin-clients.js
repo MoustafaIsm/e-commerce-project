@@ -7,6 +7,13 @@ const activeClients = document.querySelector('.active-clients');
 const bannedSection = document.getElementById('banned');
 const activeSection = document.getElementById('active');
 const topbar = document.querySelector('.top-bar');
+const clientsPage = document.getElementById('clients-page');
+const sellersPage = document.getElementById('sellers-page');
+const statsPage = document.getElementById('stats-page');
+const clientstab = document.querySelector('.client-tab');
+const sellerstab = document.querySelector('.sellers-tab');
+
+clientsPage.classList.add('active');
 let banned = false;
 
 // function to create client cards dynamicly
@@ -23,6 +30,12 @@ clientCard.classList.add('flex');
 clientCard.classList.add('column');
 clientCard.classList.add('client-card');
 clientscards.appendChild(clientCard);
+
+const client_id = document.createElement('input');
+client_id.setAttribute("type", "hidden");
+client_id.classList.add('hidden-input');
+client_id.value = "ramzi";
+clientCard.appendChild(client_id);
 
 const clientInfo = document.createElement('div');
 clientInfo.classList.add('flex');
@@ -137,6 +150,30 @@ const adjustTopbar = () => {
   }
 };
 
+// function to navigate between tabs
+const changeTab = (navitem) => {
+if(navitem == clientsPage){
+  navitem.classList.add('active');
+  sellersPage.classList.remove('active');
+  statsPage.classList.remove('active');
+  clientstab.classList.remove('hidden');
+  sellerstab.classList.add('hidden');
+
+}
+else if(navitem == sellersPage){
+  navitem.classList.add('active');
+  clientsPage.classList.remove('active');
+  statsPage.classList.remove('active');
+  clientstab.classList.add('hidden');
+  sellerstab.classList.remove('hidden');
+
+}
+else{
+  navitem.classList.add('active');
+  clientsPage.classList.remove('active');
+  sellersPage.classList.remove('active');
+}
+};
 
 // Event Listeners
 admininfo.addEventListener('click', () => {
@@ -154,3 +191,15 @@ activeClients.addEventListener('click', () => {
 window.onscroll = () => {
   adjustTopbar();
 };
+
+clientsPage.addEventListener('click', () => {
+changeTab(clientsPage);
+});
+
+sellersPage.addEventListener("click", () => {
+  changeTab(sellersPage);
+});
+statsPage.addEventListener("click", () => {
+  changeTab(statsPage);
+});
+

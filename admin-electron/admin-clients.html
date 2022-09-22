@@ -6,18 +6,21 @@
     <title>Shop Clients</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
-    <script type="text/javascript" src="js/admin-clients.js" defer>
+    <script type="text/javascript" src="js/admin-clients.js" defer></script>
+    <script type="text/javascript" src="js/admin-sellers.js" defer></script>
+    <script type="text/javascript" src="js/editsellers.js" defer></script>
 
-    </script>
+
+
+
+
   </head>
   <body>
     <!-- Top Bar Section Start -->
     <section class = 'top-bar flex'>
       <div class="shop-title flex">
-
         <img class = 'logo' src="assets/default.png"  alt="">
 
-    
         <h3 class ='top-title'>Dream Stop</h3>
       </div>
       <div class="admin-info flex">
@@ -36,15 +39,15 @@
 
     <!-- Left Navbar Start -->
     <nav class='left-nav flex column'>
-      <div class="nav-item flex">
+      <div class="nav-item flex" id="clients-page">
         <img src="assets/icons/clients.svg" width="30px" height="25px" alt="">
-        <p class='nav-link'><b>Clients</b></p>
+        <p class='nav-link'>Clients</p>
       </div>
-      <div class="nav-item flex">
+      <div class="nav-item flex"  id="sellers-page">
         <img src="assets/icons/sellers.png" width="30px" height="25px" alt="">
         <p class='nav-link'>Service providers</p>
       </div>
-      <div class="nav-item flex">
+      <div class="nav-item flex" id="stats-page">
         <img src="assets/icons/stats.svg" width="30px" height="25px" alt="">
         <p class='nav-link'>Statistics</p>
       </div>
@@ -71,6 +74,66 @@
     </section>
     <!-- Clients Section End -->
 
+    <!-- Sellers Section Start -->
+    <section class = "sellers-tab flex column hidden">
+      <div class="sellers-tab-title">Sellers or Service Providers</div>
+      <div class="">
+        <div class="btn flex">
+        <button type="button" name="newseller" class = "btn-ban btn-new" id ="newseller">New Seller</button>
+          </div>
+        <div class="sellers-cards flex-wrap">
+        </div>
+      </div>
+
+    </section>
+    <!-- Sellers Section End -->
+
+<!-- Sellers More Info Section Start -->
+  <section class="sellers-more-section flex column hidden">
+
+  </section>
+
+<!-- Sellers More Info Section End -->
+
+<!-- Edit Seller Section Start -->
+<section class="edit-seller-section flex column hidden">
+  <!-- <div class="edit-seller-info flex column">
+  <input type="hidden" name="" class="seller-token" value="">
+  <div class="seller-heading flex">
+    <i class="fa fa-times close-edit" aria-hidden="true"></i>
+    <img src="assets/pp.png" class="seller-img" alt="">
+    <button type="button" class="save-edit" name="save">Save</button>
+  </div>
+  <div class="line"></div>
+  <div class="seller-changes flex column">
+    <div class="change-inputs flex column">
+      <label class="change-label" for="edited-fname">First Name:</label>
+      <input type="text" name="fname" id="edited-fname" class = "change-input" value="">
+    </div>
+    <div class="change-inputs flex column">
+      <label class="change-label" for="edited-lname">Last Name:</label>
+      <input type="text" name="fname" id="edited-lname" class = "change-input" value="">
+    </div>
+    <div class="change-inputs flex column">
+      <label class="change-label" for="edited-email">Email:</label>
+      <input type="email" name="fname" id="edited-email" class = "change-input" value="">
+    </div>
+    <div class="change-inputs flex column">
+      <label class="change-label" for="edited-phone-nb">Phone Number:</label>
+      <input type="text" name="fname" id="edited-phone-nb" class = "change-input" value="">
+    </div>
+    <div class="change-inputs flex column">
+      <label class="change-label" for="edited-address">Address:</label>
+      <input type="text" name="fname" id="edited-address" class = "change-input" value="">
+    </div>
+    <div class="change-inputs flex column">
+      <label class="change-label" for="edited-password">New Password:</label>
+      <input type="password" name="fname" id="edited-password" class = "change-input" value="">
+    </div>
+  </div>
+</div> -->
+</section>
+<!-- Edit Seller Section Start -->
 
 
   </body>
