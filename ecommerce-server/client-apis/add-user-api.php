@@ -3,7 +3,7 @@
 include("../connection.php");
 
 $password = hash("sha256", $_POST["password"]);
-// $password .= "a";
+$password .= "a";
 $first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
 $email = $_POST["email"];
