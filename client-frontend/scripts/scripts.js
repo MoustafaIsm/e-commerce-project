@@ -36,12 +36,18 @@ const openChatPage = () => {
     openPage("chat");
 }
 
+const openProfilePage = () => {
+    changeNavBtn("profile");
+    openPage("profile");
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
 wishlistNavBtn.addEventListener("click", openWishlistPage);
 cartNavBtn.addEventListener("click", openCartPage);
 chatNavBtn.addEventListener("click", openChatPage);
+profileNavBtn.addEventListener("click", openProfilePage);
 
 /* Helper functions */
 
@@ -70,6 +76,12 @@ const changeNavBtn = (pageToOpen) => {
         cartNavBtn.classList.remove("nav-bar-item-active");
         chatNavBtn.classList.add("nav-bar-item-active");
         profileNavBtn.classList.remove("nav-bar-item-active");
+    } else if (pageToOpen == "profile") {
+        discoverNavBtn.classList.remove("nav-bar-item-active");
+        wishlistNavBtn.classList.remove("nav-bar-item-active");
+        cartNavBtn.classList.remove("nav-bar-item-active");
+        chatNavBtn.classList.remove("nav-bar-item-active");
+        profileNavBtn.classList.add("nav-bar-item-active");
     }
 }
 
@@ -98,5 +110,11 @@ const openPage = (pageToOpen) => {
         cartPage.classList.add("hide");
         chatPage.classList.remove("hide");
         profilePage.classList.add("hide");
+    } else if (pageToOpen == "profile") {
+        discoverPage.classList.add("hide");
+        wishlistPage.classList.add("hide");
+        cartPage.classList.add("hide");
+        chatPage.classList.add("hide");
+        profilePage.classList.remove("hide");
     }
 }
