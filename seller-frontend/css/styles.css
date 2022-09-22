@@ -454,7 +454,7 @@ flex-wrap: wrap;
 .discount-codes{
     display: flex;
     width: 90%;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     justify-content: space-between;
     align-items: center;
     background-color: white;
