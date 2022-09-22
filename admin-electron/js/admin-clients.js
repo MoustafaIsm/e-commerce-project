@@ -13,8 +13,9 @@ const statsPage = document.getElementById('stats-page');
 const clientstab = document.querySelector('.client-tab');
 const sellerstab = document.querySelector('.sellers-tab');
 
-let banned = false;
 clientsPage.classList.add('active');
+let banned = false;
+
 // function to create client cards dynamicly
 const createCards = (data, banned, clientscards) => {
 let btnText = "ban";
@@ -35,6 +36,7 @@ client_id.setAttribute("type", "hidden");
 client_id.classList.add('hidden-input');
 client_id.value = "ramzi";
 clientCard.appendChild(client_id);
+
 const clientInfo = document.createElement('div');
 clientInfo.classList.add('flex');
 clientInfo.classList.add('client-info');
@@ -132,6 +134,7 @@ banned = true;
 for(let j=0; j<6;j++){
 createCards(clientData, banned, bannedclientscards);
 }
+
 // Function to display Logout Container
 const displayLogoutContainer = () => {
   logoutContainer.classList.toggle('hidden');
@@ -171,6 +174,7 @@ else{
   sellersPage.classList.remove('active');
 }
 };
+
 // Event Listeners
 admininfo.addEventListener('click', () => {
   displayLogoutContainer();
@@ -198,3 +202,4 @@ sellersPage.addEventListener("click", () => {
 statsPage.addEventListener("click", () => {
   changeTab(statsPage);
 });
+
