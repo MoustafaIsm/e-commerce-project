@@ -30,6 +30,11 @@ clientCard.classList.add('column');
 clientCard.classList.add('client-card');
 clientscards.appendChild(clientCard);
 
+const client_id = document.createElement('input');
+client_id.setAttribute("type", "hidden");
+client_id.classList.add('hidden-input');
+client_id.value = "ramzi";
+clientCard.appendChild(client_id);
 const clientInfo = document.createElement('div');
 clientInfo.classList.add('flex');
 clientInfo.classList.add('client-info');
