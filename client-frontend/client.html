@@ -897,7 +897,7 @@
             <dialog class="product-popup-wrapper" id="product-popup">
                 <!-- Close button -->
                 <div>
-                    <span class="material-symbols-outlined close-popup" id="close-popup">
+                    <span class="material-symbols-outlined grey-background" id="close-popup">
                         close
                     </span>
                 </div>
@@ -925,10 +925,33 @@
                 </div>
                 <!-- Product cost and stock -->
                 <div class="popup-product-cost-stock-wrapper">
-
+                    <!-- Stock -->
+                    <div>
+                        <p>Items in stock: 4</p>
+                    </div>
+                    <!-- Price -->
+                    <div>
+                        <p>Price: $100</p>
+                    </div>
+                    <!-- Items to buy -->
+                    <div class="popup-items-to-buy">
+                        <p>Items to buy:</p>
+                        <div>
+                            <span class="material-symbols-outlined grey-background">
+                                chevron_left
+                            </span>
+                        </div>
+                        <p class="count-to-buy">2</p>
+                        <div>
+                            <span class="material-symbols-outlined grey-background">
+                                chevron_right
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Add to cart -->
                 <div class="popup-add-to-cart-wrapper">
+                    <button class="btn btn-purpule"> Add to wishlist </button>
                     <button class="btn btn-purpule"> Add to cart </button>
                 </div>
             </dialog>

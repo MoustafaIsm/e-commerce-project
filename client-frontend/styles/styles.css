@@ -525,7 +525,7 @@ body {
 /* Product details popup */
 .product-popup-wrapper {
     width: 900px;
-    height: 470px;
+    height: 450px;
     margin: auto;
     border: none;
     padding: 15px;
@@ -536,11 +536,6 @@ body {
 
 .product-popup-wrapper > div:first-child {
     text-align: end;
-}
-
-.close-popup:hover {
-    cursor: pointer;
-    background-color: gainsboro;
 }
 
 .popup-product-details-wrapper {
@@ -554,7 +549,8 @@ body {
 }
 
 .popup-product-info {
-    margin: 15px;
+    width: 50%;
+    margin: 5px 15px 15px 15px;
     display: flex;
     flex-direction: column;
 }
@@ -562,11 +558,36 @@ body {
 .popup-product-info > div {
     display: flex;
     flex-direction: column;
-    margin: 10px 0px;
+    margin: 5px 0px;
 }
 
 .popup-product-info > div > p {
-    margin: 5px 0px;
+    margin-bottom: 5px;
+}
+
+.popup-product-cost-stock-wrapper {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.popup-items-to-buy {
+    display: flex;
+}
+
+.count-to-buy {
+    border: 1px solid black;
+    padding: 0px 7px;
+}
+
+.popup-add-to-cart-wrapper {
+    width: 100%;
+    align-self: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
 }
 
 /* Utilities */
