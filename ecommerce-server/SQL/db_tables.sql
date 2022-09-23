@@ -245,6 +245,8 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`ads` (
     ON UPDATE NO ACTION);
 
 ALTER TABLE `users` ADD `registered_at` DATE NULL AFTER `role_id`;
+ALTER TABLE `products` ADD `added_at` DATE NULL AFTER `viewing_count`;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
