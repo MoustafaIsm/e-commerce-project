@@ -22,7 +22,7 @@ position:fixed;
 display: flex;
 background-color: #D9D9D9;
 color: black;
-height: 80px;
+height: 60px;
 padding: 1rem 2rem;
 justify-content: space-between;
 align-items: center;
@@ -44,7 +44,7 @@ a{
 }
 
 .logo h1{
-    color:black;
+    color: #003945;
     font-size: 40px;
 }
 
@@ -111,7 +111,7 @@ margin-top: 20px;
 }
 
 .side-menu-active > p{
-    border-bottom: 1px solid white;
+    border-bottom: 3px solid white;
 }
 
 /* .side-bar img{
@@ -134,7 +134,7 @@ margin-top: 20px;
 /* ---------- product view ----------- */
 .main-bar{
 margin-left: 25%;
-margin-top: 80px;
+margin-top: 60px;
 }
 
 .card {
