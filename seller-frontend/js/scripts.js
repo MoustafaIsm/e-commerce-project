@@ -27,3 +27,82 @@ const temp2 = document.getElementById("add-product-button");
 temp2.addEventListener("click", () =>{
     addProductPopup.showModal();
 })
+
+
+
+
+
+
+/* Eventlisteners functions */
+
+const openProductPage = () => {
+    changeNavBtn("product");
+    openPage("product");
+}
+
+const openCategoryPage = () => {
+    changeNavBtn("category");
+    openPage("category");
+}
+
+const openChatPage = () => {
+    changeNavBtn("chat");
+    openPage("chat");
+}
+
+const openDiscountPage = () => {
+    changeNavBtn("discount");
+    openPage("discount");
+}
+
+const openRevenuePage = () => {
+    changeNavBtn("revenue");
+    openPage("revenue");
+}
+
+/* Eventlisteners */
+
+productNavBtn.addEventListener("click", openProductPage);
+categoryNavBtn.addEventListener("click", openCategoryPage);
+chatNavBtn.addEventListener("click", openChatPage);
+discountNavBtn.addEventListener("click", openDiscountPage);
+revenueNavBtn.addEventListener("click", openRevenuePage);
+
+const sections = document.getElementsByTagName("section")
+
+const navBtns = document.querySelectorAll(".side-menu")
+/* Helper functions */
+
+const changeNavBtn = (pageToOpen) => {
+    for (const navBtn of navBtns){
+        navBtn.classList.remove("side-menu-active")
+    }
+    if (pageToOpen == "product") {
+        productNavBtn.classList.add("side-menu-active");
+    } else if (pageToOpen == "category") {
+        categoryNavBtn.classList.add("side-menu-active");
+    } else if (pageToOpen == "chat") {
+        chatNavBtn.classList.add("side-menu-active");
+    } else if (pageToOpen == "discount") {
+        discountNavBtn.classList.add("side-menu-active");
+    } else if (pageToOpen == "revenue") {
+        revenueNavBtn.classList.add("side-menu-active");
+    }
+}
+
+const openPage = (pageToOpen) => {
+    for (const section of sections){
+        section.classList.add("hidden");
+    }
+    if (pageToOpen == "product") {
+        productPage.classList.remove("hidden");
+    } else if (pageToOpen == "category") {
+        categoryPage.classList.remove("hidden");
+    } else if (pageToOpen == "chat") {
+        chatPage.classList.remove("hidden");
+    } else if (pageToOpen == "discount") {
+        discountPage.classList.remove("hidden");
+    } else if (pageToOpen == "revenue") {
+        revenuePage.classList.remove("hidden");
+    }
+}
