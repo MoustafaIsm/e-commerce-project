@@ -299,6 +299,7 @@ flex-wrap: wrap;
   .dropdown-content p:hover {
     color: #003945;
     background-color: white;
+    cursor: pointer;
   }
 
   .line-devider{
@@ -487,9 +488,54 @@ flex-wrap: wrap;
 }
 
 
-/* .discount-codes > label{
-    fle
-} */
+/* -------- revenue page --------- */
+.revenue-box{
+    border: 1px solid #003945;
+    box-shadow: 0px 0px 5px 0.5px #003945;
+    width: 70%;
+    height: 40%;
+    margin: 10% auto;
+    position: fixed;
+    border-radius: 20px;    
+}
+
+.revenue-box img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.revenue-card{
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem auto;
+    align-items: center;
+}
+
+.revenue-detials{
+    margin-left: 10%;
+    flex-basis: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.revenue-detials > p{
+    border: 1px solid #003945;
+    border-radius: 0.5rem;
+    width: 60%;
+    padding: 0.5rem;
+    margin-left: 5px;
+}
+
+.dropdown-category{
+    flex-basis: 20%;
+    margin-right: 10%;
+}
+.revenue-box .add-category-btn{
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px;
+}
+
 
 
 /* --------- hide section ---------- */
