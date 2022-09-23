@@ -705,7 +705,15 @@
                         <p>Total price:</p>
                         <p>$123</p>
                     </div>
-                    <button class="btn btn-purpule"> Buy </button>
+                    <!-- Buy button and discount -->
+                    <div class="buy-btn-discount-wrapper">
+                        <button class="btn btn-purpule"> Buy </button>
+                        <div class="discount-wrapper">
+                            <p id="open-discount-input">Do you have a discount code ?</p>
+                            <input type="text" placeholder="Discount code" class="hide" id="discount-input">
+                            <button class="btn btn-purpule hide" id="discount-apply-btn"> Apply </button>
+                        </div>
+                    </div>
                 </div>
             </section>
             <!-- Chat page -->
@@ -909,7 +917,7 @@
                 </div>
             </section>
             <!-- Product popup -->
-            <dialog class="product-popup-wrapper" id="product-popup">
+            <dialog class="product-popup-wrapper hide" id="product-popup">
                 <!-- Close button -->
                 <div>
                     <span class="material-symbols-outlined grey-background" id="close-popup">
