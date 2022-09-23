@@ -3,6 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <body>
@@ -12,7 +13,7 @@
         <h1>Dream Stop</h1>
     </div>
     <div class="nav-right">
-    <button class="add-button">Add Product  &#8853</button>
+    <button class="add-button" id="temp2">Add Product  &#8853</button>
     <a>Name </a>
     <img src="./assets/profile.webp">
     </div>
@@ -43,7 +44,7 @@
 
 <div class="main-bar">
 
-<section class="products hidden ">
+<section class="products">
     <h2>Top Five Products</h2>
     <div class = "cards-container">
         <div class="card">
@@ -56,7 +57,7 @@
                 <p> Categories</p>
             </div>
             <div class="card-learnmore">
-                <p>Click to learn more</p>
+                <p id="temp">Click to learn more</p>
             </div>
         </div>
         <div class="card">
@@ -300,7 +301,7 @@
 </section>
 
 <!-- --------- Revenue page --------- -->
-<section class="revenue-page">
+<section class="revenue-page hidden">
  <div class="revenue-box">
     <img src="./assets/money.png" alt="money">
     <div class="revenue-card">
@@ -321,14 +322,11 @@
 
 </section>
 
-
 </div>
-
-
 
 <!-- ----------- popup learn more --------- -->
 
-<div class="popup hidden">
+<!-- <dialog class="popup" id="popup-learn-more">
     <div class="learnmore-popup">
         <div class="card">
             <div class="card-img">
@@ -346,7 +344,65 @@
             </div>
         </div>
     </div>
-</div>
+</dialog> -->
+
+<!-- --------- learn more---------- -->
+<dialog class="popup" id="popup-learn-more">
+    <div class="learn-more-popup">
+        <div class="img-and-details">
+            <div class="learn-more-popup-img">
+                <img>
+            </div>
+            <div class="learn-more-popup-details">
+                <p>Product Name</p>
+                <input type="text" placeholder="product name">
+                <p>Product Price</p>
+                <input type="text" placeholder="product price">
+                <p> Category</p>
+                <input type="text" placeholder="Category name">
+                <p> Description</p>
+                <input type="text" placeholder="Description of the product">
+            </div>
+        </div>
+        <div class="learn-more-popup-buttons">
+            <span class="material-symbols-outlined">
+                delete
+            </span>
+            <span class="material-symbols-outlined">
+                ads_click
+            </span>
+            <span class="material-symbols-outlined">
+                border_color
+            </span>
+        </div>
+    </div>
+</dialog>
+
+
+<!-- --------- add product---------- -->
+<dialog class="popup" id="popup-add-more">
+    <div class="learn-more-popup">
+        <div class="img-and-details">
+            <div class="learn-more-popup-img">
+                <img>
+            </div>
+            <div class="learn-more-popup-details">
+                <p>Product Name</p>
+                <input type="text" placeholder="product name">
+                <p>Product Price</p>
+                <input type="text" placeholder="product price">
+                <p> Category</p>
+                <input type="text" placeholder="Category name">
+                <p> Description</p>
+                <input type="text" placeholder="Description of the product">
+            </div>
+        </div>
+        <div class="learn-more-popup-buttons">
+            <button class="add-button"> Add Product</button>
+        </div>
+    </div>
+</dialog>
+
 
 <!-- --------- popup add product ---------------- -->
 <div class="popup hidden">
@@ -379,6 +435,6 @@
     </div>
 </div>
 
-
+<script src="./js/scripts.js"></script>
 </body>
 </html>
