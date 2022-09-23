@@ -52,6 +52,7 @@ const openProfilePage = () => {
 }
 
 const closeProductPopupFun = () => {
+    productPopup.classList.add("hide");
     productPopup.close();
 }
 
@@ -68,6 +69,7 @@ closeProductPopup.addEventListener("click", closeProductPopupFun);
 // temporary
 temp.addEventListener("click", () => {
     productPopup.showModal();
+    productPopup.classList.remove("hide");
 });
 
 /* Helper functions */

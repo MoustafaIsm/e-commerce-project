@@ -383,6 +383,27 @@ body {
     width: 100%;
 }
 
+.buy-btn-discount-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discount-wrapper {
+    margin: 5px 0px;
+    display: flex;
+}
+
+.discount-wrapper > p {
+    text-decoration: underline;
+    color: #8367C7;
+}
+
+.discount-wrapper > p:hover {
+    cursor: pointer;
+    color: #493A6F;
+}
+
 /* Chat page */
 .chat-page-wrapper {
     display: grid;
