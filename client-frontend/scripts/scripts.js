@@ -21,6 +21,7 @@ const closeProductPopup = document.getElementById("close-popup");
 // Discount code in cart page
 const textBtn = document.getElementById("open-discount-input");
 const discountInput = document.getElementById("discount-input");
+const discountApplyBtn = document.getElementById("discount-apply-btn");
 
 //Temporary variable for testing
 const temp = document.getElementById("temp");
@@ -63,6 +64,7 @@ const closeProductPopupFun = () => {
 
 const openDiscountInput = () => {
     discountInput.classList.toggle("hide");
+    discountApplyBtn.classList.toggle("hide");
 }
 
 /* Eventlisteners */
