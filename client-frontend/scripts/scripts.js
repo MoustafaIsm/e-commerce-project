@@ -30,9 +30,13 @@ const closeProfilePopup = document.getElementById("close-profile-popup");
 
 //Temporary variable for testing
 const temp = document.getElementById("temp");
+
 // If a browser doesn't support the dialog, then hide it
 if (typeof productPopup.showModal !== 'function') {
     productPopup.hidden = true;
+}
+if (typeof editProfilePopup.showModal !== 'function') {
+    editProfilePopup.hidden = true;
 }
 
 /* Eventlisteners functions */
@@ -72,6 +76,11 @@ const openDiscountInput = () => {
     discountApplyBtn.classList.toggle("hide");
 }
 
+const openProfilePopup = () => {
+    editProfilePopup.classList.remove("hide");
+    editProfilePopup.showModal();
+}
+
 const closeProfilePopupFun = () => {
     editProfilePopup.classList.add("hide");
     editProfilePopup.close();
@@ -89,6 +98,7 @@ closeProductPopup.addEventListener("click", closeProductPopupFun);
 
 textBtn.addEventListener("click", openDiscountInput);
 
+editProfileBtn.addEventListener("click", openProfilePopup);
 closeProfilePopup.addEventListener("click", closeProfilePopupFun);
 
 // temporary

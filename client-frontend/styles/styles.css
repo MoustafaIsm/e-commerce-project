@@ -639,6 +639,55 @@ body {
     margin-top: 15px;
 }
 
+/* Edit profile popup */
+.edit-profile-wrapper {
+    width: 700px;
+    height: 300px;
+    margin: auto;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-profile-wrapper > div:first-child {
+    text-align: end;
+}
+
+.profile-popup-wrapper {
+    flex-grow: 1;
+    display: flex;
+}
+
+.profile-img-popup {
+    width: 37%;
+    height: 100%;
+    background-color: antiquewhite;
+    border-radius: 80%;
+    position: relative;
+}
+
+.profile-img-popup span {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    padding: 5px;
+    background-color: rgb(0, 0, 0, 0.3);
+    border-radius: 100%;
+}
+
+.profile-img-popup span:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+.profile-popup-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Utilities */
 .hide {
     display: none;
