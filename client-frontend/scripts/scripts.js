@@ -23,6 +23,11 @@ const textBtn = document.getElementById("open-discount-input");
 const discountInput = document.getElementById("discount-input");
 const discountApplyBtn = document.getElementById("discount-apply-btn");
 
+// Edit profile popup
+const editProfileBtn = document.getElementById("edit-profile-btn");
+const editProfilePopup = document.getElementById("profile-popup");
+const closeProfilePopup = document.getElementById("close-profile-popup");
+
 //Temporary variable for testing
 const temp = document.getElementById("temp");
 // If a browser doesn't support the dialog, then hide it
@@ -67,6 +72,11 @@ const openDiscountInput = () => {
     discountApplyBtn.classList.toggle("hide");
 }
 
+const closeProfilePopupFun = () => {
+    editProfilePopup.classList.add("hide");
+    editProfilePopup.close();
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
@@ -78,6 +88,8 @@ profileNavBtn.addEventListener("click", openProfilePage);
 closeProductPopup.addEventListener("click", closeProductPopupFun);
 
 textBtn.addEventListener("click", openDiscountInput);
+
+closeProfilePopup.addEventListener("click", closeProfilePopupFun);
 
 // temporary
 temp.addEventListener("click", () => {
