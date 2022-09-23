@@ -17,6 +17,11 @@ const profilePage = document.getElementById("profile-page");
 // Product details popup
 const productPopup = document.getElementById("product-popup");
 const closeProductPopup = document.getElementById("close-popup");
+
+// Discount code in cart page
+const textBtn = document.getElementById("open-discount-input");
+const discountInput = document.getElementById("discount-input");
+
 //Temporary variable for testing
 const temp = document.getElementById("temp");
 // If a browser doesn't support the dialog, then hide it
@@ -56,6 +61,10 @@ const closeProductPopupFun = () => {
     productPopup.close();
 }
 
+const openDiscountInput = () => {
+    discountInput.classList.toggle("hide");
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
@@ -65,6 +74,8 @@ chatNavBtn.addEventListener("click", openChatPage);
 profileNavBtn.addEventListener("click", openProfilePage);
 
 closeProductPopup.addEventListener("click", closeProductPopupFun);
+
+textBtn.addEventListener("click", openDiscountInput);
 
 // temporary
 temp.addEventListener("click", () => {

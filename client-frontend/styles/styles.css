@@ -392,6 +392,7 @@ body {
 .discount-wrapper {
     margin: 5px 0px;
     display: flex;
+    align-items: center;
 }
 
 .discount-wrapper > p {
@@ -402,6 +403,13 @@ body {
 .discount-wrapper > p:hover {
     cursor: pointer;
     color: #493A6F;
+}
+
+.discount-wrapper > input {
+    margin: 0px 10px;
+    padding: 10px 10px;
+    border: 2px solid #8367C7;
+    border-radius: 15px;
 }
 
 /* Chat page */
