@@ -5,6 +5,8 @@ const chatNavBtn=document.getElementById("chat-nav-btn")
 const discountNavBtn=document.getElementById("discount-nav-btn")
 const revenueNavBtn=document.getElementById("revenue-nav-btn")
 
+const profileNavBtn=document.getElementById("profile-nav-btn")
+
 //Pages
 const productPage=document.getElementById("product-page")
 const categoryPage=document.getElementById("category-page")
@@ -12,6 +14,7 @@ const chatPage =document.getElementById("chat-page")
 const discountPage=document.getElementById("discount-page")
 const revenuePage=document.getElementById("revenue-page")
 
+const profilePage=document.getElementById("profile-page")
 
 
 const productPopup = document.getElementById("popup-learn-more");
@@ -60,6 +63,12 @@ const openRevenuePage = () => {
     openPage("revenue");
 }
 
+const openProfilePage = () => {
+    changeNavBtn("profile");
+    openPage("profile");
+}
+
+
 /* Eventlisteners */
 
 productNavBtn.addEventListener("click", openProductPage);
@@ -67,6 +76,7 @@ categoryNavBtn.addEventListener("click", openCategoryPage);
 chatNavBtn.addEventListener("click", openChatPage);
 discountNavBtn.addEventListener("click", openDiscountPage);
 revenueNavBtn.addEventListener("click", openRevenuePage);
+profileNavBtn.addEventListener("click",openProfilePage);
 
 const sections = document.getElementsByTagName("section")
 
@@ -94,6 +104,7 @@ const openPage = (pageToOpen) => {
     for (const section of sections){
         section.classList.add("hidden");
     }
+    profilePage.classList.add("hidden")
     if (pageToOpen == "product") {
         productPage.classList.remove("hidden");
     } else if (pageToOpen == "category") {
@@ -104,5 +115,7 @@ const openPage = (pageToOpen) => {
         discountPage.classList.remove("hidden");
     } else if (pageToOpen == "revenue") {
         revenuePage.classList.remove("hidden");
+    } else if (pageToOpen == "profile") {
+        profilePage.classList.remove("hidden");
     }
 }
