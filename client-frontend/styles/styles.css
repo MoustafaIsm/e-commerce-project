@@ -642,13 +642,14 @@ body {
 /* Edit profile popup */
 .edit-profile-wrapper {
     width: 700px;
-    height: 300px;
+    height: 350px;
     margin: auto;
     border: none;
     padding: 15px;
     font-size: 20px;
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
 }
 
 .edit-profile-wrapper > div:first-child {
@@ -661,7 +662,7 @@ body {
 }
 
 .profile-img-popup {
-    width: 37%;
+    width: 43%;
     height: 100%;
     background-color: antiquewhite;
     border-radius: 80%;
@@ -684,8 +685,18 @@ body {
 }
 
 .profile-popup-inputs {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.profile-popup-inputs input {
+    margin: 15px 10px;
+    padding: 10px 10px;
+    border: 2px solid #8367C7;
+    border-radius: 15px;
+    width: 80%;
 }
 
 /* Utilities */
