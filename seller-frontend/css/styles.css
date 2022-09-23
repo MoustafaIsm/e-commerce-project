@@ -551,6 +551,11 @@ flex-wrap: wrap;
     /* position: fixed; */
 }
 
+.learn-more-popup > div:first-child{
+    text-align:end;
+    cursor: pointer;
+}
+
 .img-and-details{
     display: flex;
     width: 100%;
@@ -599,6 +604,59 @@ flex-wrap: wrap;
     margin: auto;
     
 }
+
+.profile-div{
+    display: flex;
+    border: 1px solid #003945;
+    box-shadow: 0px 0px 5px 0.5px #003945;
+    width: 70%;
+    height: 40%;
+    margin: 10% auto;
+    position: fixed;
+    border-radius: 20px; 
+    padding: 1rem;
+}
+
+.profile-div img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background: #003945;
+}
+
+.profile-img{
+    flex-basis: 30%;
+}
+
+.profile-details{
+    padding-left: 2rem;
+    flex-basis: 68%;
+}
+
+.profile-details p{
+    padding: 1rem;
+}
+
+.profile-details button{
+    float: right;
+    padding: 0.5rem;
+    background: #003945;
+    color: white;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --------- hide section ---------- */
 .hidden{
     display: none;

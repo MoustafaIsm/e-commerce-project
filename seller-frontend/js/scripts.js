@@ -4,8 +4,13 @@ const categoryNavBtn=document.getElementById("category-nav-btn")
 const chatNavBtn=document.getElementById("chat-nav-btn")
 const discountNavBtn=document.getElementById("discount-nav-btn")
 const revenueNavBtn=document.getElementById("revenue-nav-btn")
-
 const profileNavBtn=document.getElementById("profile-nav-btn")
+//top bar buttons
+const addProductBtn=document.getElementById("add-product-button")
+const addCategoryBtn=document.getElementById("add-category-button")
+//popup close buttons
+const addProductClose=document.getElementById("add-product-close")
+const learnMoreClose=document.getElementById("learn-more-close")
 
 //Pages
 const productPage=document.getElementById("product-page")
@@ -13,7 +18,6 @@ const categoryPage=document.getElementById("category-page")
 const chatPage =document.getElementById("chat-page")
 const discountPage=document.getElementById("discount-page")
 const revenuePage=document.getElementById("revenue-page")
-
 const profilePage=document.getElementById("profile-page")
 
 
@@ -32,7 +36,16 @@ temp2.addEventListener("click", () =>{
 })
 
 
+const closeProductPopup = () =>{
+    addProductPopup.close();
+}
 
+const closeLearnMore = () =>{
+    productPopup.close();
+}
+
+addProductClose.addEventListener("click",closeProductPopup)
+learnMoreClose.addEventListener("click",closeLearnMore)
 
 
 
@@ -78,6 +91,8 @@ discountNavBtn.addEventListener("click", openDiscountPage);
 revenueNavBtn.addEventListener("click", openRevenuePage);
 profileNavBtn.addEventListener("click",openProfilePage);
 
+
+
 const sections = document.getElementsByTagName("section")
 
 const navBtns = document.querySelectorAll(".side-menu")
@@ -105,10 +120,15 @@ const openPage = (pageToOpen) => {
         section.classList.add("hidden");
     }
     profilePage.classList.add("hidden")
+    addProductBtn.classList.add("hidden")
+    addCategoryBtn.classList.add("hidden")
+
     if (pageToOpen == "product") {
         productPage.classList.remove("hidden");
+        addProductBtn.classList.remove("hidden")
     } else if (pageToOpen == "category") {
         categoryPage.classList.remove("hidden");
+        addCategoryBtn.classList.remove("hidden")
     } else if (pageToOpen == "chat") {
         chatPage.classList.remove("hidden");
     } else if (pageToOpen == "discount") {
