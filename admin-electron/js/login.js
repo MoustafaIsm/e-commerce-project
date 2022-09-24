@@ -24,8 +24,9 @@ const validateLogin = (loginData) => {
 
     }
     else{
-      console.log(result.data.token);
+      console.log(result.data.user.user_id);
       localStorage.setItem('token', result.data.token);
+      localStorage.setItem('admin_id', result.data.user.user_id);
       location.replace('admin-clients.html');
 
   }});
