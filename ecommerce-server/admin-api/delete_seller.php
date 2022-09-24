@@ -13,15 +13,19 @@ $token = $data->token;
 JWT::decode($token, new Key('fgh676', 'HS256'));
 
 
-$user_id = $data->user_id;
+// $user_id = $data->user_id;
+$user_id = 5;
+$query = "DELETE FROM users WHERE user_id=?";
+$stmt = $mysqli->prepare($query);
+$stmt->bind_param('i', $user_id);
+if($stmt->execute()){
+  $response1["success"] = true;
+}
+else{
+  $response1["success"] = false;
+  $response1["id"] = $user_id;
+}
 
-$query = "DELETE FROM users where user_id= ? ";
-$query1 = $mysqli->prepare($query);
-$query1->bind_param("i", $user_id);
-$query1->execute();
-
-
-$response1["success"] = true;
 echo json_encode($response1);
 
 ?>
