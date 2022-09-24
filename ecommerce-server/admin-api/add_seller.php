@@ -22,7 +22,7 @@ $role_id = 3;
 $query = "INSERT INTO `users`(`password`, `first_name`, `last_name`, `email`, `address`, `telephone`, `profile_picture`) 
 VALUES (?,?,?,?,?,?,?)";
 $query1 = $mysqli->prepare($query);
-$query1->bind_param("issssis", $password, $first_name, $last_name , $email , $address , $telephone, $profile_picture);
+$query1->bind_param("sssssis", $password, $first_name, $last_name , $email , $address , $telephone, $profile_picture);
 $query1->execute();
 
 

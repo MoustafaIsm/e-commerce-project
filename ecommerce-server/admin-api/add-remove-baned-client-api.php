@@ -8,7 +8,7 @@ use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
 $user_id =$_GET["user_id"];
-$admin_id = 1;
+$admin_id =$_GET["admin_id"];
 
 $token = $_GET["token"];
 JWT::decode($token, new Key('fgh676', 'HS256'));
