@@ -13,15 +13,17 @@ const statsPage = document.getElementById('stats-page');
 const clientstab = document.querySelector('.client-tab');
 const sellerstab = document.querySelector('.sellers-tab');
 const statstab = document.querySelector('.stats-page');
-
-
-
+const token = localStorage.getItem('token');
+const admin_id = localStorage.getItem('admin_id');
+const activeurl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/get_not_baned_clients.php";
+const bannedurl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/get_baned_clients.php";
+const banUrl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/add-remove-baned-client-api.php";
 let banned = false;
 clientsPage.classList.add('active');
 
 // function to create client cards dynamicly
 const createCards = (data, banned, clientscards) => {
-let btnText = "ban";
+let btnText = "Ban";
 
 if(banned){
   console.log('true');
@@ -34,11 +36,7 @@ clientCard.classList.add('column');
 clientCard.classList.add('client-card');
 clientscards.appendChild(clientCard);
 
-const client_id = document.createElement('input');
-client_id.setAttribute("type", "hidden");
-client_id.classList.add('hidden-input');
-client_id.value = "ramzi";
-clientCard.appendChild(client_id);
+
 
 const clientInfo = document.createElement('div');
 clientInfo.classList.add('flex');
@@ -46,8 +44,14 @@ clientInfo.classList.add('client-info');
 
 clientCard.appendChild(clientInfo);
 
+const client_id = document.createElement('input');
+client_id.setAttribute("type", "hidden");
+client_id.classList.add('hidden-input');
+client_id.value = `${data.user_id}`;
+clientInfo.appendChild(client_id);
+
 const clientProfile = document.createElement('img');
-clientProfile.src=data.img;
+clientProfile.src=`assets/${data.profile_picture}`;
 clientProfile.classList.add('client-pp');
 clientInfo.appendChild(clientProfile);
 
@@ -59,16 +63,17 @@ clientInfo.appendChild(name_username);
 
 const clientName = document.createElement('p');
 clientName.classList.add('client-name');
-clientName.textContent = data.name;
+clientName.textContent = `${data.first_name} ${data.last_name}`;
 name_username.appendChild(clientName);
 
 const clientUsername = document.createElement('p');
 clientUsername.classList.add('client-username');
-clientUsername.textContent = data.email;
+clientUsername.textContent = `${data.email}`;
 name_username.appendChild(clientUsername);
 
 const banBtn = document.createElement('button');
 banBtn.classList.add('btn-ban');
+banBtn.classList.add('ban');
 banBtn.textContent = btnText;
 clientInfo.appendChild(banBtn);
 
@@ -87,7 +92,7 @@ itemsPurchased.appendChild(purchasedItems);
 
 const itemsCount = document.createElement('p');
 itemsCount.classList.add('items-count');
-itemsCount.textContent = `${data.items} items.`;
+itemsCount.textContent = `${data.total_items} items.`;
 itemsPurchased.appendChild(itemsCount);
 
 
@@ -102,7 +107,7 @@ totalPurchases.appendChild(purchasesTotal);
 
 const purchases = document.createElement('p');
 purchases.classList.add('purchases');
-purchases.textContent = `${data.total} $.`;
+purchases.textContent = `${data.total_purchases} $.`;
 totalPurchases.appendChild(purchases);
 };
 
@@ -122,21 +127,102 @@ const displayActive = () => {
   activeClients.classList.add('selected');
 };
 
+//function to fetch clients api
+const fetchClients = (url, token) => {
+  const resp =  axios.post(url, token);
 
-const clientData = {
-  'img':'./assets/pp.png',
-  'name':'Ramzi El Ashkar',
-  'email': 'Ramzi@gmail.com',
-  'items': 5,
-  'total': 500
+return resp;
+
+};
+
+// function to get all active clients
+const getActiveClients = () => {
+const data = {
+  'token' : token
 }
-for(let i=0; i<6;i++){
-createCards(clientData, banned, activeclientscards);
-}
-banned = true;
-for(let j=0; j<6;j++){
-createCards(clientData, banned, bannedclientscards);
-}
+const activeResponse = fetchClients(activeurl, data);
+activeResponse.then((results) => {
+let result = results.data;
+
+result.forEach((item, i) => {
+  banned = false;
+  createCards(item, banned, activeclientscards);
+
+});
+let banBtn = document.querySelectorAll('.ban');
+banBtn.forEach((button, j) => {
+  button.addEventListener("click", () => {
+    const client_id = button.parentElement.querySelector('.hidden-input').defaultValue;
+    banClient(client_id);
+  });
+});
+});
+};
+
+// function to get all banned clients
+const getBannedClients = () => {
+  const data = {
+    'token' : token
+  }
+  const bannedResponse = fetchClients(bannedurl, data);
+  bannedResponse.then((results) => {
+  let result = results.data;
+
+  result.forEach((item, i) => {
+    banned = true;
+    createCards(item, banned, bannedclientscards);
+
+  });
+  let unbanBtn = document.querySelectorAll('.ban');
+  unbanBtn.forEach((button, j) => {
+    button.addEventListener("click", () => {
+      const client_id = button.parentElement.querySelector('.hidden-input').defaultValue;
+      unbanClient(client_id);
+    });
+  });
+  });
+};
+getActiveClients();
+getBannedClients();
+
+const fetchBanAPI = (url, data) => {
+  const resp =  axios.post(url, data);
+
+return resp;
+
+};
+
+// function to unban clients
+const unbanClient = (client_id) => {
+  console.log("unban");
+  const data = {
+    'token': token,
+    'admin_id': admin_id,
+    'user_id': client_id
+  }
+  const response = fetchBanAPI(banUrl, data);
+  console.log(response);
+  activeclientscards.innerHTML = "";
+  bannedclientscards.innerHTML = "";
+  getActiveClients();
+  getBannedClients();
+};
+
+// function to ban clients
+const banClient = (client_id) => {
+  console.log("ban");
+  const data = {
+    'token': token,
+    'admin_id': admin_id,
+    'user_id': client_id
+  }
+  const response = fetchBanAPI(banUrl, data);
+  activeclientscards.innerHTML = "";
+  bannedclientscards.innerHTML = "";
+  getActiveClients();
+  getBannedClients();
+
+};
 
 // Function to display Logout Container
 const displayLogoutContainer = () => {
@@ -212,4 +298,3 @@ sellersPage.addEventListener("click", () => {
 statsPage.addEventListener("click", () => {
   changeTab(statsPage);
 });
-
