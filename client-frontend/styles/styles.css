@@ -239,6 +239,7 @@ body {
 .suggestions-content-wrapper {
     display: flex;
     justify-content: space-between;
+    min-height: 400px;
 }
 
 .chevron-wrapper {
@@ -266,6 +267,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 20vw);
     column-gap: 25px;
+    row-gap: 25px;
     justify-content: center;
 }
 
