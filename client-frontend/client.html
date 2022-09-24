@@ -5,11 +5,1035 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client</title>
+    <title>Client Main Page</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
+    <div class="client-main-page-wrapper">
+        <!-- Navigation bar -->
+        <nav class="nav">
+            <!-- Website title and logo -->
+            <div class="logo-title-wrapper">
+                <div class="logo-wrapper">
+                    <img src="./images/white-logoo.png" alt="Logo" width="100%">
+                </div>
+                <h1 class="title-wrapper">Dream Stop</h1>
+            </div>
+            <!-- Search bar -->
+            <div class="search-bar-wrapper">
+                <!-- Icon -->
+                <div>
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </div>
+                <!-- Input -->
+                <div>
+                    <form>
+                        <input type="text" placeholder="Search Clound Stop">
+                    </form>
+                </div>
+            </div>
+            <!-- Navigation items -->
+            <ul class="nav-bar-btns">
+                <li class="nav-bar-item nav-bar-item-active" id="discover-nav-btn">
+                    <p>Discover</p>
+                </li>
+                <li class="nav-bar-item" id="wishlist-nav-btn">
+                    <p>Wishlist</p>
+                </li>
+                <li class="nav-bar-item" id="cart-nav-btn">
+                    <p>Cart</p>
+                </li>
+                <li class="nav-bar-item" id="chat-nav-btn">
+                    <p>Chat</p>
+                </li>
+                <li class="nav-bar-item" id="profile-nav-btn">
+                    <p>Profile</p>
+                </li>
+            </ul>
+            <!-- Hamburger menu -->
+            <div class="burger-menu" id="burger-menu">
+                <div class="burger-menu-btn" id="burger-menu-btn">
+                    <span class="material-symbols-outlined"> menu </span>
+                </div>
+                <ul class="burger-nav-bar-btns" id="burger-nav-bar-btns">
+                    <li class="nav-bar-item nav-bar-item-active" id="burger-discover-nav-btn">
+                        <p>Discover</p>
+                    </li>
+                    <li class="nav-bar-item" id="burger-wishlist-nav-btn">
+                        <p>Wishlist</p>
+                    </li>
+                    <li class="nav-bar-item" id="burger-cart-nav-btn">
+                        <p>Cart</p>
+                    </li>
+                    <li class="nav-bar-item" id="burger-chat-nav-btn">
+                        <p>Chat</p>
+                    </li>
+                    <li class="nav-bar-item" id="burger-profile-nav-btn">
+                        <p>Profile</p>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Pages -->
+        <div class="client-pages-wrapper container">
+            <!-- Discover page -->
+            <section class="discover-page-wrapper" id="discover-page">
+                <!-- Suggestions -->
+                <div class="suggestions-wrapper">
+                    <!-- Titile -->
+                    <p class="bold-text section-title">Suggested: </p>
+                    <!-- Content -->
+                    <div class="suggestions-content-wrapper">
+                        <!-- left chevron
+                        <div class="chevron-wrapper">
+                            <span class="material-symbols-outlined">
+                                chevron_left
+                            </span>
+                        </div> -->
+                        <!-- Cards -->
+                        <div class="suggested-cards-wrapper">
+                            <div class="card">
+                                <!-- Product image -->
+                                <div class="product-img-wrapper">
 
+                                </div>
+                                <!-- Product details -->
+                                <div class="product-details-wrapper">
+                                    <p class="bold-text">Product name</p>
+                                    <p>Seller name</p>
+                                    <p>Categories:</p>
+                                </div>
+                                <!-- Learn more -->
+                                <div class="learn-more-wrapper">
+                                    <p>Click to learn more</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <!-- Product image -->
+                                <div class="product-img-wrapper">
+
+                                </div>
+                                <!-- Product details -->
+                                <div class="product-details-wrapper">
+                                    <p class="bold-text">Product name</p>
+                                    <p>Seller name</p>
+                                    <p>Categories:</p>
+                                </div>
+                                <!-- Learn more -->
+                                <div class="learn-more-wrapper">
+                                    <p>Click to learn more</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <!-- Product image -->
+                                <div class="product-img-wrapper">
+
+                                </div>
+                                <!-- Product details -->
+                                <div class="product-details-wrapper">
+                                    <p class="bold-text">Product name</p>
+                                    <p>Seller name</p>
+                                    <p>Categories:</p>
+                                </div>
+                                <!-- Learn more -->
+                                <div class="learn-more-wrapper">
+                                    <p>Click to learn more</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <!-- Product image -->
+                                <div class="product-img-wrapper">
+
+                                </div>
+                                <!-- Product details -->
+                                <div class="product-details-wrapper">
+                                    <p class="bold-text">Product name</p>
+                                    <p>Seller name</p>
+                                    <p>Categories:</p>
+                                </div>
+                                <!-- Learn more -->
+                                <div class="learn-more-wrapper">
+                                    <p>Click to learn more</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right chevron
+                        <div class="chevron-wrapper">
+                            <span class="material-symbols-outlined">
+                                chevron_right
+                            </span>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- Divider -->
+                <div class="divider"></div>
+                <!-- Discover -->
+                <div class="discover-wrapper">
+                    <!-- Titile -->
+                    <p class="bold-text section-title">Discover: </p>
+                    <!-- Content -->
+                    <div class="discover-cards-wrapper">
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper" id="temp">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Wishlist page -->
+            <section class="wishlist-page-wrapper hide" id="wishlist-page">
+                <!-- Titile -->
+                <p class="bold-text section-title">Wishlist: </p>
+                <!-- Content -->
+                <div class="wishlist-cards-wrapper">
+                    <div class="card">
+                        <!-- Product image -->
+                        <div class="product-img-wrapper">
+
+                        </div>
+                        <!-- Product details -->
+                        <div class="product-details-wrapper">
+                            <p class="bold-text">Product name</p>
+                            <p>Seller name</p>
+                            <p>Categories:</p>
+                        </div>
+                        <!-- Learn more -->
+                        <div class="wishlist-product-card-footer">
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </div>
+                            <p>Click to learn more</p>
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    add_shopping_cart
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <!-- Product image -->
+                        <div class="product-img-wrapper">
+
+                        </div>
+                        <!-- Product details -->
+                        <div class="product-details-wrapper">
+                            <p class="bold-text">Product name</p>
+                            <p>Seller name</p>
+                            <p>Categories:</p>
+                        </div>
+                        <!-- Learn more -->
+                        <div class="wishlist-product-card-footer">
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </div>
+                            <p>Click to learn more</p>
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    add_shopping_cart
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <!-- Product image -->
+                        <div class="product-img-wrapper">
+
+                        </div>
+                        <!-- Product details -->
+                        <div class="product-details-wrapper">
+                            <p class="bold-text">Product name</p>
+                            <p>Seller name</p>
+                            <p>Categories:</p>
+                        </div>
+                        <!-- Learn more -->
+                        <div class="wishlist-product-card-footer">
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </div>
+                            <p>Click to learn more</p>
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    add_shopping_cart
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <!-- Product image -->
+                        <div class="product-img-wrapper">
+
+                        </div>
+                        <!-- Product details -->
+                        <div class="product-details-wrapper">
+                            <p class="bold-text">Product name</p>
+                            <p>Seller name</p>
+                            <p>Categories:</p>
+                        </div>
+                        <!-- Learn more -->
+                        <div class="wishlist-product-card-footer">
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </div>
+                            <p>Click to learn more</p>
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    add_shopping_cart
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <!-- Product image -->
+                        <div class="product-img-wrapper">
+
+                        </div>
+                        <!-- Product details -->
+                        <div class="product-details-wrapper">
+                            <p class="bold-text">Product name</p>
+                            <p>Seller name</p>
+                            <p>Categories:</p>
+                        </div>
+                        <!-- Learn more -->
+                        <div class="wishlist-product-card-footer">
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </div>
+                            <p>Click to learn more</p>
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    add_shopping_cart
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <!-- Product image -->
+                        <div class="product-img-wrapper">
+
+                        </div>
+                        <!-- Product details -->
+                        <div class="product-details-wrapper">
+                            <p class="bold-text">Product name</p>
+                            <p>Seller name</p>
+                            <p>Categories:</p>
+                        </div>
+                        <!-- Learn more -->
+                        <div class="wishlist-product-card-footer">
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </div>
+                            <p>Click to learn more</p>
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    add_shopping_cart
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <!-- Product image -->
+                        <div class="product-img-wrapper">
+
+                        </div>
+                        <!-- Product details -->
+                        <div class="product-details-wrapper">
+                            <p class="bold-text">Product name</p>
+                            <p>Seller name</p>
+                            <p>Categories:</p>
+                        </div>
+                        <!-- Learn more -->
+                        <div class="wishlist-product-card-footer">
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </div>
+                            <p>Click to learn more</p>
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    add_shopping_cart
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <!-- Product image -->
+                        <div class="product-img-wrapper">
+
+                        </div>
+                        <!-- Product details -->
+                        <div class="product-details-wrapper">
+                            <p class="bold-text">Product name</p>
+                            <p>Seller name</p>
+                            <p>Categories:</p>
+                        </div>
+                        <!-- Learn more -->
+                        <div class="wishlist-product-card-footer">
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </div>
+                            <p>Click to learn more</p>
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    add_shopping_cart
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Cart page -->
+            <section class="cart-page-wrapper hide" id="cart-page">
+                <!-- Titile -->
+                <p class="bold-text section-title cart-title">Your cart: </p>
+                <!-- Content -->
+                <div class="cart-cards-wrapper">
+                    <div class="cart-card">
+                        <!-- Product info -->
+                        <div class="cart-product-info-wrapper">
+                            <!-- Product image -->
+                            <div class="cart-product-img">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="cart-product-details">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                        </div>
+                        <!-- Cost and count -->
+                        <div class="count-cost-wrapper">
+                            <p>amount: 10</p>
+                            <p>cost: $100</p>
+                        </div>
+                    </div>
+                    <div class="cart-card">
+                        <!-- Product info -->
+                        <div class="cart-product-info-wrapper">
+                            <!-- Product image -->
+                            <div class="cart-product-img">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="cart-product-details">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                        </div>
+                        <!-- Cost and count -->
+                        <div class="count-cost-wrapper">
+                            <p>amount: 10</p>
+                            <p>cost: $100</p>
+                        </div>
+                    </div>
+                    <div class="cart-card">
+                        <!-- Product info -->
+                        <div class="cart-product-info-wrapper">
+                            <!-- Product image -->
+                            <div class="cart-product-img">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="cart-product-details">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                        </div>
+                        <!-- Cost and count -->
+                        <div class="count-cost-wrapper">
+                            <p>amount: 10</p>
+                            <p>cost: $100</p>
+                        </div>
+                    </div>
+                    <div class="cart-card">
+                        <!-- Product info -->
+                        <div class="cart-product-info-wrapper">
+                            <!-- Product image -->
+                            <div class="cart-product-img">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="cart-product-details">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                        </div>
+                        <!-- Cost and count -->
+                        <div class="count-cost-wrapper">
+                            <p>amount: 10</p>
+                            <p>cost: $100</p>
+                        </div>
+                    </div>
+                    <div class="cart-card">
+                        <!-- Product info -->
+                        <div class="cart-product-info-wrapper">
+                            <!-- Product image -->
+                            <div class="cart-product-img">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="cart-product-details">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                        </div>
+                        <!-- Cost and count -->
+                        <div class="count-cost-wrapper">
+                            <p>amount: 10</p>
+                            <p>cost: $100</p>
+                        </div>
+                    </div>
+                    <div class="cart-card">
+                        <!-- Product info -->
+                        <div class="cart-product-info-wrapper">
+                            <!-- Product image -->
+                            <div class="cart-product-img">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="cart-product-details">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                        </div>
+                        <!-- Cost and count -->
+                        <div class="count-cost-wrapper">
+                            <p>amount: 10</p>
+                            <p>cost: $100</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total price -->
+                <div class="price-buy-wrapper">
+                    <div class="total-price-wrapper">
+                        <p>Total price:</p>
+                        <p>$123</p>
+                    </div>
+                    <!-- Buy button and discount -->
+                    <div class="buy-btn-discount-wrapper">
+                        <button class="btn btn-purpule"> Buy </button>
+                        <div class="discount-wrapper">
+                            <p id="open-discount-input">Do you have a discount code ?</p>
+                            <input type="text" placeholder="Discount code" class="hide" id="discount-input">
+                            <button class="btn btn-purpule hide" id="discount-apply-btn"> Apply </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Chat page -->
+            <section class="chat-page-wrapper hide" id="chat-page">
+                <!-- Chat list -->
+                <div class="chat-list-wrapper">
+                    <div class="chat-list-item grey-background">
+                        <!-- Seller image -->
+                        <div class="seller-img-wrapper">
+
+                        </div>
+                        <!-- Seller name and last message -->
+                        <div class="seller-info-last-message">
+                            <p>Seller name</p>
+                            <p>lastest message</p>
+                        </div>
+                        <!-- Date -->
+                        <div class="messgae-date">
+                            <p>24-06</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chat -->
+                <div class="chat-messages">
+                    <!-- Message writing -->
+                    <div class="message-input-wrapper">
+                        <form>
+                            <input type="text">
+                            <button class="btn btn-purpule send-btn ">
+                                <span class="material-symbols-outlined">
+                                    send
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="messages-wrapper">
+                        <div class="user-recieved-message">
+                            <p>Seller:</p>
+                            <p>Yes i do, how many do you want?</p>
+                            <p>25-6</p>
+                        </div>
+                        <div class="user-sent-message">
+                            <p>You:</p>
+                            <p>Do you still have product 1?</p>
+                            <p>25-6</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Profile page -->
+            <section class="profile-page-wrapper hide" id="profile-page">
+                <!-- Profile -->
+                <div class="user-info-wrapper">
+                    <!-- Profile picture -->
+                    <div class="user-profile-picture">
+
+                    </div>
+                    <!-- User details -->
+                    <div class="user-details-wrapper">
+                        <p class="bold-text">Name</p>
+                        <p>Email</p>
+                        <p>Phone number</p>
+                        <p>Address</p>
+                        <button class="btn btn-purpule" id="edit-profile-btn">Edit Profile</button>
+                    </div>
+                </div>
+                <!-- Divider -->
+                <div class="divider"></div>
+                <!-- Favorites -->
+                <div class="favorites-wrapper">
+                    <!-- Titile -->
+                    <p class="bold-text section-title">Favorites: </p>
+                    <!-- Content -->
+                    <div class="favorites-cards-wrapper">
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Product image -->
+                            <div class="product-img-wrapper">
+
+                            </div>
+                            <!-- Product details -->
+                            <div class="product-details-wrapper">
+                                <p class="bold-text">Product name</p>
+                                <p>Seller name</p>
+                                <p>Categories:</p>
+                            </div>
+                            <!-- Learn more -->
+                            <div class="learn-more-wrapper">
+                                <p>Click to learn more</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Product popup -->
+            <dialog class="product-popup-wrapper hide" id="product-popup">
+                <!-- Close button -->
+                <div>
+                    <span class="material-symbols-outlined grey-background" id="close-popup">
+                        close
+                    </span>
+                </div>
+                <!-- Product details -->
+                <div class="popup-product-details-wrapper">
+                    <!-- Image product -->
+                    <div class="popup-product-img">
+
+                    </div>
+                    <!-- Product-details -->
+                    <div class="popup-product-info">
+                        <!-- Name seller category -->
+                        <div>
+                            <p class="bold-text"> Name </p>
+                            <p> Seller name </p>
+                            <p> Category </p>
+                        </div>
+                        <!-- Discription -->
+                        <div>
+                            <p class="bold-text"> Discription: </p>
+                            <p>something something something something something something something something something
+                                something something something</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product cost and stock -->
+                <div class="popup-product-cost-stock-wrapper">
+                    <!-- Stock -->
+                    <div>
+                        <p>Items in stock: 4</p>
+                    </div>
+                    <!-- Price -->
+                    <div>
+                        <p>Price: $100</p>
+                    </div>
+                    <!-- Items to buy -->
+                    <div class="popup-items-to-buy">
+                        <p>Items to buy:</p>
+                        <div>
+                            <span class="material-symbols-outlined grey-background">
+                                chevron_left
+                            </span>
+                        </div>
+                        <p class="count-to-buy">2</p>
+                        <div>
+                            <span class="material-symbols-outlined grey-background">
+                                chevron_right
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add to cart -->
+                <div class="popup-add-to-cart-wrapper">
+                    <button class="btn btn-purpule"> Add to wishlist </button>
+                    <button class="btn btn-purpule"> Add to cart </button>
+                </div>
+            </dialog>
+            <!-- Edit profile popup -->
+            <dialog class="edit-profile-wrapper hide" id="profile-popup">
+                <!-- Close button -->
+                <div>
+                    <span class="material-symbols-outlined grey-background" id="close-profile-popup">
+                        close
+                    </span>
+                </div>
+                <!-- User profile -->
+                <div class="profile-popup-wrapper">
+                    <!-- User image -->
+                    <div class="profile-img-popup">
+
+                        <label for="file-input">
+                            <span class="material-symbols-outlined" id="profile-picture-input">photo_camera</span>
+                        </label>
+                        <input type="file" id="file-input" name="image" accept="image/*" class="hide">
+                    </div>
+                    <!-- User info -->
+                    <div class="profile-popup-inputs">
+                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Phone number">
+                        <input type="text" placeholder="Address">
+                        <button class="btn btn-purpule"> Save </button>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
 </body>
 
 </html>
