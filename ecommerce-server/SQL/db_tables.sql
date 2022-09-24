@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`carts` (
   `cart_id` INT NOT NULL AUTO_INCREMENT,
   `product_id` INT NOT NULL,
   `user_id` INT NOT NULL,
-  `purchase_date` DATETIME NOT NULL,
+  `purchase_date` DATE NOT NULL,
   PRIMARY KEY (`cart_id`),
   CONSTRAINT `fk_products_has_users_products2`
     FOREIGN KEY (`product_id`)
