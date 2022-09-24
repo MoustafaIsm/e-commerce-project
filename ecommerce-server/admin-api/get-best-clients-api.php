@@ -4,10 +4,10 @@ require __DIR__ . '/vendor/autoload.php';
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-$token = $_GET["token"];
+$token = $_POST["token"];
 JWT::decode($token, new Key('fgh676', 'HS256'));
 
-$period = $_GET['period'];
+$period = $_POST['period'];
 $lastweek = date("Y-m-d",strtotime('- 7 days'));
 $lastmonth = date("Y-m-d",strtotime('- 30 days'));
 $lastyear = date("Y-m-d",strtotime('- 365 days'));

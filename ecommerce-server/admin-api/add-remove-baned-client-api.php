@@ -7,10 +7,10 @@ require __DIR__ . '/vendor/autoload.php';
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-$user_id =$_GET["user_id"];
-$admin_id =$_GET["admin_id"];
+$user_id =$_POST["user_id"];
+$admin_id =$_POST["admin_id"];
 
-$token = $_GET["token"];
+$token = $_POST["token"];
 JWT::decode($token, new Key('fgh676', 'HS256'));
 
 
