@@ -190,6 +190,32 @@ body {
     border-bottom: 3px solid #FFFFFF;
 }
 
+/* Hamburger menu */
+.burger-menu {
+    display: none;
+}
+
+.burger-menu-btn {
+    color: #FFFFFF;
+    zoom: 1.3;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
+.burger-menu-btn:hover {
+    cursor: pointer;
+    background-color: #493A6F;
+}
+
+.burger-nav-bar-btns {
+    display: none;
+    list-style: none;
+}
+
 /* Discover page */
 .discover-page-wrapper {
     display: flex;
@@ -770,6 +796,14 @@ body {
 
 @media screen and (max-width:1200px) {
 
+    .nav-bar-btns {
+        display: none;
+    }
+
+    .burger-menu {
+        display: inline;
+    }
+
     .suggested-cards-wrapper {
         grid-template-columns: repeat(3, 25vw);
     }
@@ -784,6 +818,10 @@ body {
 }
 
 @media screen and (max-width:840px) {
+
+    .title-wrapper {
+        display: none;
+    }
 
     .suggested-cards-wrapper {
         grid-template-columns: repeat(2, 35vw);
