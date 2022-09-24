@@ -114,7 +114,6 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`wishlists` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ecommercedb`.`carts` (
   `cart_id` INT NOT NULL AUTO_INCREMENT,
-  `product_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `purchase_date` DATE NOT NULL,
   PRIMARY KEY (`cart_id`),
