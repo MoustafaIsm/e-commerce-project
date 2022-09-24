@@ -895,6 +895,17 @@ body {
         grid-template-columns: repeat(1, 70vw);
     }
 
+    .chat-page-wrapper {
+        grid-template-columns: 90%;
+    }
+
+    .send-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 5px !important;
+    }
+
     .favorites-cards-wrapper {
         grid-template-columns: repeat(1, 70vw);
     }
