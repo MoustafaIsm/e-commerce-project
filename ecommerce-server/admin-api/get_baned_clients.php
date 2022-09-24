@@ -1,13 +1,16 @@
-<?php 
+<?php
 
 include("../connection.php");
 
+header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Headers:*");
 require __DIR__ . '/vendor/autoload.php';
+$data = json_decode(file_get_contents("php://input"));
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-$token = $_POST["token"];
+$token =  $data->token;
 JWT::decode($token, new Key('fgh676', 'HS256'));
 
 
