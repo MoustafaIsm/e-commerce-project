@@ -223,3 +223,5 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`products_in_carts` (
     REFERENCES `ecommercedb`.`carts` (`cart_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+    
+ALTER TABLE `carts` ADD `total_cost` DOUBLE NOT NULL AFTER `purchase_date`;
