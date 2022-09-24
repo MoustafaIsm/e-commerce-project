@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`products` (
   `product_name` VARCHAR(255) NOT NULL,
   `product_price` DECIMAL NOT NULL,
   `description` VARCHAR(255) NOT NULL,
+  `product_picture` VARCHAR(255) NOT NULL,
   `stock` INT NOT NULL,
   `viewing_count` INT NOT NULL DEFAULT 0,
   `seller_id` INT NOT NULL,
@@ -53,6 +54,7 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`products` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ecommercedb`.`discounts` (
   `discount_id` INT NOT NULL AUTO_INCREMENT,
+  `discount_code` VARCHAR(255) NOT NULL,
   `active` TINYINT(1) NULL DEFAULT 0,
   `percentage` INT NOT NULL,
   `seller_id` INT NOT NULL,
