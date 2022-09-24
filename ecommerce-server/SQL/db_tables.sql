@@ -212,3 +212,20 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`ads` (
     REFERENCES `ecommercedb`.`products` (`product_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+-- Table `ecommercedb`.`products_in_carts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ecommercedb`.`products_in_carts` (
+  `product_id` INT NOT NULL,
+  `cart_id` INT NOT NULL,
+  PRIMARY KEY (`product_id`, `cart_id`),
+  CONSTRAINT `fk_products_has_carts_products1`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `ghfds`.`products` (`product_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_products_has_carts_carts1`
+    FOREIGN KEY (`cart_id`)
+    REFERENCES `ghfds`.`carts` (`cart_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
