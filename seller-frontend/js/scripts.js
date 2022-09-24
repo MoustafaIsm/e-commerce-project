@@ -35,6 +35,11 @@ temp2.addEventListener("click", () =>{
     addProductPopup.showModal();
 })
 
+const addCategoryPopup = document.getElementById("add-category-popup");
+const temp3 = document.getElementById("add-category-button");
+temp3.addEventListener("click", () =>{
+    addCategoryPopup.showModal();
+})
 
 const closeProductPopup = () =>{
     addProductPopup.close();
