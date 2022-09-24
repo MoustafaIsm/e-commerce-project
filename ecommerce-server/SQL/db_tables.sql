@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`users` (
 -- Table `ecommercedb`.`products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ecommercedb`.`products` (
-  `product_id` INT NOT NULL,
+  `product_id` INT NOT NULL AUTO_INCREMENT,
   `product_name` VARCHAR(255) NOT NULL,
   `product_price` DECIMAL NOT NULL,
   `description` VARCHAR(255) NOT NULL,
