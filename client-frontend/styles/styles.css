@@ -829,6 +829,10 @@ body {
     .wishlist-cards-wrapper {
         grid-template-columns: repeat(3, 25vw);
     }
+
+    .favorites-cards-wrapper {
+        grid-template-columns: repeat(3, 25vw);
+    }
 }
 
 @media screen and (max-width:840px) {
@@ -848,6 +852,10 @@ body {
     .wishlist-cards-wrapper {
         grid-template-columns: repeat(2, 35vw);
     }
+
+    .favorites-cards-wrapper {
+        grid-template-columns: repeat(2, 35vw);
+    }
 }
 
 @media screen and (max-width:600px) {
@@ -863,4 +871,14 @@ body {
     .wishlist-cards-wrapper {
         grid-template-columns: repeat(1, 70vw);
     }
+
+    .favorites-cards-wrapper {
+        grid-template-columns: repeat(1, 70vw);
+    }
+
+    .user-info-wrapper {
+        align-items: center;
+        flex-direction: column;
+    }
+
 }
