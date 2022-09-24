@@ -21,9 +21,9 @@ INSERT INTO `users` (`password`, `first_name`, `last_name`, `email`, `address`, 
 -- --------------------------------------------------------
 -- data for table `products`
 
-INSERT INTO `products` (`product_name`, `product_price`, `description`, `stock`, `viewing_count`, `seller_id`, `added_at`) VALUES
-('Shampoo', 30, 'Best one yet.', 4, 1, 5, '2022-7-15'),
-('Hand soap', 10, 'Best one yet.', 10, 11, 6, '2022-8-15');
+INSERT INTO `products` (`product_name`, `product_price`, `description`, `product_picture`, `stock`, `viewing_count`, `seller_id`, `added_at`) VALUES
+('Shampoo', 30, 'Best one yet.', 'NA', 4, 1, 5, '2022-7-15'),
+('Hand soap', 10, 'Best one yet.', 'NA', 10, 11, 6, '2022-8-15');
 
 -- --------------------------------------------------------
 -- data for table `ads`
@@ -66,9 +66,9 @@ INSERT INTO `chats` (`client_user_id`, `seller_user_id`, `chat_text`, `date`) VA
 -- --------------------------------------------------------
 -- data for table `discounts`
 
-INSERT INTO `discounts` (`active`, `percentage`, `seller_id`) VALUES
-(1, 60, 5),
-(0, 70, 5);
+INSERT INTO `discounts` (`discount_code`, `active`, `percentage`, `seller_id`) VALUES
+('ABCD123', 1, 60, 5),
+('123ABCD', 0, 70, 5);
 -- --------------------------------------------------------
 -- data for table `favorite_products`
 
