@@ -6,12 +6,25 @@
     use Firebase\JWT\JWT;
     use Firebase\JWT\Key;
 
-    $token = $_GET["token"];
+    $token = $_POST["token"];
     JWT::decode($token, new Key('fgh676', 'HS256'));
 
     $email = $_POST["email"];
 
+    $newPassword = randomPassword();
 
+    // the message
+    $msg = "Thank you for reporting to us.\r\n Your new password is:\r\n " . $newPassword;
+
+    // Make sure that ines are not longer than 70 characters
+    $msg = wordwrap($msg,70, "\r\n");
+
+    // send email
+    mail($email,"Cloud Store Password Reset", $msg);
+
+    $response["result"] = true;
+
+    echo json_encode($response);
 
 
 
