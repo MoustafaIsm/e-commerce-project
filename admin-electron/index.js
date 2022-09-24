@@ -8,6 +8,6 @@ app.whenReady().then(() => {
 
   })
   myWindow.maximize()
-  myWindow.loadFile('client.html')
+  myWindow.loadFile('login.html')
 
 });
