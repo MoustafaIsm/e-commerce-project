@@ -3,8 +3,11 @@ const moreInfoSection = document.querySelector('.sellers-more-section');
 const newsellerSection = document.querySelector('.add-seller-section');
 const closeNewsellerSection = document.querySelector('.close-newseller');
 const newSellerbtn = document.getElementById('newseller');
+const sellersUrl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/get-sellers-api.php";
 
-
+const hello = () => {
+  console.log('hauu');
+};
 
 // function to show more info popup
 const displaymoreInfo = (data) => {
@@ -51,11 +54,7 @@ sellersCard.classList.add('column');
 sellersCard.classList.add('client-card');
 sellersCards.appendChild(sellersCard);
 
-const seller_id = document.createElement('input');
-seller_id.setAttribute("type", "hidden");
-seller_id.classList.add('hidden-input')
-seller_id.value = "ramzi";
-sellersCard.appendChild(seller_id);
+
 
 const clientInfo = document.createElement('div');
 clientInfo.classList.add('flex');
@@ -63,8 +62,14 @@ clientInfo.classList.add('client-info');
 
 sellersCard.appendChild(clientInfo);
 
+const seller_id = document.createElement('input');
+seller_id.setAttribute("type", "hidden");
+seller_id.classList.add('hidden-input')
+seller_id.value = `${data.user_id}`;
+clientInfo.appendChild(seller_id);
+
 const clientProfile = document.createElement('img');
-clientProfile.src=data.img;
+clientProfile.src=`assets/${data.profile_picture}`;
 clientProfile.classList.add('client-pp');
 clientInfo.appendChild(clientProfile);
 
@@ -76,16 +81,17 @@ clientInfo.appendChild(name_username);
 
 const clientName = document.createElement('p');
 clientName.classList.add('client-name');
-clientName.textContent = data.name;
+clientName.textContent = `${data.first_name} ${data.last_name}`;
 name_username.appendChild(clientName);
 
 const clientUsername = document.createElement('p');
 clientUsername.classList.add('client-username');
-clientUsername.textContent = data.email;
+clientUsername.textContent = `${data.email}`;
 name_username.appendChild(clientUsername);
 
 const banBtn = document.createElement('button');
 banBtn.classList.add('btn-ban');
+banBtn.classList.add('delete');
 banBtn.textContent = "Delete";
 clientInfo.appendChild(banBtn);
 
@@ -104,7 +110,7 @@ itemsPurchased.appendChild(purchasedItems);
 
 const itemsCount = document.createElement('p');
 itemsCount.classList.add('items-count');
-itemsCount.textContent = `${data.items} customers.`;
+itemsCount.textContent = `${data.totalcustomers} customers.`;
 itemsPurchased.appendChild(itemsCount);
 
 const editSeller = document.createElement('i');
@@ -124,7 +130,7 @@ totalPurchases.appendChild(purchasesTotal);
 
 const purchases = document.createElement('p');
 purchases.classList.add('purchases');
-purchases.textContent = `${data.total} items.`;
+purchases.textContent = `${data.totalitems} items.`;
 totalPurchases.appendChild(purchases);
 
 var moreInfo = document.createElement('div');
@@ -134,30 +140,44 @@ sellersCard.appendChild(moreInfo);
 
 };
 
+// function to fetch get sellers API
+const fetchsellersAPI = (url, token) => {
+  const resp =  axios.post(url, token);
 
-const sellersData = {
-  'img':'./assets/pp.png',
-  'name':'Ramzi El Ashkar',
-  'email': 'Ramzi@gmail.com',
-  'items': 5,
-  'total': 500
-}
+return resp;
 
+};
+
+// function to get all sellers
+const getSellers = () => {
 const data = {
-  'img':'./assets/pp.png',
-  'name':'Ramzi El ',
-  'email': 'Ramzi@gmail.com',
-  'items': 5,
-  'total': 500
+  'token': token
 }
 
+const sellersResponse = fetchsellersAPI(sellersUrl, data).then((results) => {
+let result = results.data;
+result.forEach((item, i) => {
+  createCard(item);
+});
+const deleteBtn = document.querySelectorAll('.delete');
+deleteBtn.forEach((item, i) => {
+  item.addEventListener('click', () => {
+    const seller_id = item.parentElement.querySelector('.hidden-input').defaultValue;
+    deleteSeller(seller_id);
+  });
 
-for(let k=0; k<3;k++){
-createCard(sellersData);
+});
+
+
+
+});
 };
-for(let k=0; k<3;k++){
-createCard(data);
-};
+getSellers();
+
+
+
+
+
 
 
 // Event Listeners
@@ -182,4 +202,3 @@ newSellerbtn.addEventListener("click", () => {
 closeNewsellerSection.addEventListener("click", () => {
   newsellerSection.classList.add('hidden');
 });
-
