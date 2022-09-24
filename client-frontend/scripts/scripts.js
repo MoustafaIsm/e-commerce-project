@@ -7,6 +7,10 @@ const cartNavBtn = document.getElementById("cart-nav-btn");
 const chatNavBtn = document.getElementById("chat-nav-btn");
 const profileNavBtn = document.getElementById("profile-nav-btn");
 
+// Burger menu
+const burgerMenuBtn = document.getElementById("burger-menu-btn");
+const burgerNavItems = document.getElementById("burger-nav-bar-btns");
+
 // Pages
 const discoverPage = document.getElementById("discover-page");
 const wishlistPage = document.getElementById("wishlist-page");
@@ -66,6 +70,10 @@ const openProfilePage = () => {
     openPage("profile");
 }
 
+const openBurgerMenu = () => {
+    burgerNavItems.classList.toggle("display-burger-menu-items");
+}
+
 const closeProductPopupFun = () => {
     productPopup.classList.add("hide");
     productPopup.close();
@@ -93,6 +101,8 @@ wishlistNavBtn.addEventListener("click", openWishlistPage);
 cartNavBtn.addEventListener("click", openCartPage);
 chatNavBtn.addEventListener("click", openChatPage);
 profileNavBtn.addEventListener("click", openProfilePage);
+
+burgerMenuBtn.addEventListener("click", openBurgerMenu);
 
 closeProductPopup.addEventListener("click", closeProductPopupFun);
 

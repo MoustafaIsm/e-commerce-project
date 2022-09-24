@@ -204,6 +204,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 100%;
+    position: relative;
 }
 
 .burger-menu-btn:hover {
@@ -212,8 +213,19 @@ body {
 }
 
 .burger-nav-bar-btns {
+    background-color: #8367C7;
+    transition: 500ms;
     display: none;
     list-style: none;
+    position: absolute;
+    right: 0;
+    padding: 20px;
+}
+
+.display-burger-menu-items {
+    display: flex !important;
+    flex-direction: column;
+
 }
 
 /* Discover page */
