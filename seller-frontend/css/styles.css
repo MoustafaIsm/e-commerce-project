@@ -567,12 +567,25 @@ flex-wrap: wrap;
 .learn-more-popup-img{
     flex-basis: 45%;
     padding:1rem;
+    position: relative;
 }
 
 .learn-more-popup-img img{
     width: 300px;
     height: 250px;
-    background: #493A6F;
+    background: antiquewhite;
+}
+
+.learn-more-popup-img span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    text-align: center;
+    /* font-size: 32px; */
+}
+
+.learn-more-popup-img label{
+    cursor: pointer;
 }
 
 .learn-more-popup-details{
