@@ -117,11 +117,6 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`carts` (
   `user_id` INT NOT NULL,
   `purchase_date` DATE NOT NULL,
   PRIMARY KEY (`cart_id`),
-  CONSTRAINT `fk_products_has_users_products2`
-    FOREIGN KEY (`product_id`)
-    REFERENCES `ecommercedb`.`products` (`product_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_products_has_users_users3`
     FOREIGN KEY (`user_id`)
     REFERENCES `ecommercedb`.`users` (`user_id`)
