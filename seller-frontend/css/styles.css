@@ -681,7 +681,61 @@ flex-wrap: wrap;
 }
 
 
+.add-btn-phone{
+    padding: 5px;
+    display: none;
+}
 
+@media screen and (max-width:830px) {
+
+.card{
+    width: 45%;
+}
+.side-bar p{
+    font-size: 12px;
+}
+
+.logo h1{
+    font-size: 32px;
+}
+
+.side-bar{
+    width: 20%;
+}
+
+}
+
+@media screen and (max-width:650px) {
+    
+.logo h1{
+    font-size: 24px;
+}
+
+.side-bar p{
+    display: none;
+}
+
+.side-bar{
+    width: 10%;
+}
+
+.add-btn-pc{
+    display: none;
+}
+
+.add-btn-phone{
+    display: block;
+    cursor: pointer;
+}
+
+.card{
+    width: 85%;
+}
+
+.nav-right a{
+    display: none;
+}
+}
 
 
 
