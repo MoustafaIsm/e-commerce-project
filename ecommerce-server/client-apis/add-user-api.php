@@ -10,10 +10,10 @@ $email = $_POST["email"];
 $address = $_POST["address"];
 $telephone = $_POST["telephone"];
 $profile_picture = $_POST["profile_picture"];
-$role_id = $_POST["role_id"];
+$registered_at = $_POST["registered_at"];
 
-$query = $mysqli->prepare("INSERT INTO `users`(`password`, `first_name`, `last_name`, `email`, `address`, `telephone`, `profile_picture`, `role_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$query->bind_param("sssssssi", $password, $first_name, $last_name, $email, $address, $telephone, $profile_picture, $role_id);
+$query = $mysqli->prepare("INSERT INTO `users`(`password`, `first_name`, `last_name`, `email`, `address`, `telephone`, `profile_picture`, `role_id`, `registered_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$query->bind_param("ssssssss", $password, $first_name, $last_name, $email, $address, $telephone, $profile_picture,2 , $registered_at);
 $query->execute();
 
 $response = [];
