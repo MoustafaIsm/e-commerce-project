@@ -11,11 +11,12 @@ $token = $_POST["token"];
 JWT::decode($token, new Key('fgh676', 'HS256'));
 
 
-$query = "select DISTINCT u.*, SUM(c.total_cost) as total_purchases, COUNT(p.product_id) as total_items
+$query = "select  DISTINCT u.*, SUM(c.total_cost) as total_purchases, COUNT(p.product_id) as total_items
 from users u
-INNER JOIN carts c ON c.user_id like u.user_id
-INNER JOIN products_in_carts p ON p.cart_id = c.cart_id
+LEFT JOIN carts c ON u.user_id like c.user_id
+LEFT JOIN products_in_carts p ON c.cart_id like p.cart_id
 where not exists (select user_id from bans as b where b.user_id = u.user_id) and u.role_id = 2
+GROUP by u.user_id
 ";
 $query1 = $mysqli->prepare($query);
 
