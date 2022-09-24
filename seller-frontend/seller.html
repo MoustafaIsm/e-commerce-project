@@ -383,13 +383,13 @@
         </div>
         <div class="img-and-details">
             <div class="learn-more-popup-img">
-                <img>
+                <img id="file-2-preview">
                 <label for="product-img-upload">
                 <span class="material-symbols-outlined">
                     file_upload
                 </span>
                 </label>
-                <input type="file" id="product-img-upload" accept="image/*" class="hidden">
+                <input type="file" id="product-img-upload" accept="image/*" class="hidden" onchange="showPreview2(event);">
             </div>
             <div class="learn-more-popup-details">
                 <p>Product Name</p>
@@ -427,13 +427,13 @@
         </div>
         <div class="img-and-details">
             <div class="learn-more-popup-img">
-                <img>
+                <img id="file-1-preview">
                 <label for="add-product-img-upload">
                 <span class="material-symbols-outlined">
                     file_upload
                 </span>
                 </label>
-                <input type="file" id="add-product-img-upload" accept="image/*" class="hidden">
+                <input type="file" id="add-product-img-upload" accept="image/*" class="hidden" onchange="showPreview(event);">
             </div>
             <div class="learn-more-popup-details">
                 <p>Product Name</p>

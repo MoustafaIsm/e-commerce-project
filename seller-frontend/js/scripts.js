@@ -139,3 +139,22 @@ const openPage = (pageToOpen) => {
         profilePage.classList.remove("hidden");
     }
 }
+
+
+// function to preview the image on pressing upload
+
+function showPreview(event){
+    if(event.target.files.length > 0){
+      let src = URL.createObjectURL(event.target.files[0]);
+      let preview = document.getElementById("file-1-preview");
+      preview.src = src;
+    }
+  }
+
+  function showPreview2(event){
+    if(event.target.files.length > 0){
+      let src = URL.createObjectURL(event.target.files[0]);
+      let preview = document.getElementById("file-2-preview");
+      preview.src = src;
+    }
+  }
