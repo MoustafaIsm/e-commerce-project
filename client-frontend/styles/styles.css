@@ -242,7 +242,7 @@ body {
     min-height: 400px;
 }
 
-.chevron-wrapper {
+/* .chevron-wrapper {
     width: fit-content;
     height: fit-content;
     margin: 0px 10px;
@@ -260,7 +260,7 @@ body {
 .chevron-wrapper:hover {
     cursor: pointer;
     transform: scale(1.1);
-}
+} */
 
 .suggested-cards-wrapper {
     flex-grow: 1;
@@ -853,14 +853,14 @@ body {
 @media screen and (max-width:600px) {
 
     .suggested-cards-wrapper {
-        grid-template-columns: repeat(1, 50vw);
+        grid-template-columns: repeat(1, 70vw);
     }
 
     .discover-cards-wrapper {
-        grid-template-columns: repeat(1, 50vw);
+        grid-template-columns: repeat(1, 70vw);
     }
 
     .wishlist-cards-wrapper {
-        grid-template-columns: repeat(1, 50vw);
+        grid-template-columns: repeat(1, 70vw);
     }
 }

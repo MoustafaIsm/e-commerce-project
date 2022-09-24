@@ -10,6 +10,11 @@ const profileNavBtn = document.getElementById("profile-nav-btn");
 // Burger menu
 const burgerMenuBtn = document.getElementById("burger-menu-btn");
 const burgerNavItems = document.getElementById("burger-nav-bar-btns");
+const burgerDiscoverNavBtn = document.getElementById("burger-discover-nav-btn");
+const burgerWishlistNavBtn = document.getElementById("burger-wishlist-nav-btn");
+const burgerCartNavBtn = document.getElementById("burger-cart-nav-btn");
+const burgerChatNavBtn = document.getElementById("burger-chat-nav-btn");
+const burgerProfileNavBtn = document.getElementById("burger-profile-nav-btn");
 
 // Pages
 const discoverPage = document.getElementById("discover-page");
@@ -103,6 +108,11 @@ chatNavBtn.addEventListener("click", openChatPage);
 profileNavBtn.addEventListener("click", openProfilePage);
 
 burgerMenuBtn.addEventListener("click", openBurgerMenu);
+burgerDiscoverNavBtn.addEventListener("click", openDiscoverPage);
+burgerWishlistNavBtn.addEventListener("click", openWishlistPage);
+burgerCartNavBtn.addEventListener("click", openCartPage);
+burgerChatNavBtn.addEventListener("click", openChatPage);
+burgerProfileNavBtn.addEventListener("click", openProfilePage);
 
 closeProductPopup.addEventListener("click", closeProductPopupFun);
 
@@ -126,30 +136,55 @@ const changeNavBtn = (pageToOpen) => {
         cartNavBtn.classList.remove("nav-bar-item-active");
         chatNavBtn.classList.remove("nav-bar-item-active");
         profileNavBtn.classList.remove("nav-bar-item-active");
+        burgerDiscoverNavBtn.classList.add("nav-bar-item-active");
+        burgerWishlistNavBtn.classList.remove("nav-bar-item-active");
+        burgerCartNavBtn.classList.remove("nav-bar-item-active");
+        burgerChatNavBtn.classList.remove("nav-bar-item-active");
+        burgerProfileNavBtn.classList.remove("nav-bar-item-active");
     } else if (pageToOpen == "wishlist") {
         discoverNavBtn.classList.remove("nav-bar-item-active");
         wishlistNavBtn.classList.add("nav-bar-item-active");
         cartNavBtn.classList.remove("nav-bar-item-active");
         chatNavBtn.classList.remove("nav-bar-item-active");
         profileNavBtn.classList.remove("nav-bar-item-active");
+        burgerDiscoverNavBtn.classList.remove("nav-bar-item-active");
+        burgerWishlistNavBtn.classList.add("nav-bar-item-active");
+        burgerCartNavBtn.classList.remove("nav-bar-item-active");
+        burgerChatNavBtn.classList.remove("nav-bar-item-active");
+        burgerProfileNavBtn.classList.remove("nav-bar-item-active");
     } else if (pageToOpen == "cart") {
         discoverNavBtn.classList.remove("nav-bar-item-active");
         wishlistNavBtn.classList.remove("nav-bar-item-active");
         cartNavBtn.classList.add("nav-bar-item-active");
         chatNavBtn.classList.remove("nav-bar-item-active");
         profileNavBtn.classList.remove("nav-bar-item-active");
+        burgerDiscoverNavBtn.classList.remove("nav-bar-item-active");
+        burgerWishlistNavBtn.classList.remove("nav-bar-item-active");
+        burgerCartNavBtn.classList.add("nav-bar-item-active");
+        burgerChatNavBtn.classList.remove("nav-bar-item-active");
+        burgerProfileNavBtn.classList.remove("nav-bar-item-active");
     } else if (pageToOpen == "chat") {
         discoverNavBtn.classList.remove("nav-bar-item-active");
         wishlistNavBtn.classList.remove("nav-bar-item-active");
         cartNavBtn.classList.remove("nav-bar-item-active");
         chatNavBtn.classList.add("nav-bar-item-active");
         profileNavBtn.classList.remove("nav-bar-item-active");
+        burgerDiscoverNavBtn.classList.remove("nav-bar-item-active");
+        burgerWishlistNavBtn.classList.remove("nav-bar-item-active");
+        burgerCartNavBtn.classList.remove("nav-bar-item-active");
+        burgerChatNavBtn.classList.add("nav-bar-item-active");
+        burgerProfileNavBtn.classList.remove("nav-bar-item-active");
     } else if (pageToOpen == "profile") {
         discoverNavBtn.classList.remove("nav-bar-item-active");
         wishlistNavBtn.classList.remove("nav-bar-item-active");
         cartNavBtn.classList.remove("nav-bar-item-active");
         chatNavBtn.classList.remove("nav-bar-item-active");
         profileNavBtn.classList.add("nav-bar-item-active");
+        burgerDiscoverNavBtn.classList.remove("nav-bar-item-active");
+        burgerWishlistNavBtn.classList.remove("nav-bar-item-active");
+        burgerCartNavBtn.classList.remove("nav-bar-item-active");
+        burgerChatNavBtn.classList.remove("nav-bar-item-active");
+        burgerProfileNavBtn.classList.add("nav-bar-item-active");
     }
 }
 
