@@ -393,13 +393,13 @@
             </div>
             <div class="learn-more-popup-details">
                 <p>Product Name</p>
-                <input type="text" placeholder="product name">
+                <input type="text" id="text-product-name" placeholder="product name" disabled="true">
                 <p>Product Price</p>
-                <input type="text" placeholder="product price">
+                <input type="text" id="text-product-price" placeholder="product price" disabled="true">
                 <p> Category</p>
-                <input type="text" placeholder="Category name">
+                <input type="text" id="text-product-category" placeholder="Category name" disabled="true">
                 <p> Description</p>
-                <input type="text" placeholder="Description of the product">
+                <input type="text" id="text-product-description" placeholder="Description of the product" disabled="true">
             </div>
         </div>
         <div class="learn-more-popup-buttons">
@@ -409,9 +409,16 @@
             <span class="material-symbols-outlined">
                 ads_click
             </span>
-            <span class="material-symbols-outlined">
+            <div id="edit-prodcut-save-btn" class="hidden">
+            <span class="material-symbols-outlined" onclick="saveEdit()">
+                save
+            </span>
+            </div>
+            <div class="" id="edit-prodcut-edit-btn">
+            <span class="material-symbols-outlined" id="edit-prodcut-info" onclick="enable()">
                 border_color
             </span>
+            </div>
         </div>
     </div>
 </dialog>
@@ -452,6 +459,7 @@
     </div>
 </dialog>
 
+<!-- --------- add category popup ------------- -->
 <dialog class="popup" id="add-category-popup">
     <div class="add-category-popup">
         <label> Category Name:</label>
@@ -459,6 +467,7 @@
         <button class="add-button"> Add</button>
     </div>
 </dialog>
+
 <!-- --------- popup add product ---------------- -->
 <!-- <div class="popup hidden">
     <div class="add-product-card">

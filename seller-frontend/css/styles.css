@@ -618,7 +618,7 @@ flex-wrap: wrap;
 
 
 
-.learn-more-popup-details input,textarea{
+.learn-more-popup-details input{
     width: 100%;
     margin-bottom: 1rem;
     padding: 0.5rem;

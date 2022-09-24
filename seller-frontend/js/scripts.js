@@ -146,7 +146,7 @@ const openPage = (pageToOpen) => {
 }
 
 
-// function to preview the image on pressing upload
+// functions to preview the image on pressing upload
 
 function showPreview(event){
     if(event.target.files.length > 0){
@@ -156,10 +156,30 @@ function showPreview(event){
     }
   }
 
-  function showPreview2(event){
-    if(event.target.files.length > 0){
-      let src = URL.createObjectURL(event.target.files[0]);
-      let preview = document.getElementById("file-2-preview");
-      preview.src = src;
-    }
-  }
+function showPreview2(event){
+if(event.target.files.length > 0){
+    let src = URL.createObjectURL(event.target.files[0]);
+    let preview = document.getElementById("file-2-preview");
+    preview.src = src;
+}
+}
+
+// function to edit product on pressing edit
+function enable(){
+    document.getElementById("text-product-name").disabled = false;
+    document.getElementById("text-product-price").disabled = false;
+    document.getElementById("text-product-category").disabled = false;
+    document.getElementById("text-product-description").disabled = false;
+    document.getElementById("edit-prodcut-edit-btn").classList.add("hidden");
+    document.getElementById("edit-prodcut-save-btn").classList.remove("hidden");
+}
+
+function saveEdit(){
+    document.getElementById("text-product-name").disabled = true;
+    document.getElementById("text-product-price").disabled = true;
+    document.getElementById("text-product-category").disabled = true;
+    document.getElementById("text-product-description").disabled = true;
+    document.getElementById("edit-prodcut-save-btn").classList.add("hidden");
+    document.getElementById("edit-prodcut-edit-btn").classList.remove("hidden");
+   
+}
