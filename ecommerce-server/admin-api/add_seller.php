@@ -6,7 +6,7 @@ require __DIR__ . '/vendor/autoload.php';
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-$token = $_GET["token"];
+$token = $_POST["token"];
 JWT::decode($token, new Key('fgh676', 'HS256'));
 
 $password = $_POST["password"];
@@ -17,12 +17,13 @@ $address = $_POST["address"];
 $telephone = $_POST["telephone"];
 $profile_picture = $_POST["profile_picture"];
 $role_id = 3;
+$registered_at = $_POST["registered_at"];
 
 
-$query = "INSERT INTO `users`(`password`, `first_name`, `last_name`, `email`, `address`, `telephone`, `profile_picture`) 
-VALUES (?,?,?,?,?,?,?)";
+$query = "INSERT INTO users(password,first_name,last_name, email, address, telephone, profile_picture, role_id,registered_at) 
+VALUES (?,?,?,?,?,?,?,?,?);";
 $query1 = $mysqli->prepare($query);
-$query1->bind_param("sssssis", $password, $first_name, $last_name , $email , $address , $telephone, $profile_picture);
+$query1->bind_param("sssssisis", $password, $first_name, $last_name , $email , $address , $telephone, $profile_picture, $role_id, $registered_at);
 $query1->execute();
 
 

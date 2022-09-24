@@ -2,27 +2,27 @@
 
 include("../connection.php");
 
-// require __DIR__ . '/vendor/autoload.php';
-// use Firebase\JWT\JWT;
-// use Firebase\JWT\Key;
+require __DIR__ . '/vendor/autoload.php';
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
-// $token = $_GET["token"];
-// JWT::decode($token, new Key('fgh676', 'HS256'));
+$token = $_POST["token"];
+JWT::decode($token, new Key('fgh676', 'HS256'));
 
-$user_id = $_Post["user_id"];
+$user_id = $_POST["user_id"];
 $password = $_POST["password"];
 $first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
 $email = $_POST["email"];
 $address = $_POST["address"];
 $telephone = $_POST["telephone"];
-$profile_picture = $_POST["profile_picture"];
-$role_id = 3;
 
 
-$query = "UPDATE `users` SET  `password` = ? ,`first_name` = ? ,`last_name` = ? ,`email` = ?,`address` = ?,`telephone` = ?,`profile_picture` = ?  WHERE users.user_id = ?  and users.role_id = 3";
+
+
+$query = "UPDATE `users` SET  `password` = ? ,`first_name` = ? ,`last_name` = ? ,`email` = ?,`address` = ?,`telephone` = ?  WHERE users.user_id = ?  and users.role_id = 3";
 $query1 = $mysqli->prepare($query);
-$query1->bind_param("sssssisi",$password, $first_name, $last_name , $email , $address , $telephone, $profile_picture,$user_id);
+$query1->bind_param("sssssii",$password, $first_name, $last_name , $email , $address , $telephone,$user_id);
 $query1->execute();
 
 $response1["success"] = true;
