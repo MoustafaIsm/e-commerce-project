@@ -44,10 +44,14 @@
         <dialog class="signup-popup hide" id="signup-popup">
             <span class="material-symbols-outlined grey-background" id="close">close</span>
             <h1>Create a new account</h1>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Enter password again">
-            <button class="btn btn-purpule"> Sign up </button>
+            <form>
+                <input type="text" placeholder="First name" id="f-name-input" required>
+                <input type="text" placeholder="Last name" id="l-name-input" required>
+                <input type="number" placeholder="Phone number" id="phone-number" required>
+                <input type="email" placeholder="Email" id="email-input" required>
+                <input type="password" placeholder="Password" id="password-input" required>
+                <button class="btn btn-purpule" id="signup-btn"> Sign up </button>
+            </form>
         </dialog>
     </div>
     <script src="./scripts/index_script.js"></script>
