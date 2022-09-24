@@ -26,13 +26,14 @@
             <!-- Signin form -->
             <form>
                 <div class="form-wrapper">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                    <input type="email" placeholder="Email" id="email-signin" required>
+                    <input type="password" placeholder="Password" id="password-signin" required>
+                    <p id="sigin-error"></p>
                     <div class="remember-wrapper">
-                        <input type="checkbox" name="remember" id="remember">
+                        <input type="checkbox" name="remember" id="remember" checked>
                         <label for="remember"> Keep me logged in </label>
                     </div>
-                    <button class="btn btn-purpule"> SIGN IN </button>
+                    <button class="btn btn-purpule" type="button" id="signin-btn"> SIGN IN </button>
                 </div>
             </form>
             <!-- sign up -->
