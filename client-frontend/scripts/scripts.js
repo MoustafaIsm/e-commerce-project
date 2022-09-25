@@ -43,6 +43,8 @@ const addressPopupInput = document.getElementById("address-popup-input");
 const fileInput = document.getElementById("file-input");
 const saveProfileData = document.getElementById("save-btn");
 
+const favoritesCards = document.getElementById("favorites-cards");
+
 //Temporary variable for testing
 const temp = document.getElementById("temp");
 
@@ -80,6 +82,7 @@ const openProfilePage = () => {
     changeNavBtn("profile");
     openPage("profile");
     fillPersonalInfo();
+    fillFavoritesProducts();
 }
 
 const openBurgerMenu = () => {
@@ -311,4 +314,41 @@ const saveUserData = (user) => {
     localStorage.setItem("firstName", user.first_name);
     localStorage.setItem("last_name", user.last_name);
     localStorage.setItem("telephone", user.telephone);
+}
+
+const fillFavoritesProducts = () => {
+    const formData = new FormData();
+    formData.append("user_id", localStorage.getItem("userId"));
+    formData.append("token", localStorage.getItem("token"));
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-favorites-api.php", formData)
+        .then((response) => populateCards(favoritesCards, response.data))
+        .catch((error) => console.log(error));
+}
+
+const populateCards = (container, products) => {
+    container.innerHTML = ``;
+    for (const product of products) {
+        let ppHolder = ``;
+        if (product.product_picture != "NA") {
+            ppHolder = `<img src="${product.product_picture}" alt="" width="100%">`;
+        }
+        const card = `
+        <div class="card">
+            <!-- Product image -->
+            <div class="product-img-wrapper">
+                ${ppHolder}
+            </div>
+            <!-- Product details -->
+            <div class="product-details-wrapper">
+                <p class="bold-text">${product.product_name}</p>
+                <p>${product.first_name + " " + product.last_name}</p>
+                <p>${product.category_name}</p>
+            </div>
+            <!-- Learn more -->
+            <div class="learn-more-wrapper" id="${product.product_id}">
+                <p>Click to learn more</p>
+            </div>
+        </div>`;
+        container.innerHTML += card;
+    }
 }

@@ -846,6 +846,14 @@ body {
     'opsz' 48
   }
 
+.clicked {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 700,
+    'GRAD' 0,
+    'opsz' 48
+}
+
 .divider {
     border-bottom: 2px solid #8367C7;
     width: 100%;
