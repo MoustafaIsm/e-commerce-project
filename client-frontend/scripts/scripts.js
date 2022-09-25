@@ -1,5 +1,6 @@
 /* Variables */
-const cart = [];
+const cart = [[]];
+let count = 0;
 let liked = false;
 // Nav buttons
 const discoverNavBtn = document.getElementById("discover-nav-btn");
@@ -48,6 +49,7 @@ const favoritesCards = document.getElementById("favorites-cards");
 const discoverCards = document.getElementById("discover-cards");
 const suggestedCards = document.getElementById("suggested-cards");
 const wishlistCards = document.getElementById("wishlist-cards");
+const cartCards = document.getElementById("cart-cards");
 
 //Temporary variable for testing
 const temp = document.getElementById("temp");
@@ -83,6 +85,7 @@ const openWishlistPage = () => {
 const openCartPage = () => {
     changeNavBtn("cart");
     openPage("cart");
+    fillCartProducts();
 }
 
 const openChatPage = () => {
@@ -356,6 +359,17 @@ const fillWishListProducts = () => {
         .catch((error) => console.log(error));
 }
 
+const fillCartProducts = () => {
+    for (const item of cart) {
+        const formData = new FormData();
+        formData.append("token", localStorage.getItem("token"));
+        formData.append("product_id", item.productId);
+        axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-product-api.php", formData)
+            .then((response) => populateCartCards(cartCards, response.data))
+            .catch((error) => console.log(error));
+    }
+}
+
 const populateCards = (container, products) => {
     container.innerHTML = ``;
     for (const product of products) {
@@ -443,10 +457,45 @@ const populateWiishlistCards = (container, products) => {
     }
     for (const btn2 of addToCart) {
         btn2.addEventListener("click", () => {
-            cart.push(btn2.id);
+            cart[count]["count"] = 1;
+            cart[count]["productId"] = btn2.id;
+            count++;
         });
     }
 
+}
+
+const populateCartCards = (container, products) => {
+    container.innerHTML = ``;
+    itemCounter = 0;
+    for (const product of products) {
+        let ppHolder = ``;
+        if (product.product_picture != "NA") {
+            ppHolder = `<img src="${product.product_picture}" alt="">`;
+        }
+        container.innerHTML += `
+        <div class="cart-card">
+            <!-- Product info -->
+            <div class="cart-product-info-wrapper">
+                <!-- Product image -->
+                <div class="cart-product-img">
+                    ${ppHolder}
+                </div>
+                <!-- Product details -->
+                <div class="cart-product-details">
+                    <p class="bold-text">${product.product_name}</p>
+                    <p> ${product.first_name + " " + product.last_name} </p>
+                    <p> ${product.category_name} </p>
+                </div>
+            </div>
+            <!-- Cost and count -->
+            <div class="count-cost-wrapper">
+                <p>amount: ${cart[itemCounter]["count"]} </p>
+                <p>cost: $ ${product.product_price} </p>
+            </div>
+        </div>`;
+        itemCounter++;
+    }
 }
 
 const openProductPopup = (productId) => {
@@ -564,7 +613,9 @@ const fillProductPopup = (container, product) => {
             .catch((error) => console.log(error));
     });
     addToCart.addEventListener("click", () => {
-        cart.push(addToCart.id);
+        cart[count]["count"] = countToBuy;
+        cart[count]["productId"] = addToCart.id;
+        count++;
     });
     favorite.addEventListener("click", () => {
         if (liked) {
