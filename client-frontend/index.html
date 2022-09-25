@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Stop / Sign in</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <div class="index-body-wrapper container">
+        <!-- Main logo -->
+        <div>
+            <img src="./images/purpule-logo.png" alt="Logo" width="100%">
+        </div>
+        <!-- Page contents -->
+        <div class="page-content-wrapper">
+            <h1> A World Between Your Hands. </h1>
+            <!-- Signin form -->
+            <form>
+                <div class="form-wrapper">
+                    <input type="email" placeholder="Email" id="email-signin" required>
+                    <input type="password" placeholder="Password" id="password-signin" required>
+                    <p id="sigin-error"></p>
+                    <div class="remember-wrapper">
+                        <input type="checkbox" name="remember" id="remember" checked>
+                        <label for="remember"> Keep me logged in </label>
+                    </div>
+                    <button class="btn btn-purpule" type="button" id="signin-btn"> SIGN IN </button>
+                </div>
+            </form>
+            <!-- sign up -->
+            <div class="signup-wrapper">
+                <h3>Dont have an account? <span id="signup"> Sign up as a client </span></h3>
+            </div>
+        </div>
+        <!-- Signup popup -->
+        <dialog class="signup-popup hide" id="signup-popup">
+            <span class="material-symbols-outlined grey-background" id="close">close</span>
+            <h1>Create a new account</h1>
+            <form>
+                <input type="text" placeholder="First name" id="f-name-input" required>
+                <input type="text" placeholder="Last name" id="l-name-input" required>
+                <input type="number" placeholder="Phone number" id="phone-number" required>
+                <input type="email" placeholder="Email" id="email-input" required>
+                <input type="password" placeholder="Password" id="password-input" required>
+                <p id="error-output"></p>
+                <button class="btn btn-purpule" id="signup-btn" type="button"> Sign up </button>
+            </form>
+        </dialog>
+    </div>
+    <script src="./scripts/index_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Main Page</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <div class="client-main-page-wrapper">
+        <!-- Navigation bar -->
+        <nav class="nav">
+            <!-- Website title and logo -->
+            <div class="logo-title-wrapper">
+                <div class="logo-wrapper">
+                    <img src="./images/white-logoo.png" alt="Logo" width="100%">
+                </div>
+                <h1 class="title-wrapper">Dream Stop</h1>
+            </div>
+            <!-- Search bar -->
+            <div class="search-bar-wrapper">
+                <!-- Icon -->
+                <div>
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </div>
+                <!-- Input -->
+                <div>
+                    <form>
+                        <input type="text" placeholder="Search Clound Stop">
+                    </form>
+                </div>
+            </div>
+            <!-- Navigation items -->
+            <ul class="nav-bar-btns">
+                <li class="nav-bar-item nav-bar-item-active" id="discover-nav-btn">
+                    <p>Discover</p>
+                </li>
+                <li class="nav-bar-item" id="wishlist-nav-btn">
+                    <p>Wishlist</p>
+                </li>
+                <li class="nav-bar-item" id="cart-nav-btn">
+                    <p>Cart</p>
+                </li>
+                <li class="nav-bar-item" id="chat-nav-btn">
+                    <p>Chat</p>
+                </li>
+                <li class="nav-bar-item" id="profile-nav-btn">
+                    <p>Profile</p>
+                </li>
+            </ul>
+            <!-- Hamburger menu -->
+            <div class="burger-menu" id="burger-menu">
+                <div class="burger-menu-btn" id="burger-menu-btn">
+                    <span class="material-symbols-outlined"> menu </span>
+                </div>
+                <ul class="burger-nav-bar-btns" id="burger-nav-bar-btns">
+                    <li class="nav-bar-item nav-bar-item-active" id="burger-discover-nav-btn">
+                        <p>Discover</p>
+                    </li>
+                    <li class="nav-bar-item" id="burger-wishlist-nav-btn">
+                        <p>Wishlist</p>
+                    </li>
+                    <li class="nav-bar-item" id="burger-cart-nav-btn">
+                        <p>Cart</p>
+                    </li>
+                    <li class="nav-bar-item" id="burger-chat-nav-btn">
+                        <p>Chat</p>
+                    </li>
+                    <li class="nav-bar-item" id="burger-profile-nav-btn">
+                        <p>Profile</p>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Pages -->
+        <div class="client-pages-wrapper container">
+            <!-- Discover page -->
+            <section class="discover-page-wrapper" id="discover-page">
+                <!-- Suggestions -->
+                <div class="suggestions-wrapper">
+                    <!-- Titile -->
+                    <p class="bold-text section-title">Suggested: </p>
+                    <!-- Content -->
+                    <div class="suggestions-content-wrapper">
+                        <!-- left chevron
+                        <div class="chevron-wrapper">
+                            <span class="material-symbols-outlined">
+                                chevron_left
+                            </span>
+                        </div> -->
+                        <!-- Cards -->
+                        <div class="suggested-cards-wrapper" id="suggested-cards">
+
+                        </div>
+                        <!-- Right chevron
+                        <div class="chevron-wrapper">
+                            <span class="material-symbols-outlined">
+                                chevron_right
+                            </span>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- Divider -->
+                <div class="divider"></div>
+                <!-- Discover -->
+                <div class="discover-wrapper">
+                    <!-- Titile -->
+                    <p class="bold-text section-title">Discover: </p>
+                    <!-- Content -->
+                    <div class="discover-cards-wrapper" id="discover-cards">
+                    </div>
+                </div>
+            </section>
+            <!-- Wishlist page -->
+            <section class="wishlist-page-wrapper hide" id="wishlist-page">
+                <!-- Titile -->
+                <p class="bold-text section-title">Wishlist: </p>
+                <!-- Content -->
+                <div class="wishlist-cards-wrapper" id="wishlist-cards">
+
+                </div>
+            </section>
+            <!-- Cart page -->
+            <section class="cart-page-wrapper hide" id="cart-page">
+                <!-- Titile -->
+                <p class="bold-text section-title cart-title">Your cart: </p>
+                <!-- Content -->
+                <div class="cart-cards-wrapper" id="cart-cards"></div>
+                <!-- Total price -->
+                <div class="price-buy-wrapper">
+                    <div class="total-price-wrapper">
+                        <p>Total price:</p>
+                        <p id="total-price">$123</p>
+                    </div>
+                    <!-- Buy button and discount -->
+                    <div class="buy-btn-discount-wrapper">
+                        <button class="btn btn-purpule" id="add-cart"> Buy </button>
+                        <div class="discount-wrapper">
+                            <p id="open-discount-input">Do you have a discount code ?</p>
+                            <input type="text" placeholder="Discount code" class="hide" id="discount-input">
+                            <button class="btn btn-purpule hide" id="discount-apply-btn"> Apply </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Chat page -->
+            <section class="chat-page-wrapper hide" id="chat-page">
+                <!-- Chat list -->
+                <div class="chat-list-wrapper">
+                    <div class="chat-list-item grey-background">
+                        <!-- Seller image -->
+                        <div class="seller-img-wrapper">
+
+                        </div>
+                        <!-- Seller name and last message -->
+                        <div class="seller-info-last-message">
+                            <p>Seller name</p>
+                            <p>lastest message</p>
+                        </div>
+                        <!-- Date -->
+                        <div class="messgae-date">
+                            <p>24-06</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chat -->
+                <div class="chat-messages">
+                    <!-- Message writing -->
+                    <div class="message-input-wrapper">
+                        <form>
+                            <input type="text">
+                            <button class="btn btn-purpule send-btn ">
+                                <span class="material-symbols-outlined">
+                                    send
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="messages-wrapper">
+                        <div class="user-recieved-message">
+                            <p>Seller:</p>
+                            <p>Yes i do, how many do you want?</p>
+                            <p>25-6</p>
+                        </div>
+                        <div class="user-sent-message">
+                            <p>You:</p>
+                            <p>Do you still have product 1?</p>
+                            <p>25-6</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Profile page -->
+            <section class="profile-page-wrapper hide" id="profile-page">
+                <!-- Profile -->
+                <div class="user-info-wrapper">
+                    <!-- Profile picture -->
+                    <div class="user-profile-picture" id="user-profile-picture">
+
+                    </div>
+                    <!-- User details -->
+                    <div class="user-details-wrapper">
+                        <div id="user-details" class="user-details-wrapper">
+
+                        </div>
+                        <button class="btn btn-purpule" id="edit-profile-btn" type="button">Edit Profile</button>
+                        <button type="button" class="btn btn-purpule" id="logout-btn">Logout</button>
+                        <button type="button" class="btn btn-purpule" id="send-voucher"> Send Voucher </button>
+                        <input type="email" id="voucher-email-input" class="hide" placeholder="Email">
+                        <input type="number" id="voucher-amount-input" class="hide" placeholder="Amount">
+                    </div>
+                </div>
+                <!-- Divider -->
+                <div class="divider"></div>
+                <!-- Favorites -->
+                <div class="favorites-wrapper">
+                    <!-- Titile -->
+                    <p class="bold-text section-title">Favorites: </p>
+                    <!-- Content -->
+                    <div class="favorites-cards-wrapper" id="favorites-cards">
+                    </div>
+                </div>
+            </section>
+            <!-- Product popup -->
+            <dialog class="product-popup-wrapper hide" id="product-popup">
+                <!-- Close button -->
+                <div>
+                    <span class="material-symbols-outlined grey-background" id="close-popup">
+                        close
+                    </span>
+                </div>
+                <div id="popup-product-details">
+
+                </div>
+            </dialog>
+            <!-- Edit profile popup -->
+            <dialog class="edit-profile-wrapper hide" id="profile-popup">
+                <!-- Close button -->
+                <div>
+                    <span class="material-symbols-outlined grey-background" id="close-profile-popup">
+                        close
+                    </span>
+                </div>
+                <!-- User profile -->
+                <div class="profile-popup-wrapper">
+                    <!-- User image -->
+                    <div class="profile-img-popup">
+
+                        <label for="file-input">
+                            <span class="material-symbols-outlined" id="profile-picture-input">photo_camera</span>
+                        </label>
+                        <input type="file" id="file-input" name="image" accept="image/*" class="hide">
+                    </div>
+                    <!-- User info -->
+                    <div class="profile-popup-inputs">
+                        <input type="text" placeholder="First Name" id="first-name-popup-input">
+                        <input type="text" placeholder="Last Name" id="last-name-popup-input">
+                        <input type="number" placeholder="Phone number" id="phone-number-popup-input">
+                        <input type="text" placeholder="Address" id="address-popup-input">
+                        <button class="btn btn-purpule" type="button" id="save-btn"> Save </button>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./scripts/scripts.js"></script>
+</body>
+
+</html>

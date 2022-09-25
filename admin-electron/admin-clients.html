@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Shop Clients</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script type="text/javascript" src="js/admin-clients.js" defer></script>
+    <script type="text/javascript" src="js/admin-sellers.js" defer></script>
+    <script type="text/javascript" src="js/editsellers.js" defer></script>
+    <script type="text/javascript" src="js/addseller.js" defer></script>
+    <script type="text/javascript" src="js/statistics.js" defer></script>
+    <script type="text/javascript" src="js/delete-seller.js" defer></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+
+  </head>
+  <body>
+    <!-- Top Bar Section Start -->
+    <section class = 'top-bar flex'>
+      <div class="shop-title flex">
+        <img class = 'logo' src="assets/default.png"  alt="">
+
+        <h3 class ='top-title'>Dream Stop</h3>
+      </div>
+      <div class="admin-info flex">
+        <img class = 'admin-pic' src="assets/pp.png" alt="">
+        <h4 class = 'admin-username'>Ramzi El Ashkar</h4>
+        <i class = 'fa fa-caret-down logout-dropdown' aria-hidden="true"></i>
+      </div>
+    </section>
+    <!-- Top Bar Section End -->
+
+    <!-- Logout Container Start -->
+    <div class="logout-container flex hidden">
+      <p class = 'logout' id= 'logout'> Logout as <b id = "username">Ramzi El Ashkar</b></p>
+    </div>
+    <!-- Logout Container End -->
+
+    <!-- Left Navbar Start -->
+    <nav class='left-nav flex column'>
+      <div class="nav-item flex" id="clients-page">
+        <img src="assets/icons/clients.svg" width="30px" height="25px" alt="">
+        <p class='nav-link'>Clients</p>
+      </div>
+      <div class="nav-item flex"  id="sellers-page">
+        <img src="assets/icons/sellers.png" width="30px" height="25px" alt="">
+        <p class='nav-link'>Service providers</p>
+      </div>
+      <div class="nav-item flex" id="stats-page">
+        <img src="assets/icons/stats.svg" width="30px" height="25px" alt="">
+        <p class='nav-link'>Statistics</p>
+      </div>
+    </nav>
+    <!-- Left Navbar End -->
+
+    <!-- Clients Section Start -->
+    <section class = "client-tab flex column">
+      <div class="client-types flex">
+        <div class="active-clients selected">Clients</div>
+        <div class="banned-clients">Banned</div>
+      </div>
+      <div class="" id = 'active'>
+      <div class="clients-cards flex-wrap" id="active-clients">
+        </div>
+        </div>
+        <!-- Banned Clients Section Start -->
+        <div id = 'banned' class = 'hidden'>
+          <div class="clients-cards flex-wrap " id="banned-clients" hidden>
+            </div>
+        </div>
+
+        <!-- Banned Clients Section End -->
+    </section>
+    <!-- Clients Section End -->
+
+    <!-- Sellers Section Start -->
+    <section class = "sellers-tab flex column hidden">
+      <div class="sellers-tab-title">Sellers or Service Providers</div>
+      <div class="">
+        <div class="btn flex">
+        <button type="button" name="newseller" class = "btn-ban btn-new" id ="newseller">New Seller</button>
+          </div>
+        <div class="sellers-cards flex-wrap">
+        </div>
+      </div>
+
+    </section>
+    <!-- Sellers Section End -->
+
+<!-- Sellers More Info Section Start -->
+  <section class="sellers-more-section flex column hidden">
+
+  </section>
+
+<!-- Sellers More Info Section End -->
+
+<!-- Edit Seller Section Start -->
+<section class="edit-seller-section flex column hidden">
+
+</section>
+<!-- Edit Seller Section End -->
+
+<!-- Add Seller Section Start -->
+<section class = "add-seller-section flex column hidden">
+  <div class="add-seller flex column">
+    <div class="addseller-heading flex">
+      <h2 class="add-seller-title">Add a Seller</h2>
+      <i class="fa fa-times close-newseller" aria-hidden="true"></i>
+    </div>
+    <div class="line"></div>
+    <div class="newseller-inputs flex column">
+        <div class="change-inputs flex column">
+        <label class="change-label" for="fname">First Name:</label>
+        <input type="text" name="fname" id="fname" class = "change-input" value="" required>
+      </div>
+      <div class="change-inputs flex column">
+        <label class="change-label" for="lname">Last Name:</label>
+        <input type="text" name="fname" id="lname" class = "change-input" value="" required>
+      </div>
+      <div class="change-inputs flex column">
+        <label class="change-label" for="email">Email:</label>
+        <input type="email" name="fname" id="email" class = "change-input" value="" required>
+      </div>
+      <div class="change-inputs flex column">
+        <label class="change-label" for="phone-nb">Phone Number:</label>
+        <input type="text" name="fname" id="phone-nb" class = "change-input" value="" required>
+      </div>
+      <div class="change-inputs flex column">
+        <label class="change-label" for="address">Address:</label>
+        <input type="text" name="fname" id="address" class = "change-input" value="" required>
+      </div>
+      <div class="change-inputs flex column">
+        <label class="change-label" for="password">Password:</label>
+        <input type="password" name="fname" id="password" class = "change-input" value="" required>
+      </div>
+    </div>
+    <div class="addseller-bottom flex">
+      <button type="submit" name="save-newseller" class="save-newseller btn-ban">Save</button>
+    </div>
+    <div class="error flex hidden">
+      Some Fields Are Missing!!
+    </div>
+  </div>
+</section>
+<!-- Add Seller Section End -->
+
+<!-- Stats Page Section Start-->
+<section class ="stats-page flex column hidden">
+  <div class="stats-page-title">
+    Statistics
+  </div>
+  <select name="filter" class="stats-filter" id="stats-filter">
+  <option value="">Filter by</option>
+  <option value="Per Week">Per Week</option>
+  <option value="Per Month">Per Month</option>
+  <option value="Per Year">Per Year</option>
+</select>
+<div class="stats-graphs flex">
+  <canvas id="top-sellers" class="stats-graph" width="500" height="300"></canvas>
+  <canvas id="top-clients" class="stats-graph" width="500" height="300"></canvas>
+</div>
+<div class="line"></div>
+<select name="filter" class="stats-filter" id="second-stats-filter">
+  <option value="">Filter by</option>
+<option value="This Week">This Week</option>
+<option value="This Month">This Month</option>
+<option value="This Year">This Year</option>
+</select>
+<div class="numbers-graph flex">
+  <canvas id="insights" class="insights" width="700" height="300"></canvas>
+
+</div>
+</section>
+<!-- Stats Page Section End-->
+
+
+
+  </body>
+</html>

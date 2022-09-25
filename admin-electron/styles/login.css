@@ -1,0 +1,86 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #F9F9F9;
+}
+
+.hidden{
+  display: none;
+}
+/* Login Page Styling */
+.index-body-wrapper {
+    display: flex;
+    background-color: #F9F9F9;
+}
+
+.index-body-wrapper > div {
+    width: 50vw;
+}
+
+/* sign in form */
+.page-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.page-content-wrapper > h1 {
+margin-bottom: 2rem;
+font-family: 'Roboto';
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px 0px;
+    background-color: #FFFFFF;
+    border: 1px solid #8367C7;
+    border-radius: 15px;
+}
+
+.form-wrapper > input {
+    margin: 15px 10px;
+    padding: 10px 10px;
+    border: 2px solid #8367C7;
+    border-radius: 15px;
+}
+
+.form-wrapper > button {
+    align-self: center;
+    background-color: #8367C7;
+    border: none;
+    cursor: pointer;
+    width:100px;
+    padding: 0.5rem 0;
+    border-radius: 50px;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.form-wrapper > input:focus {
+    border: 2px solid #493A6F;
+}
+
+.remember-wrapper {
+    align-self: center;
+    display: flex;
+    align-items: center;
+}
+
+.remember-wrapper > input {
+    zoom: 1.2;
+    margin: 15px 10px;
+}
+
+.input-error{
+  text-align: center;
+  margin-bottom: 1rem;
+  color: red;
+}

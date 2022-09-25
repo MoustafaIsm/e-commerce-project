@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+
+<body>
+<div class="topnav">
+    <div class="logo">
+        <img src="./assets/purpule-logo.png" alt="">
+        <h1>Dream Stop</h1>
+    </div>
+    <div class="nav-right">
+    <button class="add-button add-btn-pc" id="add-product-button">Add Product  &#8853</button>
+    <button class="add-button add-btn-pc" id="add-category-button">Add Category  &#8853</button>
+    <div class="add-btn-phone" id="add-product-button2">
+        <span class="material-symbols-outlined">
+            add_box
+        </span>
+    </div>
+    <div class="add-btn-phone" id="add-category-button2">
+        <span class="material-symbols-outlined">
+            add_box
+        </span>
+    </div>
+    <a>Ramzi </a>
+    <img src="./assets/random-profile.jpeg" id="profile-nav-btn">
+    </div>
+</div>
+
+<div class="side-bar">
+    <a class="side-menu side-menu-active" id="product-nav-btn">
+        <span class="material-symbols-outlined">
+            shopping_cart
+        </span>
+        <p> Products</p>
+    </a>
+    <a class="side-menu" id="category-nav-btn">
+        <span class="material-symbols-outlined">
+            category
+        </span>
+        <p> Categories</p>
+    </a>
+    <a class="side-menu" id="chat-nav-btn">
+        <span class="material-symbols-outlined">
+            chat
+        </span>
+        <p> Chat Page</p>
+    </a>
+    <a class="side-menu" id="discount-nav-btn">
+        <span class="material-symbols-outlined">
+            credit_score
+        </span>
+        <p> Discount Code</p>
+    </a>
+    <a class="side-menu" id="revenue-nav-btn">
+        <span class="material-symbols-outlined">
+            monetization_on
+        </span>
+        <p> Check Revenue</p>
+    </a>
+</div>
+
+<div class="main-bar">
+
+<section class="products" id="product-page">
+    <h2>Top Five Products</h2>
+    <div class = "cards-container" id="top-five-container">
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p id="temp">Click to learn more</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h2>Other Products</h2>
+    <div class="cards-container" id="other-products">
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- --------- Categories Page ------------ -->
+<section class="products hidden" id="category-page">
+    <h2>Sport</h2>
+    <div class = "cards-container" id="category-container">
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="" alt="Product image">
+            </div>
+            <div class="card-details">
+                <p> Product Name</p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>
+    </div>
+    <div class="line-devider"></div>
+</section>
+
+<!-- ------------- chat page ------------ -->
+<!-- Chat page -->
+<section class="chat-page-wrapper hidden" id="chat-page">
+<!-- Chat list -->
+<div class="chat-list-wrapper">
+    <div class="chat-list-item grey-background">
+        <!-- Seller image -->
+        <div class="seller-img-wrapper">
+
+        </div>
+        <!-- Seller name and last message -->
+        <div class="seller-info-last-message">
+            <p>Client name</p>
+            <p>lastest message</p>
+        </div>
+        <!-- Date -->
+        <div class="message-date">
+            <p>24-06</p>
+        </div>
+    </div>
+</div>
+<!-- Chat -->
+<div class="chat-messages">
+    <!-- Message writing -->
+    <div class="message-input-wrapper">
+        <form>
+            <input type="text">
+            <button class="add-button"> Send </button>
+        </form>
+    </div>
+    <div class="messages-wrapper">
+        <div class="user-recieved-message">
+            <p>You:</p>
+            <p>Yes i do, how many do you want?</p>
+            <p>25-6</p>
+        </div>
+        <div class="user-sent-message">
+            <p>Client:</p>
+            <p>Do you still have product 1?</p>
+            <p>25-6</p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- ------------ discount page ------------- -->
+<section class="discount-page hidden" id="discount-page">
+    <h2>Discount Codes</h2>
+    <div class="add-discount-card">
+        <p> Add Discount Card</p>
+        <input type="text" placeholder="code" id="discount-code-name">
+        <input type="text" class="rate-text-holder" placeholder="rate" id="discount-code-rate">
+        <button class="add-button" id="add-discount-code-btn"> Add</button>
+    </div>
+    <div class="line-devider"></div>
+    <h2> Your Discount Codes</h2>
+    <div class="discount-codes" id="discount-codes">
+        <div class="discount-codes-details">
+        <img src="./assets/discount-code.jpeg" alt="sale">
+        <input type="text" placeholder="Discount Code" id="discount-code-get-name" value="ABC" disabled>
+        <input type="text" placeholder="Rate" id="discount-code-get-rate" value="10" disabled>
+        </div>
+        <label> 29-09-2022 </label>
+    </div>
+    
+</section>
+
+<!-- --------- Revenue page --------- -->
+<section class="revenue-page hidden" id="revenue-page">
+ <div class="revenue-box">
+    <img src="./assets/money.png" alt="money">
+    <div class="revenue-card">
+        <div class="revenue-detials">
+        <label> Your Revenue:</label>
+        <p>30000$</p>
+        </div>
+        <div class="dropdown-category">
+            <button class="add-category-btn"> Time Period &#8681</button>
+            <div class="dropdown-content">
+                <p>&#8210; year</p>
+                <p>&#8210; month</p>
+                <p>&#8210; week</p>
+            </div>
+        </div>
+    </div>
+ </div>
+
+</section>
+
+<!-- -------------- profile section -------------- -->
+<section class="profile-page hidden" id="profile-page">
+    <div class="profile-div">
+        <div class="profile-img">
+            <img src="">
+        </div>
+        <div class="profile-details">
+            <input type="text" placeholder="First Name" id="first-name-popup-input" disabled>
+            <input type="text" placeholder="Last Name" id="last-name-popup-input" disabled>
+            <input type="number" placeholder="Phone number" id="phone-number-popup-input" disabled>
+            <input type="text" placeholder="Address" id="address-popup-input" disabled>
+            <button class="add-btn" id="logout-btn"> logout </button>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<!-- --------- learn more---------- -->
+<dialog class="popup" id="popup-learn-more">
+    <div class="learn-more-popup">
+        <div>
+        <span class="material-symbols-outlined" id="learn-more-close">
+            close
+        </span>
+        </div>
+        <div class="img-and-details" id="popup-img-and-details">
+            <div class="learn-more-popup-img">
+                <img id="file-2-preview">
+                <label for="product-img-upload">
+                <span class="material-symbols-outlined">
+                    file_upload
+                </span>
+                </label>
+                <input type="file" id="product-img-upload" accept="image/*" class="hidden" onchange="showPreview2(event);">
+            </div>
+            <div class="learn-more-popup-details">
+                <p>Product Name</p>
+                <input type="text" id="text-product-name" placeholder="product name" disabled="true">
+                <p>Product Price</p>
+                <input type="text" id="text-product-price" placeholder="product price" disabled="true">
+                <p> Stock Quantity</p>
+                <input type="text" id="text-product-stock" placeholder="Quantity" disabled="true">
+                <p> Description</p>
+                <input type="text" id="text-product-description" placeholder="Description of the product" disabled="true">
+            </div>
+        </div>
+        <div class="learn-more-popup-buttons">
+            <span class="material-symbols-outlined" id="delete-product-btn">
+                delete
+            </span>
+            <span class="material-symbols-outlined" id="ads-product-btn">
+                ads_click
+            </span>
+            <div id="edit-prodcut-save-btn" class="hidden">
+            <span class="material-symbols-outlined" onclick="saveEdit()">
+                save
+            </span>
+            </div>
+            <div class="" id="edit-prodcut-edit-btn">
+            <span class="material-symbols-outlined" id="edit-prodcut-info" onclick="enable()">
+                border_color
+            </span>
+            </div>
+        </div>
+    </div>
+</dialog>
+
+
+<!-- --------- add product---------- -->
+<dialog class="popup" id="popup-add-more">
+    <div class="learn-more-popup">
+        <div>
+            <span class="material-symbols-outlined" id="add-product-close">
+                close
+            </span>
+        </div>
+        <div class="img-and-details">
+            <div class="learn-more-popup-img">
+                <img id="file-1-preview">
+                <label for="add-product-img-upload">
+                <span class="material-symbols-outlined">
+                    file_upload
+                </span>
+                </label>
+                <input type="file" id="add-product-img-upload" accept="image/*" class="hidden" onchange="showPreview(event);">
+            </div>
+            <div class="learn-more-popup-details">
+                <p>Product Name</p>
+                <input type="text" placeholder="product name" id="add-product-name">
+                <p>Product Price</p>
+                <input type="text" placeholder="product price" id="add-product-price">
+                <p> Stocks Quantity</p>
+                <input type="text" placeholder="Stocks Quantity" id="add-product-stock">
+                <p> Description</p>
+                <input type="text" placeholder="Description of the product" id="add-product-description">
+            </div>
+        </div>
+        <div class="learn-more-popup-buttons">
+            <button class="add-button" id="add-product-button-popup"> Add Product</button>
+        </div>
+    </div>
+</dialog>
+
+<!-- --------- add category popup ------------- -->
+<dialog class="popup" id="add-category-popup">
+    <div class="add-category-popup">
+        <label> Category Name:</label>
+        <input type="text" placeholder="ex: sport" id="add-category-popup-name">
+        <button class="add-button" id="add-category-popup-btn"> Add</button>
+    </div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,883 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    background-color: #F9F9F9;
+  }
+
+hr{
+    border-top: 1px solid #003945;
+    width: 50%;
+    margin: 2rem auto 0 auto;
+}
+
+
+/* --------------- top navigation bar --------------- */
+.topnav {
+position:fixed;
+display: flex;
+background-color: #D9D9D9;
+color: black;
+height: 60px;
+padding: 1rem 2rem;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+margin-top: 0;
+top:0;
+z-index: 10;
+}
+
+a{
+    text-align: center;
+    text-decoration: none;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    cursor: pointer; 
+}
+
+.logo h1{
+    color: #003945;
+    font-size: 40px;
+}
+
+.logo img{
+    width: 72px;
+}
+
+.nav-right{
+    display: flex;
+    align-items: center;
+}
+
+.nav-right img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+.add-button{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: transparent;
+    margin-right: 2rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-button:hover{
+    background-color:#003945;
+    transition: 500ms;
+    color: white;
+}
+
+.learn-more-wrapper {
+    align-self: center;
+    width: fit-content;
+    text-align: center;
+    text-decoration: underline;
+    color: #8367C7;
+}
+
+.learn-more-wrapper:hover {
+    cursor: pointer;
+    color: #493A6F;
+}
+
+/* ------------ side navigation bar -------------- */
+
+.side-bar{
+
+    position: fixed;
+    width: 20%;
+    background: #003945;
+    height: 100%;
+    /* margin-top: 80px; */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bar .side-menu:first-child{
+margin-top: 20px;
+}
+
+.side-menu{
+    display: flex;
+    /* justify-content: space-between; */
+    padding: 1rem 0;
+    color:white;
+    width: 80%;
+    align-items: center;
+    transition-duration: 500ms;
+    cursor: pointer;
+}
+
+.side-menu-active > p{
+    border-bottom: 3px solid white;
+}
+
+/* .side-bar img{
+    flex-basis: 10%;
+    width: 30px;
+    height: 30px;
+} */
+
+.side-bar p{
+    text-align: left;
+    /* flex-basis:80%; */
+    font-size: 20px;
+    margin-left:1rem ;
+}
+
+.side-menu span{
+    font-size: 30px;
+    font-weight: bold;
+}
+/* ---------- product view ----------- */
+.main-bar{
+margin-left: 25%;
+margin-top: 60px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0px 0px 5px 0.5px #003945;
+    transition-duration: 500ms;
+    width: 30%;
+    margin: 10px;
+    height: 300px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card-img{
+    padding: 10px;
+    width: 100%;
+    height: 200px;
+    background-color: black;
+}
+
+.card-details p{
+    margin: 5px 5px;
+}
+
+.card-learnmore{
+    align-self: center;
+    width: fit-content;
+    text-align: center;
+    text-decoration: underline;
+    color: #003945;
+}
+
+.card-learnmore:hover {
+    cursor: pointer;
+    color: #493A6F;
+}
+.cards-container{
+display: flex;
+flex-wrap: wrap;
+}
+
+.products h2{
+    text-align: center;
+    padding: 1rem;
+    color:#003945
+}
+
+
+/* -------- popup box --------- */
+.popup{
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: fit-content;
+    background-color: white;
+    color: #003945;
+    border-radius: 20px;
+    z-index: 100;
+    border: 1px solid #003945;
+    font-weight: bold;
+}
+
+/* ----------- popup learn more ----------- */
+.popup .card{
+    margin: 5%;
+    width: 90%;
+    padding: 5%;
+    height: fit-content;
+    border: 1px solid #003945;
+    /* border-radius: 20px; */
+}
+
+.popup .card:hover{
+    transform: scale(1);
+}
+
+.popup-buttons{
+    padding-top: 10px;
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-buttons img{
+    width: 25px;
+    height: 25px;
+}
+
+/* --------- popup add product --------- */
+.add-product-card{
+    margin: 5%;
+    width: 90%;
+    /* padding: 5%; */
+    height: fit-content;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5% 0;
+    box-shadow: 0px 0px 5px 0.5px #003945;
+    transition-duration: 500ms;
+}
+
+.add-product-field{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 90%;
+}
+
+.add-product-field p{
+    flex-basis: 25%;
+    width: 100%;
+}
+
+.add-product-field input{
+    flex-basis: 73%;
+    padding: 2%;
+    width: 100%;
+    }
+
+.popup-add-button{
+    padding: 2% 10%;
+}
+
+.add-category-btn{
+    width: 100%;
+    background-color: white;
+    padding: 2%;
+    font-size: 16px;
+}
+
+.dropdown-category{
+    flex-basis: 73%;
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+
+.dropdown-category:hover .dropdown-content{
+    display: block;
+}
+
+.dropdown-content p {
+    display: block;
+    color: white;
+    background-color: #003945;
+    padding: 5px;
+    text-decoration: none;
+  }
+  .dropdown-content p:hover {
+    color: #003945;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .line-devider{
+    border-top: 1px solid #003945;
+    width: 50%;
+    margin: 2rem auto 0 auto;
+  }
+
+/* add category popup */
+.add-category-popup{
+    border: 1px solid #003945;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    width: 600px;
+    align-items: center;
+}
+
+.add-category-popup label{
+    flex-basis: 30%;
+    margin-left: 20px;
+}
+
+.add-category-popup input{
+    flex-basis: 50%;
+    padding: 0.5rem 3rem;
+    border-radius: 5px;
+}
+/*  --------------- Chat page ----------------*/
+.chat-page-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 85vh;
+    margin: 30px;
+    background-color: white;
+    /* border: 2px solid #003945; */
+}
+
+.chat-list-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    border-right: 2px solid #003945;
+}
+
+.chat-list-item {
+    display: flex;
+    border-bottom: 2px solid #003945;
+    padding: 5px;
+}
+
+.seller-img-wrapper {
+    background-color: antiquewhite;
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+}
+
+.seller-info-last-message {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    flex-grow: 1;
+    margin: 0px 20px;
+}
+
+.message-date {
+    align-self: flex-end;
+    justify-self: end;
+}
+
+.chat-messages {
+    overflow: scroll;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #003945;
+    border-left: 2px solid #003945;
+}
+
+.message-input-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.message-input-wrapper > form {
+    display: flex;
+    align-items: center;
+}
+
+.message-input-wrapper input {
+    flex-grow: 1;
+    margin: 15px 10px;
+    padding: 10px 10px;
+    border: 2px solid #003945;
+    border-radius: 15px;
+}
+
+.message-input-wrapper button {
+    height: fit-content;
+}
+
+.message-input-wrapper input:focus {
+    outline: none;
+}
+
+.messages-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.user-sent-message {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-sent-message > p:first-child {
+    color: gainsboro;
+}
+
+.user-sent-message > p:last-child {
+    align-self: flex-end;
+}
+
+.user-recieved-message {
+    background-color: rgb(203, 203, 203);
+    display: flex;
+    flex-direction: column;
+}
+
+.user-recieved-message > p:first-child {
+    color: rgb(0, 0, 0);
+}
+
+.user-recieved-message > p:last-child {
+    align-self: flex-end;
+}
+
+/* ------- discount page ------------ */
+.discount-page h2{
+    color: #003945;
+    margin: auto;
+    text-align: center;
+    padding: 1rem;
+}
+
+.add-discount-card{
+    padding: 2rem;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #003945;
+    box-shadow: 0px 0px 5px 0.5px #003945;
+    border-radius: 10px;
+    align-items: center;
+    background-color: white;
+    margin: auto;
+}
+
+.add-discount-card p{
+    color:#003945;
+}
+
+.add-discount-card input{
+    padding: 5px 1rem;
+    border: 1px solid #003945;
+    border-radius: 10px;
+    margin: 2%;
+}
+
+.discount-codes{
+    display: flex;
+    width: 90%;
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-top: 2%;
+}
+
+.discount-codes-details{
+    flex-basis: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.discount-codes-details img{
+    height: 50px;
+    width: 50px;
+}
+
+.discount-codes-details input{
+    width: 60%;
+    padding: 5px;
+}
+
+.discount-codes-details input:last-child{
+    width: 10%;
+    padding: 5px;
+}
+
+.discount-codes-details label{
+    padding: 5px 10px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+/* -------- revenue page --------- */
+.revenue-box{
+    border: 1px solid #003945;
+    box-shadow: 0px 0px 5px 0.5px #003945;
+    width: 70%;
+    height: 40%;
+    margin: 10% auto;
+    position: fixed;
+    border-radius: 20px;    
+}
+
+.revenue-box img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.revenue-card{
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem auto;
+    align-items: center;
+}
+
+.revenue-detials{
+    margin-left: 10%;
+    flex-basis: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.revenue-detials > p{
+    border: 1px solid #003945;
+    border-radius: 0.5rem;
+    width: 60%;
+    padding: 0.5rem;
+    margin-left: 5px;
+}
+
+.dropdown-category{
+    flex-basis: 20%;
+    margin-right: 10%;
+}
+.revenue-box .add-category-btn{
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px;
+}
+
+/* --------- pop up learnmore new ------- */
+.learn-more-popup{
+    display: flex;
+    width: 700px;
+    flex-direction: column;
+    padding: 2rem;
+    /* align-items: center; */
+    /* position: fixed; */
+}
+
+.learn-more-popup > div:first-child{
+    text-align:end;
+    cursor: pointer;
+}
+
+.img-and-details{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: ; */
+}
+
+.learn-more-popup-img{
+    flex-basis: 45%;
+    padding:1rem;
+    position: relative;
+}
+
+.learn-more-popup-img img{
+    width: 300px;
+    height: 250px;
+    background: antiquewhite;
+}
+
+.learn-more-popup-img span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    text-align: center;
+    /* font-size: 32px; */
+}
+
+.learn-more-popup-img label{
+    cursor: pointer;
+}
+
+.learn-more-popup-details{
+    flex-basis: 45% ;
+    display: flex;
+    flex-direction: column;
+}
+
+.learn-more-popup-details input{
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+   }
+
+.learn-more-popup-buttons{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.learn-more-popup-buttons span{
+    cursor: pointer;
+}
+
+.learn-more-popup-buttons button{
+    margin: auto;
+    
+}
+
+.profile-div{
+    display: flex;
+    border: 1px solid #003945;
+    box-shadow: 0px 0px 5px 0.5px #003945;
+    width: 70%;
+    height: 40%;
+    margin: 10% auto;
+    position: fixed;
+    border-radius: 20px; 
+    padding: 1rem;
+}
+
+.profile-div img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background: #003945;
+}
+
+.profile-img{
+    flex-basis: 30%;
+}
+
+.profile-details{
+    padding-left: 2rem;
+    flex-basis: 68%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-details input{
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.profile-details button{
+    float: right;
+    padding: 0.5rem;
+    background: #003945;
+    color: white;
+    border-radius: 10px;
+}
+
+.add-btn-phone{
+    padding: 5px;
+    display: none;
+}
+
+.learn-more-wrapper {
+    align-self: center;
+    width: fit-content;
+    text-align: center;
+    text-decoration: underline;
+    color: #8367C7;
+}
+
+.learn-more-wrapper:hover {
+    cursor: pointer;
+    color: #493A6F;
+}
+
+/* ----------------- responsiveness for smaller screens ------------------- */
+@media screen and (max-width:850px) {
+
+.card{
+    width: 45%;
+}
+.side-bar p{
+    font-size: 12px;
+}
+
+.logo h1{
+    font-size: 32px;
+}
+
+.side-bar{
+    width: 20%;
+}
+
+.add-discount-card{
+    flex-direction: column;
+}
+
+}
+
+/* ------------ for phones ------------ */
+@media screen and (max-width:650px) {
+    
+.logo h1{
+    font-size: 24px;
+}
+
+.side-bar p{
+    display: none;
+}
+
+.side-bar{
+    width: 10%;
+}
+
+.add-btn-pc{
+    display: none;
+}
+
+.add-btn-phone{
+    display: block;
+    cursor: pointer;
+}
+
+.card{
+    width: 85%;
+}
+
+.nav-right a{
+    display: none;
+}
+
+.img-and-details{
+    flex-direction: column;
+    align-items: center;
+}
+
+.learn-more-popup{
+width: 300px;
+text-align: center;
+}
+
+.add-button{
+    margin: auto;
+    text-align: center;
+}
+
+.learn-more-popup-img img{
+    width: 200px;
+    height: 120px;
+}
+
+.add-category-popup{
+    flex-direction: column;
+    width: 350px;
+    height: 200px;
+    padding: 10px;
+    align-items: center;
+}
+
+.add-category-popup input{
+    padding: 5px 10px;
+    flex-basis: 20%;
+}
+
+.chat-page-wrapper {
+    grid-template-columns: 90%;
+    width: 100%;
+    margin: 0;
+    /* border: 1px solid #003945; */
+}
+
+.chat-list-wrapper {
+width: 100%;
+border: 3px solid #003945;
+}
+
+.chat-messages {
+ border: 3px solid #003945;
+}
+
+.add-discount-card input{
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+
+.add-discount-card{
+    flex-direction: column;
+}
+
+.add-discount-card span{
+width: 60px;
+}
+
+.discount-page{
+    margin-left:0 ;
+}
+
+.main-bar{
+    margin-left: 15%;
+    margin-top: 60px;
+    }
+
+.discount-codes-details img{
+    height: 30px;
+    width: 30px;
+}
+
+.discount-codes-details input{
+    width: 70%;
+}
+
+.discount-codes-details input:last-child{
+    width: 30%;
+}
+
+.discount-codes-details{
+    flex-basis: 70%;
+}
+
+.revenue-card{
+    flex-direction: column;
+}
+
+.add-category-btn{
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+.profile-div{
+ flex-direction: column;
+ height: fit-content;
+ text-align: center;
+}
+
+.discount-codes label{
+    font-size: 12px;
+}
+
+}
+
+/* --------- hide section ---------- */
+.hidden{
+    display: none;
+}
