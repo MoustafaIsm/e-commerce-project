@@ -1,6 +1,7 @@
 //seller id
 const sellerID = 1
 const productID = 1
+const connectionLink="http://localhost/e-commerce-project/ecommerce-server/seller-api/"
 // Side bar navigation buttons
 const productNavBtn=document.getElementById("product-nav-btn")
 const categoryNavBtn=document.getElementById("category-nav-btn")
@@ -365,10 +366,9 @@ const fillUserInfoInputs = () => {
 //-------- discount page results ----------
 const discountCodeResults = () => {
     const formData = new FormData();
-    // formData.append("seller_id", localStorage.getItem("userId"));
     formData.append("seller_id", 5);
-    // formData.append("token", localStorage.getItem("token"));
-    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/get_discount_seller_codes_api.php", formData)
+    formData.append("token", localStorage.getItem("token"));
+    axios.post(connectionLink + "get_discount_seller_codes_api.php", formData)
         .then((response) => {
             console.log(response)
             for (const p of response.data) {

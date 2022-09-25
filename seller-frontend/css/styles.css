@@ -473,7 +473,7 @@ flex-wrap: wrap;
 }
 
 .add-discount-card input{
-    padding: 5px 3rem;
+    padding: 5px 1rem;
     border: 1px solid #003945;
     border-radius: 10px;
     margin: 2%;
@@ -692,7 +692,7 @@ flex-wrap: wrap;
     display: none;
 }
 
-@media screen and (max-width:830px) {
+@media screen and (max-width:850px) {
 
 .card{
     width: 45%;
@@ -707,6 +707,10 @@ flex-wrap: wrap;
 
 .side-bar{
     width: 20%;
+}
+
+.add-discount-card{
+    flex-direction: column;
 }
 
 }
@@ -830,7 +834,7 @@ width: 60px;
 }
 
 .discount-codes-details{
-    flex-basis: 80%;
+    flex-basis: 70%;
 }
 
 .revenue-card{
@@ -848,9 +852,11 @@ width: 60px;
  text-align: center;
 }
 
+.discount-codes label{
+    font-size: 12px;
 }
 
-
+}
 
 /* --------- hide section ---------- */
 .hidden{

@@ -7,11 +7,11 @@ header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 
 require __DIR__ . '/vendor/autoload.php';
 
-// use Firebase\JWT\JWT;
-// use Firebase\JWT\Key;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
-// $token = $_POST["token"];
-// JWT::decode($token, new Key('fgh676', 'HS256'));
+$token = $_POST["token"];
+JWT::decode($token, new Key('fgh676', 'HS256'));
 
 
 $seller_id = $_POST["seller_id"];
