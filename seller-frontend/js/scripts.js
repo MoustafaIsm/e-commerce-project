@@ -1,69 +1,69 @@
 //seller id
 
-localStorage.setItem("userId",5)
+localStorage.setItem("userId", 5)
 const sellerID = localStorage.getItem("userId")
 const productID = 1
-const connectionLink="http://localhost/e-commerce-project/ecommerce-server/seller-api/"
+const connectionLink = "http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/"
 // Side bar navigation buttons
-const productNavBtn=document.getElementById("product-nav-btn")
-const categoryNavBtn=document.getElementById("category-nav-btn")
-const chatNavBtn=document.getElementById("chat-nav-btn")
-const discountNavBtn=document.getElementById("discount-nav-btn")
-const revenueNavBtn=document.getElementById("revenue-nav-btn")
-const profileNavBtn=document.getElementById("profile-nav-btn")
+const productNavBtn = document.getElementById("product-nav-btn")
+const categoryNavBtn = document.getElementById("category-nav-btn")
+const chatNavBtn = document.getElementById("chat-nav-btn")
+const discountNavBtn = document.getElementById("discount-nav-btn")
+const revenueNavBtn = document.getElementById("revenue-nav-btn")
+const profileNavBtn = document.getElementById("profile-nav-btn")
 //top bar buttons
-const addProductBtn=document.getElementById("add-product-button")
-const addProductBtn2=document.getElementById("add-product-button2")
-const addCategoryBtn=document.getElementById("add-category-button")
-const addCategoryBtn2=document.getElementById("add-category-button2")
+const addProductBtn = document.getElementById("add-product-button")
+const addProductBtn2 = document.getElementById("add-product-button2")
+const addCategoryBtn = document.getElementById("add-category-button")
+const addCategoryBtn2 = document.getElementById("add-category-button2")
 //popup close buttons
-const addProductClose=document.getElementById("add-product-close")
-const learnMoreClose=document.getElementById("learn-more-close")
+const addProductClose = document.getElementById("add-product-close")
+const learnMoreClose = document.getElementById("learn-more-close")
 //Pages
-const productPage=document.getElementById("product-page")
-const categoryPage=document.getElementById("category-page")
-const chatPage =document.getElementById("chat-page")
-const discountPage=document.getElementById("discount-page")
-const revenuePage=document.getElementById("revenue-page")
-const profilePage=document.getElementById("profile-page")
+const productPage = document.getElementById("product-page")
+const categoryPage = document.getElementById("category-page")
+const chatPage = document.getElementById("chat-page")
+const discountPage = document.getElementById("discount-page")
+const revenuePage = document.getElementById("revenue-page")
+const profilePage = document.getElementById("profile-page")
 
 //test function for pressing learn more
 const productPopup = document.getElementById("popup-learn-more");
 const temp = document.getElementById("temp");
-temp.addEventListener("click", () =>{
+temp.addEventListener("click", () => {
     productPopup.showModal();
 })
 
 
 //popup the add more product form on pressing the button
 const addProductPopup = document.getElementById("popup-add-more");
-addProductBtn.addEventListener("click", () =>{
+addProductBtn.addEventListener("click", () => {
     addProductPopup.showModal();
 })
-addProductBtn2.addEventListener("click", () =>{
+addProductBtn2.addEventListener("click", () => {
     addProductPopup.showModal();
 })
 
 //popup the add category form on pressing the button
 const addCategoryPopup = document.getElementById("add-category-popup");
-addCategoryBtn.addEventListener("click", () =>{
+addCategoryBtn.addEventListener("click", () => {
     addCategoryPopup.showModal();
 })
-addCategoryBtn2.addEventListener("click", () =>{
+addCategoryBtn2.addEventListener("click", () => {
     addCategoryPopup.showModal();
 })
 
 //closing the popup when pressing the x button
-const closeProductPopup = () =>{
+const closeProductPopup = () => {
     addProductPopup.close();
 }
-const closeLearnMore = () =>{
+const closeLearnMore = () => {
     productPopup.close();
 }
 
 //listeners
-addProductClose.addEventListener("click",closeProductPopup)
-learnMoreClose.addEventListener("click",closeLearnMore)
+addProductClose.addEventListener("click", closeProductPopup)
+learnMoreClose.addEventListener("click", closeLearnMore)
 
 /* Eventlisteners functions */
 
@@ -105,14 +105,14 @@ categoryNavBtn.addEventListener("click", openCategoryPage);
 chatNavBtn.addEventListener("click", openChatPage);
 discountNavBtn.addEventListener("click", openDiscountPage);
 revenueNavBtn.addEventListener("click", openRevenuePage);
-profileNavBtn.addEventListener("click",openProfilePage);
+profileNavBtn.addEventListener("click", openProfilePage);
 
 const sections = document.getElementsByTagName("section")
 const navBtns = document.querySelectorAll(".side-menu")
 /* Helper functions */
 
 const changeNavBtn = (pageToOpen) => {
-    for (const navBtn of navBtns){
+    for (const navBtn of navBtns) {
         navBtn.classList.remove("side-menu-active")
     }
     if (pageToOpen == "product") {
@@ -128,8 +128,44 @@ const changeNavBtn = (pageToOpen) => {
     }
 }
 
+//-------- discount page results ----------
+const discountCodeResults = () => {
+    const formData = new FormData();
+    formData.append("seller_id", sellerID);
+    formData.append("token", localStorage.getItem("token"));
+    axios.post(connectionLink + "get_discount_seller_codes_api.php", formData)
+        .then((response) => {
+            for (const p of response.data) {
+                discountPage.innerHTML += `
+                <div class="discount-codes">
+                <div class="discount-codes-details">
+                <img src="./assets/discount-code.jpeg" alt="sale">
+                <input type="text" id="discount-code-get-name" value = ${p.discount_code} disabled>
+                <input type="text" id="discount-code-get-rate" value=${p.percentage}  disabled>
+                </div>
+                <label> 29-09-2022 </label>
+                </div>  `
+            }
+        })
+        .catch((error) => console.log(error));
+}
+
+
+// ---------- profile page ------------
+const firstNamePopupInput = document.getElementById("first-name-popup-input");
+const lastNamePopupInput = document.getElementById("last-name-popup-input");
+const phoneNumberInput = document.getElementById("phone-number-popup-input");
+const addressPopupInput = document.getElementById("address-popup-input");
+
+const fillUserInfoInputs = () => {
+    firstNamePopupInput.value = localStorage.getItem("firstName");
+    lastNamePopupInput.value = localStorage.getItem("last_name");
+    phoneNumberInput.value = localStorage.getItem("telephone");
+    addressPopupInput.value = localStorage.getItem("address");
+}
+
 const openPage = (pageToOpen) => {
-    for (const section of sections){
+    for (const section of sections) {
         section.classList.add("hidden");
     }
     profilePage.classList.add("hidden")
@@ -178,24 +214,24 @@ const openPage = (pageToOpen) => {
 
 
 // functions to preview the image on pressing upload
-function showPreview(event){
-    if(event.target.files.length > 0){
-      let src = URL.createObjectURL(event.target.files[0]);
-      let preview = document.getElementById("file-1-preview");
-      preview.src = src;
+function showPreview(event) {
+    if (event.target.files.length > 0) {
+        let src = URL.createObjectURL(event.target.files[0]);
+        let preview = document.getElementById("file-1-preview");
+        preview.src = src;
     }
-  }
-
-function showPreview2(event){
-if(event.target.files.length > 0){
-    let src = URL.createObjectURL(event.target.files[0]);
-    let preview = document.getElementById("file-2-preview");
-    preview.src = src;
 }
+
+function showPreview2(event) {
+    if (event.target.files.length > 0) {
+        let src = URL.createObjectURL(event.target.files[0]);
+        let preview = document.getElementById("file-2-preview");
+        preview.src = src;
+    }
 }
 
 // function to edit product on pressing edit
-function enable(){
+function enable() {
     document.getElementById("text-product-name").disabled = false;
     document.getElementById("text-product-price").disabled = false;
     document.getElementById("text-product-stock").disabled = false;
@@ -204,14 +240,14 @@ function enable(){
     document.getElementById("edit-prodcut-save-btn").classList.remove("hidden");
 }
 
-function saveEdit(){
+function saveEdit() {
     document.getElementById("text-product-name").disabled = true;
     document.getElementById("text-product-price").disabled = true;
     document.getElementById("text-product-stock").disabled = true;
     document.getElementById("text-product-description").disabled = true;
     document.getElementById("edit-prodcut-save-btn").classList.add("hidden");
     document.getElementById("edit-prodcut-edit-btn").classList.remove("hidden");
-   
+
 }
 
 //add category fetching data
@@ -221,10 +257,10 @@ const addCategory = () => {
     const formData = new FormData();
     formData.append("token", localStorage.getItem("token"));
     formData.append("category_name", AddCategoryPopupName.value);
-    formData.append("seller_id", sellerID );
-    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/add_categories.php", formData)
+    formData.append("seller_id", sellerID);
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/add_categories.php", formData)
         .then((response) => console.log(response))
-        addCategoryPopup.close();
+    addCategoryPopup.close();
 }
 AddCategoryPopupBtn.addEventListener("click", addCategory);
 
@@ -239,10 +275,10 @@ const addDiscountCode = () => {
     formData.append("percentage", discountCodeRate.value);
     formData.append("seller_id", sellerID);
     formData.append("active", 1);
-    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/add_discount_code.php", formData)
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/add_discount_code.php", formData)
         .then((response) => console.log(response))
-        discountCodeName.value = "";
-        discountCodeRate.value = "";
+    discountCodeName.value = "";
+    discountCodeRate.value = "";
 }
 discountCodeBtn.addEventListener("click", addDiscountCode);
 
@@ -252,9 +288,9 @@ const deleteProductBtn = document.getElementsByClassName("deletee-product")[0];
 const deleteProduct = () => {
     const formData = new FormData();
     formData.append("product_id", deleteProductBtn.id);
-    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/delete_product.php", formData)
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/delete_product.php", formData)
         .then((response) => console.log(response))
-        productPopup.close();
+    productPopup.close();
 }
 deleteProductBtn.addEventListener("click", deleteProduct);
 
@@ -266,9 +302,9 @@ const adsProduct = () => {
     const formData = new FormData();
     formData.append("product_id", adsProductBtn.id);
     formData.append("ad_cost", 10);
-    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/add_ads_to_products_api.php", formData)
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/add_ads_to_products_api.php", formData)
         .then((response) => console.log(response))
-        productPopup.close();
+    productPopup.close();
 }
 adsProductBtn.addEventListener("click", adsProduct);
 
@@ -305,11 +341,11 @@ const saveProduct = () => {
     formData.append("product_price", textProductPrice.value);
     formData.append("description", textProductDescription.value);
     formData.append("stock", textProductStock.value);
-    formData.append("added_at", 2022-1-1);
+    formData.append("added_at", 2022 - 1 - 1);
     formData.append("viewing_count", 2);
-    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/update_product.php", formData)
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/update_product.php", formData)
         .then((response) => console.log(response))
-        productPopup.close();
+    productPopup.close();
 }
 textProductSave.addEventListener("click", saveProduct);
 
@@ -338,7 +374,7 @@ const fillProducts = () => {
     const formData = new FormData();
     formData.append("token", localStorage.getItem("token"));
     formData.append("seller_id", localStorage.getItem("userId"));
-    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-products-api.php", formData)
+    axios.post("http://localhost/SEF/SEF/e-commerce-project/ecommerce-server/client-apis/get-products-api.php", formData)
         .then((response) => populateCards(discoverCards, response.data))
         .catch((error) => console.log(error));
 }
@@ -381,7 +417,7 @@ const openProductPopup = (productId) => {
     const formData = new FormData();
     formData.append("token", localStorage.getItem("token"));
     formData.append("product_id", productId);
-    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-all-seller-product.php", formData)
+    axios.post("http://localhost/SEF/SEF/e-commerce-project/ecommerce-server/client-apis/get-all-seller-product.php", formData)
         .then((response) => {
             fillProductPopup(popupProductDetails, response.data[0]);
         })
@@ -445,39 +481,6 @@ const fillProductPopup = (container, product) => {
 
 
 
-// ---------- profile page ------------
-const firstNamePopupInput = document.getElementById("first-name-popup-input");
-const lastNamePopupInput = document.getElementById("last-name-popup-input");
-const phoneNumberInput = document.getElementById("phone-number-popup-input");
-const addressPopupInput = document.getElementById("address-popup-input");
 
-const fillUserInfoInputs = () => {
-    firstNamePopupInput.value = localStorage.getItem("firstName");
-    lastNamePopupInput.value = localStorage.getItem("last_name");
-    phoneNumberInput.value = localStorage.getItem("telephone");
-    addressPopupInput.value = localStorage.getItem("address");
-}
 
-//-------- discount page results ----------
-const discountCodeResults = () => {
-    const formData = new FormData();
-    formData.append("seller_id", sellerID);
-    formData.append("token", localStorage.getItem("token"));
-    axios.post(connectionLink + "get_discount_seller_codes_api.php", formData)
-        .then((response) => {
-            console.log(response)
-            for (const p of response.data) {
-                discountPage.innerHTML += `
-                <div class="discount-codes">
-                <div class="discount-codes-details">
-                <img src="./assets/discount-code.jpeg" alt="sale">
-                <input type="text" id="discount-code-get-name" value = ${p.discount_code} disabled>
-                <input type="text" id="discount-code-get-rate" value=${p.percentage}  disabled>
-                </div>
-                <label> 29-09-2022 </label>
-                </div>  `
-            }
-        })
-        .catch((error) => console.log(error));
-}
 //-----------------------------------------------
