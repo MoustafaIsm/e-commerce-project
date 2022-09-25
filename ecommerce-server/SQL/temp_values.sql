@@ -41,8 +41,8 @@ INSERT INTO `bans` (`admin_id`, `user_id`) VALUES
 -- --------------------------------------------------------
 -- data for table `carts`
 
-INSERT INTO `carts` (`user_id`, `purchase_date`) VALUES
-(3, '2022-09-17 16:13:09');
+INSERT INTO `carts` (`user_id`, `purchase_date`, `total_cost`) VALUES
+(3, '2022-09-17 16:13:09', 100);
 
 -- --------------------------------------------------------
 -- data for table `products_in_carts`
