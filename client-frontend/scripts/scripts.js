@@ -55,6 +55,7 @@ const cartCards = document.getElementById("cart-cards");
 const totalPrice = document.getElementById("total-price")
 
 const logoutBtn = document.getElementById("logout-btn");
+const sendVoucher = document.getElementById("send-voucher");
 
 // If a browser doesn't support the dialog, then hide it
 if (typeof productPopup.showModal !== 'function') {
@@ -167,6 +168,28 @@ const logoutUser = () => {
     window.location.href = "./index.html";
 }
 
+const openVoucherInput = () => {
+    const voucherInput = document.getElementById("voucher-email-input");
+    const voucherAmountInput = document.getElementById("voucher-amount-input");
+    voucherInput.classList.toggle("hide");
+    voucherAmountInput.classList.toggle("hide");
+    voucherInput.addEventListener((e) => {
+        if (voucherInput.value != "" && voucherAmountInput.value != "" && e.key === 'Enter') {
+            const formData = new FormData();
+            formData.append("from_user_id", localStorage.getItem("userId"));
+            formData.append("token", localStorage.getItem("token"));
+            formData.append("to_user_email", voucherInput.value);
+            formData.append("voucher_amount", voucherAmountInput.value);
+            axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/add-voucher-api.php", formData)
+                .then((response) => {
+                    voucherInput.classList.toggle("hide");
+                    voucherAmountInput.classList.toggle("hide");
+                })
+                .catch((error) => console.log(error));
+        }
+    });
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
@@ -192,6 +215,7 @@ closeProfilePopup.addEventListener("click", closeProfilePopupFun);
 saveProfileData.addEventListener("click", saveEditedUserData);
 
 logoutBtn.addEventListener("click", logoutUser);
+sendVoucher.addEventListener("click", openVoucherInput)
 
 /* Helper functions */
 
