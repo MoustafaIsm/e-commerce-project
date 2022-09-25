@@ -295,7 +295,11 @@ const updateLocalStorage = () => {
     formData.append("token", localStorage.getItem("token"));
     formData.append("userId", localStorage.getItem("userId"));
     axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-user-api.php", formData)
-        .then((response) => saveUserData(response.data[0]))
+        .then((response) => {
+            saveUserData(response.data[0]);
+            fillPersonalInfo();
+            closeProfilePopupFun();
+        })
         .catch((error) => console.log(error));
 }
 
