@@ -476,7 +476,7 @@ flex-wrap: wrap;
     padding: 5px 3rem;
     border: 1px solid #003945;
     border-radius: 10px;
-
+    margin: 2%;
 }
 
 .discount-codes{
@@ -795,6 +795,10 @@ border: 3px solid #003945;
 
 .add-discount-card{
     flex-direction: column;
+}
+
+.add-discount-card span{
+width: 60px;
 }
 
 .discount-page{

@@ -285,12 +285,14 @@
 </div>
 </section>
 
+<!-- ------------ discount page ------------- -->
 <section class="discount-page hidden" id="discount-page">
     <h2>Discount Codes</h2>
     <div class="add-discount-card">
         <p> Add Discount Card</p>
-        <input type="text" placeholder="code">
-        <button class="add-button"> Add</button>
+        <input type="text" placeholder="code" id="discount-code-name">
+        <input type="text" class="rate-text-holder" placeholder="rate" id="discount-code-rate">
+        <button class="add-button" id="add-discount-code-btn"> Add</button>
     </div>
     <div class="line-devider"></div>
     <h2> Your Discount Codes</h2>
@@ -451,11 +453,12 @@
 <dialog class="popup" id="add-category-popup">
     <div class="add-category-popup">
         <label> Category Name:</label>
-        <input type="text" placeholder="ex: sport">
-        <button class="add-button"> Add</button>
+        <input type="text" placeholder="ex: sport" id="add-category-popup-name">
+        <button class="add-button" id="add-category-popup-btn"> Add</button>
     </div>
 </dialog>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./js/scripts.js"></script>
 </body>
 </html>

@@ -2,12 +2,15 @@
 
 include("../connection.php");
 
-require __DIR__ . '/vendor/autoload.php';
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 
-$token = $_POST["token"];
-JWT::decode($token, new Key('fgh676', 'HS256'));
+// require __DIR__ . '/vendor/autoload.php';
+// use Firebase\JWT\JWT;
+// use Firebase\JWT\Key;
+
+// $token = $_POST["token"];
+// JWT::decode($token, new Key('fgh676', 'HS256'));
 
 $discount_code = $_POST["discount_code"];
 $seller_id = $_POST["seller_id"];

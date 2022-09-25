@@ -1,3 +1,5 @@
+//seller id
+const sellerID = 1
 // Side bar navigation buttons
 const productNavBtn=document.getElementById("product-nav-btn")
 const categoryNavBtn=document.getElementById("category-nav-btn")
@@ -22,7 +24,7 @@ const discountPage=document.getElementById("discount-page")
 const revenuePage=document.getElementById("revenue-page")
 const profilePage=document.getElementById("profile-page")
 
-
+//test function for pressing learn more
 const productPopup = document.getElementById("popup-learn-more");
 const temp = document.getElementById("temp");
 temp.addEventListener("click", () =>{
@@ -30,7 +32,7 @@ temp.addEventListener("click", () =>{
 })
 
 
-
+//popup the add more product form on pressing the button
 const addProductPopup = document.getElementById("popup-add-more");
 addProductBtn.addEventListener("click", () =>{
     addProductPopup.showModal();
@@ -39,9 +41,8 @@ addProductBtn2.addEventListener("click", () =>{
     addProductPopup.showModal();
 })
 
-
+//popup the add category form on pressing the button
 const addCategoryPopup = document.getElementById("add-category-popup");
-// const temp3 = document.getElementById("add-category-button");
 addCategoryBtn.addEventListener("click", () =>{
     addCategoryPopup.showModal();
 })
@@ -49,14 +50,15 @@ addCategoryBtn2.addEventListener("click", () =>{
     addCategoryPopup.showModal();
 })
 
+//closing the popup when pressing the x button
 const closeProductPopup = () =>{
     addProductPopup.close();
 }
-
 const closeLearnMore = () =>{
     productPopup.close();
 }
 
+//listeners
 addProductClose.addEventListener("click",closeProductPopup)
 learnMoreClose.addEventListener("click",closeLearnMore)
 
@@ -104,10 +106,7 @@ discountNavBtn.addEventListener("click", openDiscountPage);
 revenueNavBtn.addEventListener("click", openRevenuePage);
 profileNavBtn.addEventListener("click",openProfilePage);
 
-
-
 const sections = document.getElementsByTagName("section")
-
 const navBtns = document.querySelectorAll(".side-menu")
 /* Helper functions */
 
@@ -138,8 +137,6 @@ const openPage = (pageToOpen) => {
     addCategoryBtn2.classList.add("hidden")
     addProductBtn2.classList.remove("hidden")
 
-
-
     if (pageToOpen == "product") {
         productPage.classList.remove("hidden");
         addProductBtn.classList.remove("hidden")
@@ -147,15 +144,12 @@ const openPage = (pageToOpen) => {
         addProductBtn2.classList.remove("hidden")
         addCategoryBtn.classList.add("hidden")
 
-
-
     } else if (pageToOpen == "category") {
         categoryPage.classList.remove("hidden");
         addCategoryBtn.classList.remove("hidden")
         addCategoryBtn2.classList.remove("hidden")
         addProductBtn2.classList.add("hidden")
         addProductBtn.classList.add("hidden")
-
 
     } else if (pageToOpen == "chat") {
         chatPage.classList.remove("hidden");
@@ -182,7 +176,6 @@ const openPage = (pageToOpen) => {
 
 
 // functions to preview the image on pressing upload
-
 function showPreview(event){
     if(event.target.files.length > 0){
       let src = URL.createObjectURL(event.target.files[0]);
@@ -218,3 +211,35 @@ function saveEdit(){
     document.getElementById("edit-prodcut-edit-btn").classList.remove("hidden");
    
 }
+
+//add category fetching data
+const AddCategoryPopupBtn = document.getElementById("add-category-popup-btn");
+const AddCategoryPopupName = document.getElementById("add-category-popup-name");
+const addCategory = () => {
+    const formData = new FormData();
+    formData.append("category_name", sellerID.value);
+    formData.append("seller_id", AddCategoryPopupName.value);
+    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/add_categories.php", formData)
+        .then((response) => console.log(response))
+        addCategoryPopup.close();
+}
+AddCategoryPopupBtn.addEventListener("click", addCategory);
+
+//add discount code
+const discountCodeName = document.getElementById("discount-code-name");
+const discountCodeRate = document.getElementById("discount-code-rate");
+const discountCodeBtn = document.getElementById("add-discount-code-btn");
+
+
+const addDiscountCode = () => {
+    const formData = new FormData();
+    formData.append("discount_code", discountCodeName.value);
+    formData.append("percentage", discountCodeRate.value);
+    formData.append("seller_id", sellerID.value);
+    formData.append("active", 1);
+
+
+    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/add_discount_code.php", formData)
+        .then((response) => console.log(response))
+}
+discountCodeBtn.addEventListener("click", addDiscountCode);
