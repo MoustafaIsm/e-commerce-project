@@ -257,3 +257,15 @@ deleteProductBtn.addEventListener("click", deleteProduct);
 
 
 //advertise the product
+const adsProductBtn = document.getElementById("ads-product-btn");
+const adsProductID = document.getElementById("product-id")
+const adsProduct = () => {
+    const formData = new FormData();
+    formData.append("product_id", adsProductID.value);
+    formData.append("ad_cost", 10);
+    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/delete_product.php", formData)
+        .then((response) => console.log(response))
+        productPopup.close();
+}
+adsProductBtn.addEventListener("click", adsProduct);
+
