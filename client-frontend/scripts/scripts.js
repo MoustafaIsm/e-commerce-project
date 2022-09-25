@@ -372,6 +372,7 @@ const openProductPopup = (productId) => {
     const popupProductDetails = document.getElementById("popup-product-details");
     popupProductDetails.innerHTML = ``;
     checkIfUserLikes(productId);
+    increaseViewCount(productId);
     const formData = new FormData();
     formData.append("token", localStorage.getItem("token"));
     formData.append("product_id", productId);
@@ -536,5 +537,14 @@ const removeFavorite = (productId) => {
     formData2.append("token", localStorage.getItem("token"));
     axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/remove-favorite-api.php", formData2)
         .then((response) => { })
+        .catch((error) => console.log(error));
+}
+
+const increaseViewCount = (productId) => {
+    const formData = new FormData();
+    formData.append("product_id", productId);
+    formData.append("token", localStorage.getItem("token"));
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/increase-product-view-count.php", formData)
+        .then((response) => console.log(response))
         .catch((error) => console.log(error));
 }
