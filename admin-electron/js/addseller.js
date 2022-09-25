@@ -11,12 +11,18 @@ return resp;
 
 };
 
-const addSeller = (data) => {
+const addSeller =  (data) => {
 
 const addResponse = fetchaddSeller(addsellerUrl, data).then((result) => {
+  sellersCards.innerHTML = '';
+   getSellers();
+   const inputs = newsellerSection.querySelectorAll('.change-input');
+   inputs.forEach((item, i) => {
+     item.value='';
+   });
+
 });
-sellersCards.innerHTML = '';
-getSellers();
+
 
 };
 
@@ -24,12 +30,12 @@ getSellers();
 
 // Event Listeners
 saveseller.addEventListener("click", () => {
-  const fname = document.getElementById('fname').value;
-  const lname = document.getElementById('lname').value;
-  const email = document.getElementById('email').value;
-  const address = document.getElementById('address').value;
-  const phone = document.getElementById('phone-nb').value;
-  const password = document.getElementById('password').value;
+  let fname = document.getElementById('fname').value;
+  let lname = document.getElementById('lname').value;
+  let email = document.getElementById('email').value;
+  let address = document.getElementById('address').value;
+  let phone = document.getElementById('phone-nb').value;
+  let password = document.getElementById('password').value;
   if(fname == "" || lname == "" || email == "" || address == "" || phone == "" || password == ""){
     error.classList.remove('hidden');
   }

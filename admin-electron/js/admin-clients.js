@@ -26,7 +26,6 @@ const createCards = (data, banned, clientscards) => {
 let btnText = "Ban";
 
 if(banned){
-  console.log('true');
    btnText = 'Unban';
 }
 
@@ -161,7 +160,7 @@ banBtn.forEach((button, j) => {
 };
 
 // function to get all banned clients
-const getBannedClients = () => {
+const getBannedClients =  () => {
   bannedclientscards.innerHTML = '';
   const data = {
     'token' : token
@@ -184,8 +183,8 @@ const getBannedClients = () => {
   });
   });
 };
-getActiveClients();
-getBannedClients();
+ getActiveClients();
+ getBannedClients();
 
 const fetchBanAPI = (url, data) => {
   const resp =  axios.post(url, data);
@@ -195,34 +194,37 @@ return resp;
 };
 
 // function to unban clients
-const unbanClient = (client_id) => {
+const unbanClient =  (client_id) => {
   console.log("unban");
   const data = {
     'token': token,
     'admin_id': admin_id,
     'user_id': client_id
   }
-  const response = fetchBanAPI(banUrl, data);
-  console.log(response);
-  activeclientscards.innerHTML = '';
-  bannedclientscards.innerHTML = '';
-  getActiveClients();
-  getBannedClients();
+  const response = fetchBanAPI(banUrl, data).then((result) => {
+    activeclientscards.innerHTML = '';
+    bannedclientscards.innerHTML = '';
+     getActiveClients();
+     getBannedClients();
+  });
+
 };
 
 // function to ban clients
-const banClient = (client_id) => {
+const banClient =  (client_id) => {
   console.log("ban");
   const data = {
     'token': token,
     'admin_id': admin_id,
     'user_id': client_id
   }
-  const response = fetchBanAPI(banUrl, data);
-  activeclientscards.innerHTML = '';
-  bannedclientscards.innerHTML = '';
-  getActiveClients();
-  getBannedClients();
+  const response = fetchBanAPI(banUrl, data).then((result) => {
+    activeclientscards.innerHTML = '';
+    bannedclientscards.innerHTML = '';
+     getActiveClients();
+     getBannedClients();
+  });
+
 
 };
 

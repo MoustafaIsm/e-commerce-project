@@ -60,7 +60,11 @@ const resonse = fetchSellerInfoAPI(sellerInfoAPI, data).then((result) => {
    saveEdit.addEventListener('click',() => {
      const changedValues = changedFields(editSellerSection, seller_id);
      console.log(changedValues);
-     const response = saveEdited(editUrl, changedValues);
+     const editresponse = saveEdited(editUrl, changedValues).then((result) => {
+       sellersCards.innerHTML = '';
+        getSellers();
+
+     });
 
      editSellerSection.classList.add('hidden');
 
@@ -121,10 +125,8 @@ return changed;
 
 // function to save edited changes to DB
 const saveEdited = (url, changedValues) => {
-  console.log(url);
   const resp =  axios.post(url, changedValues);
-  sellersCards.innerHTML = "";
-  getSellers();
+
 
   return resp;
 };
