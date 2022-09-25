@@ -14,9 +14,8 @@ return resp;
 const addSeller = (data) => {
 
 const addResponse = fetchaddSeller(addsellerUrl, data).then((result) => {
-  console.log(result);
 });
-sellersCards.innerHTML = "";
+sellersCards.innerHTML = '';
 getSellers();
 
 };
