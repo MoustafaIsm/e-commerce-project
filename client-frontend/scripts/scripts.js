@@ -47,6 +47,7 @@ const saveProfileData = document.getElementById("save-btn");
 const favoritesCards = document.getElementById("favorites-cards");
 const discoverCards = document.getElementById("discover-cards");
 const suggestedCards = document.getElementById("suggested-cards");
+const wishlistCards = document.getElementById("wishlist-cards");
 
 //Temporary variable for testing
 const temp = document.getElementById("temp");
@@ -76,6 +77,7 @@ const openDiscoverPage = () => {
 const openWishlistPage = () => {
     changeNavBtn("wishlist");
     openPage("wishlist");
+    fillWishListProducts();
 }
 
 const openCartPage = () => {
@@ -345,6 +347,15 @@ const fillSuggestedProducts = () => {
         .catch((error) => console.log(error));
 }
 
+const fillWishListProducts = () => {
+    const formData = new FormData();
+    formData.append("token", localStorage.getItem("token"));
+    formData.append("user_id", localStorage.getItem("userId"));
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-wishlist-products.php", formData)
+        .then((response) => populateWiishlistCards(wishlistCards, response.data))
+        .catch((error) => console.log(error));
+}
+
 const populateCards = (container, products) => {
     container.innerHTML = ``;
     for (const product of products) {
@@ -377,6 +388,65 @@ const populateCards = (container, products) => {
             openProductPopup(btn.id);
         });
     }
+}
+
+const populateWiishlistCards = (container, products) => {
+    container.innerHTML = ``;
+    for (const product of products) {
+        let ppHolder = ``;
+        if (product.product_picture != "NA") {
+            ppHolder = `<img src="${product.product_picture}" alt ="">`;
+        }
+        let card = ` 
+        <div class="card">
+            <!-- Product image -->
+            <div class="product-img-wrapper">
+                ${ppHolder}
+            </div>
+            <!-- Product details -->
+            <div class="product-details-wrapper">
+                <p class="bold-text">${product.product_name}</p>
+                <p>${product.first_name + " " + product.last_name}</p>
+                <p>${product.category_name}</p>
+            </div>
+            <!-- Learn more -->
+            <div class="wishlist-product-card-footer">
+                <div>
+                    <span class="material-symbols-outlined delete" id="${product.product_id}">
+                        delete
+                    </span>
+                </div>
+                <p id="${product.product_id}" class="learn-more">Click to learn more</p>
+                <div>
+                    <span class="material-symbols-outlined add-to-carts" id="${product.product_id}">
+                        add_shopping_cart
+                    </span>
+                </div>
+            </div>
+        </div>`;
+        container.innerHTML += card;
+    }
+
+    const deleteFromWishList = document.getElementsByClassName("delete");
+    const learnMore = document.getElementsByClassName("learn-more");
+    const addToCart = document.getElementsByClassName("add-to-cart");
+
+    for (const btn of learnMore) {
+        btn.addEventListener("click", () => {
+            openProductPopup(btn.id);
+        });
+    }
+    for (const btn1 of deleteFromWishList) {
+        btn1.addEventListener("click", () => {
+            removeProductFromWishList(btn1.id);
+        });
+    }
+    for (const btn2 of addToCart) {
+        btn2.addEventListener("click", () => {
+            cart.push(btn2.id);
+        });
+    }
+
 }
 
 const openProductPopup = (productId) => {
@@ -518,7 +588,6 @@ const checkIfUserLikes = (id) => {
         .then((response) => {
             let temp = false;
             for (const p of response.data) {
-                console.log(p.product_id + ":" + id);
                 if (p.product_id == id) {
                     liked = true;
                     temp = true;
