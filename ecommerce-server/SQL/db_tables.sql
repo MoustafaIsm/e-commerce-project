@@ -179,11 +179,12 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`vouchers` (
 -- Table `ecommercedb`.`chats`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ecommercedb`.`chats` (
+  `chat_id` INT NOT NULL AUTO_INCREMENT,
   `client_user_id` INT NOT NULL,
   `seller_user_id` INT NOT NULL,
   `chat_text` MEDIUMTEXT NULL,
   `date` DATE NULL,
-  PRIMARY KEY (`client_user_id`, `seller_user_id`),
+  PRIMARY KEY (`chat_id`),
   CONSTRAINT `fk_users_has_users_users5`
     FOREIGN KEY (`client_user_id`)
     REFERENCES `ecommercedb`.`users` (`user_id`)
