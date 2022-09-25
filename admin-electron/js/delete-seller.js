@@ -15,8 +15,6 @@ const deleteSeller = (seller_id) => {
     'user_id': seller_id
   }
 const deleteResponse = fetchdeleteSeller(deleteUrl, data).then( response => {
-    console.log(response);
+  getSellers();
 });
-sellersCards.innerHTML = "";
-getSellers();
 };
