@@ -13,7 +13,7 @@ JWT::decode($token, new Key('fgh676', 'HS256'));
 
 $seller_id = $_POST["seller_id"];
 
-$query = "SELECT * FROM `products` WHERE products.seller_id = ?";
+$query = "SELECT * FROM `products` WHERE products.seller_id = ? ORDER BY  products.product_id DESC";
 $query1 = $mysqli->prepare($query);
 $query1->bind_param("i", $seller_id);
 $query1->execute();
