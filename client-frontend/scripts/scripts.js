@@ -54,8 +54,7 @@ const wishlistCards = document.getElementById("wishlist-cards");
 const cartCards = document.getElementById("cart-cards");
 const totalPrice = document.getElementById("total-price")
 
-//Temporary variable for testing
-const temp = document.getElementById("temp");
+const logoutBtn = document.getElementById("logout-btn");
 
 // If a browser doesn't support the dialog, then hide it
 if (typeof productPopup.showModal !== 'function') {
@@ -163,6 +162,11 @@ const applyDiscountCode = () => {
     checkForDiscountCodes();
 }
 
+const logoutUser = () => {
+    localStorage.clear();
+    window.location.href = "./index.html";
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
@@ -186,6 +190,8 @@ discountApplyBtn.addEventListener("click", applyDiscountCode);
 editProfileBtn.addEventListener("click", openProfilePopup);
 closeProfilePopup.addEventListener("click", closeProfilePopupFun);
 saveProfileData.addEventListener("click", saveEditedUserData);
+
+logoutBtn.addEventListener("click", logoutUser);
 
 /* Helper functions */
 
@@ -712,17 +718,25 @@ const checkForDiscountCodes = () => {
             formData.append("token", localStorage.getItem("token"));
             axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/add-discount-api.php", formData)
                 .then((response) => {
+                    console.log(response);
                     if (response.data.discount != false) {
                         item.product_price = item.product_price * (response.data.discount.percentage / 100);
+                        discountApplyBtn.removeEventListener("click", applyDiscountCode);
                     }
                 })
                 .catch((error) => console.log(error));
         }
-        discountApplyBtn.removeEventListener("click", applyDiscountCode);
-        updateTotalCost();
+        // updateTotalCost();
     }
 }
 
 const updateTotalCost = () => {
-
+    // console.log(cart);
+    // totalCartCost = 0;
+    // let i = 0;
+    // for (const item of cart) {
+    //     totalCartCost += (item.product_price * productAmount[i]);
+    //     i++;
+    // }
+    updateTotalCost();
 }
