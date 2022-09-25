@@ -54,8 +54,9 @@ const wishlistCards = document.getElementById("wishlist-cards");
 const cartCards = document.getElementById("cart-cards");
 const totalPrice = document.getElementById("total-price")
 
-//Temporary variable for testing
-const temp = document.getElementById("temp");
+const logoutBtn = document.getElementById("logout-btn");
+const sendVoucher = document.getElementById("send-voucher");
+const addCart = document.getElementById("add-cart");
 
 // If a browser doesn't support the dialog, then hide it
 if (typeof productPopup.showModal !== 'function') {
@@ -163,6 +164,49 @@ const applyDiscountCode = () => {
     checkForDiscountCodes();
 }
 
+const logoutUser = () => {
+    localStorage.clear();
+    window.location.href = "./index.html";
+}
+
+const openVoucherInput = () => {
+    const voucherInput = document.getElementById("voucher-email-input");
+    const voucherAmountInput = document.getElementById("voucher-amount-input");
+    voucherInput.classList.toggle("hide");
+    voucherAmountInput.classList.toggle("hide");
+    voucherInput.addEventListener((e) => {
+        if (voucherInput.value != "" && voucherAmountInput.value != "" && e.key === 'Enter') {
+            const formData = new FormData();
+            formData.append("from_user_id", localStorage.getItem("userId"));
+            formData.append("token", localStorage.getItem("token"));
+            formData.append("to_user_email", voucherInput.value);
+            formData.append("voucher_amount", voucherAmountInput.value);
+            axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/add-voucher-api.php", formData)
+                .then((response) => {
+                    voucherInput.classList.toggle("hide");
+                    voucherAmountInput.classList.toggle("hide");
+                })
+                .catch((error) => console.log(error));
+        }
+    });
+}
+
+const addCartOfUser = () => {
+    const formData = new FormData();
+    formData.append("userId", localStorage.getItem("userId"));
+    formData.append("purchase_date", getCurrentDate());
+    formData.append("total_cost", totalCartCost);
+    formData.append("token", localStorage.getItem("token"));
+    idArray = [];
+    for (const item of cart) {
+        idArray.push(item.product_id);
+    }
+    data.append("productsId", JSON.stringify(idArray))
+
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/add-cart-api.php", formData).then((response) => { console.log(response) }).catch((error) => console.log(error));
+
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
@@ -186,6 +230,10 @@ discountApplyBtn.addEventListener("click", applyDiscountCode);
 editProfileBtn.addEventListener("click", openProfilePopup);
 closeProfilePopup.addEventListener("click", closeProfilePopupFun);
 saveProfileData.addEventListener("click", saveEditedUserData);
+
+logoutBtn.addEventListener("click", logoutUser);
+sendVoucher.addEventListener("click", openVoucherInput);
+addCart.addEventListener("click", addCartOfUser);
 
 /* Helper functions */
 
@@ -702,27 +750,12 @@ const displayTotalCost = () => {
     totalPrice.textContent = "$" + totalCartCost;
 }
 
-const checkForDiscountCodes = () => {
-    if (discountInput.value != "") {
-        const discountCode = discountInput.value;
-        for (const item of cart) {
-            const formData = new FormData();
-            formData.append("productId", item.product_id);
-            formData.append("discountCode", discountCode);
-            formData.append("token", localStorage.getItem("token"));
-            axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/add-discount-api.php", formData)
-                .then((response) => {
-                    if (response.data.discount != false) {
-                        item.product_price = item.product_price * (response.data.discount.percentage / 100);
-                    }
-                })
-                .catch((error) => console.log(error));
-        }
-        discountApplyBtn.removeEventListener("click", applyDiscountCode);
-        updateTotalCost();
-    }
-}
+const getCurrentDate = () => {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
 
-const updateTotalCost = () => {
-
+    today = yyyy + '-' + mm + '-' + dd;
+    return today;
 }
