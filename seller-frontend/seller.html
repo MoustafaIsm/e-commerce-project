@@ -285,38 +285,24 @@
 </div>
 </section>
 
+<!-- ------------ discount page ------------- -->
 <section class="discount-page hidden" id="discount-page">
     <h2>Discount Codes</h2>
     <div class="add-discount-card">
         <p> Add Discount Card</p>
-        <input type="text" placeholder="code">
-        <button class="add-button"> Add</button>
+        <input type="text" placeholder="code" id="discount-code-name">
+        <input type="text" class="rate-text-holder" placeholder="rate" id="discount-code-rate">
+        <button class="add-button" id="add-discount-code-btn"> Add</button>
     </div>
     <div class="line-devider"></div>
     <h2> Your Discount Codes</h2>
     <div class="discount-codes">
         <div class="discount-codes-details">
         <img src="./assets/discount-code.jpeg" alt="sale">
-        <input type="text" placeholder="Discount Code">
-        <input type="text" placeholder="Rate">
+        <input type="text" placeholder="Discount Code" id="discount-code-get-name" value="ABC" disabled>
+        <input type="text" placeholder="Rate" id="discount-code-get-rate" value="10" disabled>
         </div>
-        <label> Date</label>
-    </div>
-    <div class="discount-codes">
-        <div class="discount-codes-details">
-        <img src="./assets/discount-code.jpeg" alt="sale">
-        <input type="text" placeholder="Discount Code">
-        <input type="text" placeholder="Rate">
-        </div>
-        <label> Date</label>
-    </div>
-    <div class="discount-codes">
-        <div class="discount-codes-details">
-        <img src="./assets/discount-code.jpeg" alt="sale">
-        <input type="text" placeholder="Discount Code">
-        <input type="text" placeholder="Rate">
-        </div>
-        <label> Date</label>
+        <label> 29-09-2022 </label>
     </div>
     
 </section>
@@ -350,11 +336,10 @@
             <img src="">
         </div>
         <div class="profile-details">
-            <p> Name</p>
-            <p> Email</p>
-            <p> Phone</p>
-            <p> Address</p>
-            <button> Edit proile</button>
+            <input type="text" placeholder="First Name" id="first-name-popup-input" disabled>
+            <input type="text" placeholder="Last Name" id="last-name-popup-input" disabled>
+            <input type="number" placeholder="Phone number" id="phone-number-popup-input" disabled>
+            <input type="text" placeholder="Address" id="address-popup-input" disabled>
         </div>
     </div>
 </section>
@@ -369,7 +354,7 @@
             close
         </span>
         </div>
-        <div class="img-and-details">
+        <div class="img-and-details" id="popup-img-and-details">
             <div class="learn-more-popup-img">
                 <img id="file-2-preview">
                 <label for="product-img-upload">
@@ -384,17 +369,17 @@
                 <input type="text" id="text-product-name" placeholder="product name" disabled="true">
                 <p>Product Price</p>
                 <input type="text" id="text-product-price" placeholder="product price" disabled="true">
-                <p> Category</p>
-                <input type="text" id="text-product-category" placeholder="Category name" disabled="true">
+                <p> Stock Quantity</p>
+                <input type="text" id="text-product-stock" placeholder="Quantity" disabled="true">
                 <p> Description</p>
                 <input type="text" id="text-product-description" placeholder="Description of the product" disabled="true">
             </div>
         </div>
         <div class="learn-more-popup-buttons">
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined" id="delete-product-btn">
                 delete
             </span>
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined" id="ads-product-btn">
                 ads_click
             </span>
             <div id="edit-prodcut-save-btn" class="hidden">
@@ -451,11 +436,12 @@
 <dialog class="popup" id="add-category-popup">
     <div class="add-category-popup">
         <label> Category Name:</label>
-        <input type="text" placeholder="ex: sport">
-        <button class="add-button"> Add</button>
+        <input type="text" placeholder="ex: sport" id="add-category-popup-name">
+        <button class="add-button" id="add-category-popup-btn"> Add</button>
     </div>
 </dialog>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./js/scripts.js"></script>
 </body>
 </html>

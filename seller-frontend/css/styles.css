@@ -80,6 +80,18 @@ a{
     color: white;
 }
 
+.learn-more-wrapper {
+    align-self: center;
+    width: fit-content;
+    text-align: center;
+    text-decoration: underline;
+    color: #8367C7;
+}
+
+.learn-more-wrapper:hover {
+    cursor: pointer;
+    color: #493A6F;
+}
 
 /* ------------ side navigation bar -------------- */
 
@@ -273,7 +285,6 @@ flex-wrap: wrap;
     padding: 2%;
     font-size: 16px;
 }
-
 
 .dropdown-category{
     flex-basis: 73%;
@@ -473,10 +484,10 @@ flex-wrap: wrap;
 }
 
 .add-discount-card input{
-    padding: 5px 3rem;
+    padding: 5px 1rem;
     border: 1px solid #003945;
     border-radius: 10px;
-
+    margin: 2%;
 }
 
 .discount-codes{
@@ -516,7 +527,6 @@ flex-wrap: wrap;
     border: 1px solid;
     border-radius: 10px;
 }
-
 
 /* -------- revenue page --------- */
 .revenue-box{
@@ -619,8 +629,6 @@ flex-wrap: wrap;
     flex-direction: column;
 }
 
-
-
 .learn-more-popup-details input{
     width: 100%;
     margin-bottom: 1rem;
@@ -669,10 +677,13 @@ flex-wrap: wrap;
 .profile-details{
     padding-left: 2rem;
     flex-basis: 68%;
+    display: flex;
+    flex-direction: column;
 }
 
-.profile-details p{
-    padding: 1rem;
+.profile-details input{
+    padding: 0.5rem;
+    margin: 0.5rem;
 }
 
 .profile-details button{
@@ -683,13 +694,26 @@ flex-wrap: wrap;
     border-radius: 10px;
 }
 
-
 .add-btn-phone{
     padding: 5px;
     display: none;
 }
 
-@media screen and (max-width:830px) {
+.learn-more-wrapper {
+    align-self: center;
+    width: fit-content;
+    text-align: center;
+    text-decoration: underline;
+    color: #8367C7;
+}
+
+.learn-more-wrapper:hover {
+    cursor: pointer;
+    color: #493A6F;
+}
+
+/* ----------------- responsiveness for smaller screens ------------------- */
+@media screen and (max-width:850px) {
 
 .card{
     width: 45%;
@@ -706,8 +730,13 @@ flex-wrap: wrap;
     width: 20%;
 }
 
+.add-discount-card{
+    flex-direction: column;
 }
 
+}
+
+/* ------------ for phones ------------ */
 @media screen and (max-width:650px) {
     
 .logo h1{
@@ -797,6 +826,10 @@ border: 3px solid #003945;
     flex-direction: column;
 }
 
+.add-discount-card span{
+width: 60px;
+}
+
 .discount-page{
     margin-left:0 ;
 }
@@ -806,12 +839,9 @@ border: 3px solid #003945;
     margin-top: 60px;
     }
 
-
-
 .discount-codes-details img{
     height: 30px;
     width: 30px;
-
 }
 
 .discount-codes-details input{
@@ -823,7 +853,7 @@ border: 3px solid #003945;
 }
 
 .discount-codes-details{
-    flex-basis: 80%;
+    flex-basis: 70%;
 }
 
 .revenue-card{
@@ -835,9 +865,17 @@ border: 3px solid #003945;
     margin-top: 5px;
 }
 
+.profile-div{
+ flex-direction: column;
+ height: fit-content;
+ text-align: center;
 }
 
+.discount-codes label{
+    font-size: 12px;
+}
 
+}
 
 /* --------- hide section ---------- */
 .hidden{

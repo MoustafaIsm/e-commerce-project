@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> EC-87-seller-page-linking
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 header("Access-Control-Allow-Headers: *");
 
