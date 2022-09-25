@@ -73,7 +73,6 @@ const signInUser = () => {
             axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/login-api.php", formData)
                 .then((response) => response.data).
                 then((data) => {
-                    console.log(data);
                     if (data.ispresent == true) {
                         if (data.pass_valid == true) {
                             localStorage.setItem("token", data.token);
