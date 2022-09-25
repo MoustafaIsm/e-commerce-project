@@ -14,21 +14,11 @@ JWT::decode($token, new Key('fgh676', 'HS256'));
 
 
 $user_id = $data->user_id;
-$query = "DELETE FROM users WHERE user_id=10";
-$query1 = "DELETE FROM products WHERE seller_id=?";
-$query2 = "DELETE FROM categories WHERE seller_id=?";
+$query = "DELETE FROM users WHERE user_id=?";
 $stmt = $mysqli->prepare($query);
-//$stmt->bind_param('i', $user_id);
-$stmt1 = $mysqli->prepare($query1);
-$stmt1->bind_param('i', $user_id);
-$stmt2 = $mysqli->prepare($query2);
-$stmt2->bind_param('i', $user_id);
+$stmt->bind_param('i', $user_id);
 
-$stmt2->execute();
-$stmt1->execute();
-
-
-if($stmt1->execute()){
+if($stmt->execute()){
   $response1["success"] = true;
 }
 else{
