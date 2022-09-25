@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`products` (
   CONSTRAINT `fk_products_users1`
     FOREIGN KEY (`seller_id`)
     REFERENCES `ecommercedb`.`users` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE NO CASCADE
+    ON UPDATE NO CASCADE);
 
 -- Table `ecommercedb`.`discounts`
 -- -----------------------------------------------------
@@ -61,8 +61,8 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`discounts` (
   CONSTRAINT `fk_discounts_users1`
     FOREIGN KEY (`seller_id`)
     REFERENCES `ecommercedb`.`users` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE NO CASCADE
+    ON UPDATE NO CASCADE);
 
 -- Table `ecommercedb`.`categories`
 -- -----------------------------------------------------
@@ -74,8 +74,8 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`categories` (
   CONSTRAINT `fk_categories_users1`
     FOREIGN KEY (`seller_id`)
     REFERENCES `ecommercedb`.`users` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE NO CASCADE
+    ON UPDATE NO CASCADE);
 
 -- Table `ecommercedb`.`product_categories`
 -- -----------------------------------------------------
@@ -192,8 +192,8 @@ CREATE TABLE IF NOT EXISTS `ecommercedb`.`chats` (
   CONSTRAINT `fk_users_has_users_users6`
     FOREIGN KEY (`seller_user_id`)
     REFERENCES `ecommercedb`.`users` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE NO CASCADE
+    ON UPDATE NO CASCADE);
 
 -- Table `ecommercedb`.`ads`
 -- -----------------------------------------------------
