@@ -22,7 +22,7 @@ position:fixed;
 display: flex;
 background-color: #D9D9D9;
 color: black;
-height: 80px;
+height: 60px;
 padding: 1rem 2rem;
 justify-content: space-between;
 align-items: center;
@@ -44,7 +44,7 @@ a{
 }
 
 .logo h1{
-    color:black;
+    color: #003945;
     font-size: 40px;
 }
 
@@ -101,7 +101,7 @@ margin-top: 20px;
 
 .side-menu{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 1rem 0;
     color:white;
     width: 80%;
@@ -111,26 +111,30 @@ margin-top: 20px;
 }
 
 .side-menu-active > p{
-    border-bottom: 1px solid white;
+    border-bottom: 3px solid white;
 }
 
-.side-bar img{
+/* .side-bar img{
     flex-basis: 10%;
     width: 30px;
     height: 30px;
-}
+} */
 
 .side-bar p{
     text-align: left;
-    flex-basis: 80%;
+    /* flex-basis:80%; */
     font-size: 20px;
-    padding-left:10px ;
+    margin-left:1rem ;
 }
 
+.side-menu span{
+    font-size: 30px;
+    font-weight: bold;
+}
 /* ---------- product view ----------- */
 .main-bar{
 margin-left: 25%;
-margin-top: 80px;
+margin-top: 60px;
 }
 
 .card {
@@ -189,7 +193,7 @@ flex-wrap: wrap;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    width: 30%;
+    width: fit-content;
     background-color: white;
     color: #003945;
     border-radius: 20px;
@@ -308,13 +312,36 @@ flex-wrap: wrap;
     margin: 2rem auto 0 auto;
   }
 
+/* add category popup */
+.add-category-popup{
+    border: 1px solid #003945;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    width: 600px;
+    align-items: center;
+}
+
+.add-category-popup label{
+    flex-basis: 30%;
+    margin-left: 20px;
+}
+
+.add-category-popup input{
+    flex-basis: 50%;
+    padding: 0.5rem 3rem;
+    border-radius: 5px;
+}
 /*  --------------- Chat page ----------------*/
 .chat-page-wrapper {
     display: grid;
     grid-template-columns: 50% 50%;
     height: 85vh;
-    margin: 15px 30px;
-    border: 2px solid #003945;
+    margin: 30px;
+    background-color: white;
+    /* border: 2px solid #003945; */
 }
 
 .chat-list-wrapper {
@@ -470,14 +497,17 @@ flex-wrap: wrap;
 }
 
 .discount-codes-details img{
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    background-color: black;
+    height: 50px;
+    width: 50px;
 }
 
 .discount-codes-details input{
-    width: 70%;
+    width: 60%;
+    padding: 5px;
+}
+
+.discount-codes-details input:last-child{
+    width: 10%;
     padding: 5px;
 }
 
@@ -534,6 +564,277 @@ flex-wrap: wrap;
 .revenue-box .add-category-btn{
     border-top-left-radius: 10px ;
     border-top-right-radius: 10px;
+}
+
+/* --------- pop up learnmore new ------- */
+.learn-more-popup{
+    display: flex;
+    width: 700px;
+    flex-direction: column;
+    padding: 2rem;
+    /* align-items: center; */
+    /* position: fixed; */
+}
+
+.learn-more-popup > div:first-child{
+    text-align:end;
+    cursor: pointer;
+}
+
+.img-and-details{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: ; */
+}
+
+.learn-more-popup-img{
+    flex-basis: 45%;
+    padding:1rem;
+    position: relative;
+}
+
+.learn-more-popup-img img{
+    width: 300px;
+    height: 250px;
+    background: antiquewhite;
+}
+
+.learn-more-popup-img span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    text-align: center;
+    /* font-size: 32px; */
+}
+
+.learn-more-popup-img label{
+    cursor: pointer;
+}
+
+.learn-more-popup-details{
+    flex-basis: 45% ;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.learn-more-popup-details input{
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+   }
+
+.learn-more-popup-buttons{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.learn-more-popup-buttons span{
+    cursor: pointer;
+}
+
+.learn-more-popup-buttons button{
+    margin: auto;
+    
+}
+
+.profile-div{
+    display: flex;
+    border: 1px solid #003945;
+    box-shadow: 0px 0px 5px 0.5px #003945;
+    width: 70%;
+    height: 40%;
+    margin: 10% auto;
+    position: fixed;
+    border-radius: 20px; 
+    padding: 1rem;
+}
+
+.profile-div img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background: #003945;
+}
+
+.profile-img{
+    flex-basis: 30%;
+}
+
+.profile-details{
+    padding-left: 2rem;
+    flex-basis: 68%;
+}
+
+.profile-details p{
+    padding: 1rem;
+}
+
+.profile-details button{
+    float: right;
+    padding: 0.5rem;
+    background: #003945;
+    color: white;
+    border-radius: 10px;
+}
+
+
+.add-btn-phone{
+    padding: 5px;
+    display: none;
+}
+
+@media screen and (max-width:830px) {
+
+.card{
+    width: 45%;
+}
+.side-bar p{
+    font-size: 12px;
+}
+
+.logo h1{
+    font-size: 32px;
+}
+
+.side-bar{
+    width: 20%;
+}
+
+}
+
+@media screen and (max-width:650px) {
+    
+.logo h1{
+    font-size: 24px;
+}
+
+.side-bar p{
+    display: none;
+}
+
+.side-bar{
+    width: 10%;
+}
+
+.add-btn-pc{
+    display: none;
+}
+
+.add-btn-phone{
+    display: block;
+    cursor: pointer;
+}
+
+.card{
+    width: 85%;
+}
+
+.nav-right a{
+    display: none;
+}
+
+.img-and-details{
+    flex-direction: column;
+    align-items: center;
+}
+
+.learn-more-popup{
+width: 300px;
+text-align: center;
+}
+
+.add-button{
+    margin: auto;
+    text-align: center;
+}
+
+.learn-more-popup-img img{
+    width: 200px;
+    height: 120px;
+}
+
+.add-category-popup{
+    flex-direction: column;
+    width: 350px;
+    height: 200px;
+    padding: 10px;
+    align-items: center;
+}
+
+.add-category-popup input{
+    padding: 5px 10px;
+    flex-basis: 20%;
+}
+
+.chat-page-wrapper {
+    grid-template-columns: 90%;
+    width: 100%;
+    margin: 0;
+    /* border: 1px solid #003945; */
+}
+
+.chat-list-wrapper {
+width: 100%;
+border: 3px solid #003945;
+}
+
+.chat-messages {
+ border: 3px solid #003945;
+}
+
+.add-discount-card input{
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+
+.add-discount-card{
+    flex-direction: column;
+}
+
+.discount-page{
+    margin-left:0 ;
+}
+
+.main-bar{
+    margin-left: 15%;
+    margin-top: 60px;
+    }
+
+
+
+.discount-codes-details img{
+    height: 30px;
+    width: 30px;
+
+}
+
+.discount-codes-details input{
+    width: 70%;
+}
+
+.discount-codes-details input:last-child{
+    width: 30%;
+}
+
+.discount-codes-details{
+    flex-basis: 80%;
+}
+
+.revenue-card{
+    flex-direction: column;
+}
+
+.add-category-btn{
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
 }
 
 
