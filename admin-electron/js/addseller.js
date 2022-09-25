@@ -2,7 +2,6 @@ const saveseller = document.querySelector('.save-newseller');
 const error = document.querySelector('.error');
 const addsellerUrl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/add_seller.php";
 
-hello();
 
 // function to fetch add sellers api
 const fetchaddSeller = (url, token) => {
