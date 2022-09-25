@@ -313,3 +313,38 @@ function getCurrentDate() {
     const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     return date + ' ' + time;
 }
+
+
+// function to fill the cards
+const populateCards = (container, products) => {
+    container.innerHTML = ``;
+    for (const product of products) {
+        let ppHolder = ``;
+        if (product.product_picture != "NA") {
+            ppHolder = `<img src="${product.product_picture}" alt="">`;
+        }
+        const card = `
+        <div class="card">
+            <div class="card-img">
+                ${ppHolder}
+            </div>
+            <div class="card-details">
+                <p> ${product.product_name} </p>
+                <p>Seller Name</p>
+                <p> Categories</p>
+            </div>
+            <div class="card-learnmore">
+                <p>Click to learn more</p>
+            </div>
+        </div>`;
+        container.innerHTML += card;
+    }
+    const learnMore = document.getElementsByClassName("learn-more-wrapper");
+    for (const btn of learnMore) {
+        btn.addEventListener("click", () => {
+            openProductPopup(btn.id);
+        });
+    }
+}
+
+
