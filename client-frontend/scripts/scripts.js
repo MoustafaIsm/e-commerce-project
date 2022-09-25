@@ -159,6 +159,10 @@ const saveEditedUserData = () => {
     }
 }
 
+const applyDiscountCode = () => {
+    checkForDiscountCodes();
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
@@ -177,6 +181,7 @@ burgerProfileNavBtn.addEventListener("click", openProfilePage);
 closeProductPopup.addEventListener("click", closeProductPopupFun);
 
 textBtn.addEventListener("click", openDiscountInput);
+discountApplyBtn.addEventListener("click", applyDiscountCode);
 
 editProfileBtn.addEventListener("click", openProfilePopup);
 closeProfilePopup.addEventListener("click", closeProfilePopupFun);
@@ -695,4 +700,29 @@ const removeProductFromWishList = (id) => {
 
 const displayTotalCost = () => {
     totalPrice.textContent = "$" + totalCartCost;
+}
+
+const checkForDiscountCodes = () => {
+    if (discountInput.value != "") {
+        const discountCode = discountInput.value;
+        for (const item of cart) {
+            const formData = new FormData();
+            formData.append("productId", item.product_id);
+            formData.append("discountCode", discountCode);
+            formData.append("token", localStorage.getItem("token"));
+            axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/add-discount-api.php", formData)
+                .then((response) => {
+                    if (response.data.discount != false) {
+                        item.product_price = item.product_price * (response.data.discount.percentage / 100);
+                    }
+                })
+                .catch((error) => console.log(error));
+        }
+        discountApplyBtn.removeEventListener("click", applyDiscountCode);
+        updateTotalCost();
+    }
+}
+
+const updateTotalCost = () => {
+
 }
