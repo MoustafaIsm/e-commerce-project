@@ -161,6 +161,7 @@ const openPage = (pageToOpen) => {
         discountPage.classList.remove("hidden");
         addProductBtn2.classList.add("hidden")
         addCategoryBtn2.classList.add("hidden")
+        discountCodeResults();
 
     } else if (pageToOpen == "revenue") {
         revenuePage.classList.remove("hidden");
@@ -171,7 +172,7 @@ const openPage = (pageToOpen) => {
         profilePage.classList.remove("hidden");
         addProductBtn2.classList.add("hidden")
         addCategoryBtn2.classList.add("hidden")
-
+        fillUserInfoInputs();
     }
 }
 
@@ -347,4 +348,40 @@ const populateCards = (container, products) => {
     }
 }
 
+// ---------- profile page ------------
+const firstNamePopupInput = document.getElementById("first-name-popup-input");
+const lastNamePopupInput = document.getElementById("last-name-popup-input");
+const phoneNumberInput = document.getElementById("phone-number-popup-input");
+const addressPopupInput = document.getElementById("address-popup-input");
 
+const fillUserInfoInputs = () => {
+    firstNamePopupInput.value = localStorage.getItem("firstName");
+    lastNamePopupInput.value = localStorage.getItem("last_name");
+    phoneNumberInput.value = localStorage.getItem("telephone");
+    addressPopupInput.value = localStorage.getItem("address");
+}
+
+
+//-------- discount page results ----------
+const discountCodeResults = () => {
+    const formData = new FormData();
+    // formData.append("seller_id", localStorage.getItem("userId"));
+    formData.append("seller_id", 5);
+    // formData.append("token", localStorage.getItem("token"));
+    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/get_discount_seller_codes_api.php", formData)
+        .then((response) => {
+            console.log(response)
+            for (const p of response.data) {
+                discountPage.innerHTML += `
+                <div class="discount-codes">
+                <div class="discount-codes-details">
+                <img src="./assets/discount-code.jpeg" alt="sale">
+                <input type="text" id="discount-code-get-name" value = ${p.discount_code} disabled>
+                <input type="text" id="discount-code-get-rate" value=${p.percentage}  disabled>
+                </div>
+                <label> 29-09-2022 </label>
+                </div>  `
+            }
+        })
+        .catch((error) => console.log(error));
+}
