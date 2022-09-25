@@ -50,7 +50,7 @@ client_id.value = `${data.user_id}`;
 clientInfo.appendChild(client_id);
 
 const clientProfile = document.createElement('img');
-clientProfile.src=`assets/${data.profile_picture}`;
+clientProfile.src=`${data.profile_picture}`;
 clientProfile.classList.add('client-pp');
 clientInfo.appendChild(clientProfile);
 
@@ -145,6 +145,7 @@ activeResponse.then((results) => {
 let result = results.data;
 
 result.forEach((item, i) => {
+  console.log(item);
   banned = false;
   createCards(item, banned, activeclientscards);
 

@@ -7,7 +7,7 @@ let editsellerProfile = `<div class="edit-seller-info flex column">
 <div class="seller-heading flex">
 <input type="hidden" name="" class="seller-token" value="${data.user_id}"">
   <i class="fa fa-times close-edit" aria-hidden="true"></i>
-  <img src="assets/pp.png" class="seller-img" alt="">
+  <img src="${data.profile_picture}" class="seller-img" alt="">
   <button type="button" class="save-edit" name="save">Save</button>
 </div>
 <div class="line"></div>
