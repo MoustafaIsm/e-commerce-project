@@ -292,3 +292,15 @@ const saveProduct = () => {
         productPopup.close();
 }
 textProductSave.addEventListener("click", saveProduct);
+
+
+// save user to local storage
+const saveUserData = (user) => {
+    localStorage.setItem("userId", user.user_id);
+    localStorage.setItem("email", user.email);
+    localStorage.setItem("profilePicture", user.profile_picture);
+    localStorage.setItem("address", user.address);
+    localStorage.setItem("firstName", user.first_name);
+    localStorage.setItem("last_name", user.last_name);
+    localStorage.setItem("telephone", user.telephone);
+}
