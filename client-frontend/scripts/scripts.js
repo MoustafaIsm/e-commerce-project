@@ -1,5 +1,6 @@
 /* Variables */
-
+const cart = [];
+let liked = false;
 // Nav buttons
 const discoverNavBtn = document.getElementById("discover-nav-btn");
 const wishlistNavBtn = document.getElementById("wishlist-nav-btn");
@@ -370,6 +371,7 @@ const populateCards = (container, products) => {
 const openProductPopup = (productId) => {
     const popupProductDetails = document.getElementById("popup-product-details");
     popupProductDetails.innerHTML = ``;
+    checkIfUserLikes(productId);
     const formData = new FormData();
     formData.append("token", localStorage.getItem("token"));
     formData.append("product_id", productId);
@@ -384,8 +386,17 @@ const openProductPopup = (productId) => {
 
 const fillProductPopup = (container, product) => {
     let ppHolder = ``;
+    let fav = `<span class="material-symbols-outlined favorite" id="${product.id}">
+                    favorite
+                </span>`;
+    let countToBuy = 1;
     if (product.product_image != "NA") {
         ppHolder = `<img src"${product.product_image}" alt="">`;
+    }
+    if (liked) {
+        fav = `<span class="material-symbols-outlined favorite purpule" id="${product.product_id}">
+        favorite
+    </span>`;
     }
     container.innerHTML = `<!-- Product details -->
     <div class="popup-product-details-wrapper">
@@ -408,9 +419,7 @@ const fillProductPopup = (container, product) => {
             </div>
             <!-- Favorite -->
             <div>
-                <span class="material-symbols-outlined">
-                    favorite
-                </span>
+                ${fav}
             </div>
         </div>
     </div>
@@ -428,13 +437,13 @@ const fillProductPopup = (container, product) => {
         <div class="popup-items-to-buy">
             <p>Items to buy:</p>
             <div>
-                <span class="material-symbols-outlined grey-background">
+                <span class="material-symbols-outlined grey-background decrease-count">
                     chevron_left
                 </span>
             </div>
-            <p class="count-to-buy">2</p>
+            <p class="count-to-buy" id="count-buy">${countToBuy}</p>
             <div>
-                <span class="material-symbols-outlined grey-background">
+                <span class="material-symbols-outlined grey-background increase-count" id="${product.stock}">
                     chevron_right
                 </span>
             </div>
@@ -442,7 +451,53 @@ const fillProductPopup = (container, product) => {
     </div>
     <!-- Add to cart -->
     <div class="popup-add-to-cart-wrapper">
-        <button class="btn btn-purpule" id="${product.product_id}"> Add to wishlist </button>
-        <button class="btn btn-purpule" id="${product.product_id}"> Add to cart </button>
+        <button class="btn btn-purpule add-to-wishlist" id="${product.product_id}"> Add to wishlist </button>
+        <button class="btn btn-purpule add-to-cart" id="${product.product_id}"> Add to cart </button>
     </div>`;
+
+    const increaseCount = document.getElementsByClassName("increase-count")[0];
+    const decreaseCount = document.getElementsByClassName("decrease-count")[0];
+    const addToWishlist = document.getElementsByClassName("add-to-wishlist")[0];
+    const addToCart = document.getElementsByClassName("add-to-cart")[0];
+    increaseCount.addEventListener("click", () => {
+        if (countToBuy < increaseCount.id) {
+            countToBuy++;
+            document.getElementById("count-buy").textContent = countToBuy;
+        }
+    });
+    decreaseCount.addEventListener("click", () => {
+        if (countToBuy > 1) {
+            countToBuy--;
+            document.getElementById("count-buy").textContent = countToBuy;
+        }
+    });
+    addToWishlist.addEventListener("click", () => {
+        const formData = new FormData();
+        formData.append("token", localStorage.getItem("token"));
+        formData.append("userId", localStorage.getItem("userId"));
+        formData.append("productId", addToWishlist.id);
+        axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/add-item-to-wishlist-api.php", formData)
+            .then((response) => { })
+            .catch((error) => console.log(error));
+    });
+    addToCart.addEventListener("click", () => {
+        cart.push(addToCart.id);
+    });
+
+}
+
+const checkIfUserLikes = (id) => {
+    const formData = new FormData();
+    formData.append("user_id", localStorage.getItem("userId"));
+    formData.append("token", localStorage.getItem("token"));
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-favorites-api.php", formData)
+        .then((response) => {
+            for (const p of response.data) {
+                console.log(p.product_id + ":" + id);
+                if (p.product_id == id) {
+                    liked = true;
+                }
+            }
+        })
+        .catch((error) => console.log(error));
 }

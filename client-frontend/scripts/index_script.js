@@ -115,6 +115,7 @@ const saveUserData = (user) => {
     localStorage.setItem("firstName", user.first_name);
     localStorage.setItem("last_name", user.last_name);
     localStorage.setItem("telephone", user.telephone);
+    localStorage.setItem("roleId", user.role_id);
 }
 
 const getCurrentDate = () => {
