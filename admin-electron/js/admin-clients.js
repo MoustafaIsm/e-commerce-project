@@ -137,7 +137,7 @@ return resp;
 
 // function to get all active clients
 const getActiveClients = () => {
-activeclientscards.innerHTML = null;
+activeclientscards.innerHTML = '';
 const data = {
   'token' : token
 }
@@ -162,7 +162,7 @@ banBtn.forEach((button, j) => {
 
 // function to get all banned clients
 const getBannedClients = () => {
-  bannedclientscards.innerHTML = null;
+  bannedclientscards.innerHTML = '';
   const data = {
     'token' : token
   }
@@ -204,8 +204,8 @@ const unbanClient = (client_id) => {
   }
   const response = fetchBanAPI(banUrl, data);
   console.log(response);
-  activeclientscards.innerHTML = null;
-  bannedclientscards.innerHTML = null;
+  activeclientscards.innerHTML = '';
+  bannedclientscards.innerHTML = '';
   getActiveClients();
   getBannedClients();
 };
@@ -219,8 +219,8 @@ const banClient = (client_id) => {
     'user_id': client_id
   }
   const response = fetchBanAPI(banUrl, data);
-  activeclientscards.innerHTML = null;
-  bannedclientscards.innerHTML = null;
+  activeclientscards.innerHTML = '';
+  bannedclientscards.innerHTML = '';
   getActiveClients();
   getBannedClients();
 
