@@ -73,7 +73,7 @@ name_username.appendChild(clientUsername);
 
 const banBtn = document.createElement('button');
 banBtn.classList.add('btn-ban');
-banBtn.classList.add('ban');
+banBtn.classList.add(btnText);
 banBtn.textContent = btnText;
 clientInfo.appendChild(banBtn);
 
@@ -137,6 +137,7 @@ return resp;
 
 // function to get all active clients
 const getActiveClients = () => {
+activeclientscards.innerHTML = null;
 const data = {
   'token' : token
 }
@@ -149,7 +150,7 @@ result.forEach((item, i) => {
   createCards(item, banned, activeclientscards);
 
 });
-let banBtn = document.querySelectorAll('.ban');
+let banBtn = document.querySelectorAll('.Ban');
 banBtn.forEach((button, j) => {
   button.addEventListener("click", () => {
     const client_id = button.parentElement.querySelector('.hidden-input').defaultValue;
@@ -161,6 +162,7 @@ banBtn.forEach((button, j) => {
 
 // function to get all banned clients
 const getBannedClients = () => {
+  bannedclientscards.innerHTML = null;
   const data = {
     'token' : token
   }
@@ -173,7 +175,7 @@ const getBannedClients = () => {
     createCards(item, banned, bannedclientscards);
 
   });
-  let unbanBtn = document.querySelectorAll('.ban');
+  let unbanBtn = document.querySelectorAll('.Unban');
   unbanBtn.forEach((button, j) => {
     button.addEventListener("click", () => {
       const client_id = button.parentElement.querySelector('.hidden-input').defaultValue;
@@ -202,8 +204,8 @@ const unbanClient = (client_id) => {
   }
   const response = fetchBanAPI(banUrl, data);
   console.log(response);
-  activeclientscards.innerHTML = "";
-  bannedclientscards.innerHTML = "";
+  activeclientscards.innerHTML = null;
+  bannedclientscards.innerHTML = null;
   getActiveClients();
   getBannedClients();
 };
@@ -217,8 +219,8 @@ const banClient = (client_id) => {
     'user_id': client_id
   }
   const response = fetchBanAPI(banUrl, data);
-  activeclientscards.innerHTML = "";
-  bannedclientscards.innerHTML = "";
+  activeclientscards.innerHTML = null;
+  bannedclientscards.innerHTML = null;
   getActiveClients();
   getBannedClients();
 
