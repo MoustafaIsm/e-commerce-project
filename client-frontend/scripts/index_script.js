@@ -75,6 +75,7 @@ const signInUser = () => {
                 then((data) => {
                     if (data.ispresent == true) {
                         if (data.pass_valid == true) {
+                            localStorage.setItem("token", data.token);
                             saveUserData(data.user);
                             window.location.href = "./client.html";
                         } else

@@ -36,6 +36,12 @@ const discountApplyBtn = document.getElementById("discount-apply-btn");
 let editProfileBtn = document.getElementById("edit-profile-btn");
 const editProfilePopup = document.getElementById("profile-popup");
 const closeProfilePopup = document.getElementById("close-profile-popup");
+const firstNamePopupInput = document.getElementById("first-name-popup-input");
+const lastNamePopupInput = document.getElementById("last-name-popup-input");
+const phoneNumberInput = document.getElementById("phone-number-popup-input");
+const addressPopupInput = document.getElementById("address-popup-input");
+const fileInput = document.getElementById("file-input");
+const saveProfileData = document.getElementById("save-btn");
 
 //Temporary variable for testing
 const temp = document.getElementById("temp");
@@ -101,6 +107,36 @@ const closeProfilePopupFun = () => {
     editProfilePopup.close();
 }
 
+const saveEditedUserData = () => {
+    console.log("here");
+    if (firstNamePopupInput.value != "" && lastNamePopupInput.value != "" &&
+        phoneNumberInput.value != "" && addressPopupInput.value != "") {
+        const formData = new FormData();
+        formData.append("token", localStorage.getItem("token"));
+        formData.append("user_id", localStorage.getItem("userId"));
+        formData.append("first_name", firstNamePopupInput.value);
+        formData.append("last_name", lastNamePopupInput.value);
+        formData.append("address", addressPopupInput.value);
+        formData.append("telephone", phoneNumberInput.value);
+        if (fileInput.files.length > 0) {
+            // User selected file
+            let fileToLoad = fileInput.files[0];
+            // New BLOB
+            let fileReader = new FileReader();
+            // Convert to base64 after load
+            fileReader.onload = function (fileLoadedEvent) {
+                let fileInputBase64 = fileLoadedEvent.target.result;
+                formData.append("profile_picture", fileInputBase64);
+                sendUserData(formData);
+            }
+            fileReader.readAsDataURL(fileToLoad);
+        } else {
+            formData.append("profile_picture", localStorage.getItem("profilePicture"));
+            sendUserData(formData);
+        }
+    }
+}
+
 /* Eventlisteners */
 
 discoverNavBtn.addEventListener("click", openDiscoverPage);
@@ -122,6 +158,7 @@ textBtn.addEventListener("click", openDiscountInput);
 
 editProfileBtn.addEventListener("click", openProfilePopup);
 closeProfilePopup.addEventListener("click", closeProfilePopupFun);
+saveProfileData.addEventListener("click", saveEditedUserData);
 
 // temporary
 temp.addEventListener("click", () => {
@@ -241,13 +278,14 @@ const fillPersonalInfo = () => {
 }
 
 const fillUserInfoInputs = () => {
-    const firstNamePopupInput = document.getElementById("first-name-popup-input");
-    const lastNamePopupInput = document.getElementById("last-name-popup-input");
-    const phoneNumberInput = document.getElementById("phone-number-popup-input");
-    const addressPopupInput = document.getElementById("address-popup-input");
-
     firstNamePopupInput.value = localStorage.getItem("firstName");
     lastNamePopupInput.value = localStorage.getItem("last_name");
     phoneNumberInput.value = localStorage.getItem("telephone");
     addressPopupInput.value = localStorage.getItem("address");
+}
+
+const sendUserData = (formData) => {
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/update-user-api.php", formData)
+        .then((response) => updateLocalStorage())
+        .catch((error) => console.log(error));
 }
