@@ -169,12 +169,6 @@ editProfileBtn.addEventListener("click", openProfilePopup);
 closeProfilePopup.addEventListener("click", closeProfilePopupFun);
 saveProfileData.addEventListener("click", saveEditedUserData);
 
-// temporary
-// temp.addEventListener("click", () => {
-//     productPopup.showModal();
-//     productPopup.classList.remove("hide");
-// });
-
 /* Helper functions */
 
 const changeNavBtn = (pageToOpen) => {
@@ -365,4 +359,90 @@ const populateCards = (container, products) => {
         </div>`;
         container.innerHTML += card;
     }
+    const learnMore = document.getElementsByClassName("learn-more-wrapper");
+    for (const btn of learnMore) {
+        btn.addEventListener("click", () => {
+            openProductPopup(btn.id);
+        });
+    }
+}
+
+const openProductPopup = (productId) => {
+    const popupProductDetails = document.getElementById("popup-product-details");
+    popupProductDetails.innerHTML = ``;
+    const formData = new FormData();
+    formData.append("token", localStorage.getItem("token"));
+    formData.append("product_id", productId);
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-product-api.php", formData)
+        .then((response) => {
+            fillProductPopup(popupProductDetails, response.data[0]);
+        })
+        .catch((error) => console.log(error));
+    productPopup.showModal();
+    productPopup.classList.remove("hide");
+}
+
+const fillProductPopup = (container, product) => {
+    let ppHolder = ``;
+    if (product.product_image != "NA") {
+        ppHolder = `<img src"${product.product_image}" alt="">`;
+    }
+    container.innerHTML = `<!-- Product details -->
+    <div class="popup-product-details-wrapper">
+        <!-- Image product -->
+        <div class="popup-product-img">
+            ${ppHolder}
+        </div>
+        <!-- Product-details -->
+        <div class="popup-product-info">
+            <!-- Name seller category -->
+            <div>
+                <p class="bold-text"> ${product.product_name} </p>
+                <p> ${product.first_name + " " + product.last_name} </p>
+                <p> ${product.category_name} </p>
+            </div>
+            <!-- Discription -->
+            <div>
+                <p class="bold-text"> Discription: </p>
+                <p> ${product.description} </p>
+            </div>
+            <!-- Favorite -->
+            <div>
+                <span class="material-symbols-outlined">
+                    favorite
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- Product cost and stock -->
+    <div class="popup-product-cost-stock-wrapper">
+        <!-- Stock -->
+        <div>
+            <p>Items in stock: ${product.stock} </p>
+        </div>
+        <!-- Price -->
+        <div>
+            <p>Price: $ ${product.product_price}</p>
+        </div>
+        <!-- Items to buy -->
+        <div class="popup-items-to-buy">
+            <p>Items to buy:</p>
+            <div>
+                <span class="material-symbols-outlined grey-background">
+                    chevron_left
+                </span>
+            </div>
+            <p class="count-to-buy">2</p>
+            <div>
+                <span class="material-symbols-outlined grey-background">
+                    chevron_right
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- Add to cart -->
+    <div class="popup-add-to-cart-wrapper">
+        <button class="btn btn-purpule" id="${product.product_id}"> Add to wishlist </button>
+        <button class="btn btn-purpule" id="${product.product_id}"> Add to cart </button>
+    </div>`;
 }
