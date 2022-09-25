@@ -5,18 +5,16 @@ const closeNewsellerSection = document.querySelector('.close-newseller');
 const newSellerbtn = document.getElementById('newseller');
 const sellersUrl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/get-sellers-api.php";
 
-const hello = () => {
-  console.log('hauu');
-};
+
 
 // function to show more info popup
 const displaymoreInfo = (data) => {
   let moreInfoPopup = `<input class="seller-id" type="hidden" name="" value="ramzi">
   <div class="sellers-info flex column">
     <div class="seller-info flex">
-      <img class="seller-pp" src="${data.img}" alt="">
+      <img class="seller-pp" src="${data.profile_picture}" alt="">
       <div class="seller-name-info">
-          <p class = "seller-name">${data.name}</p>
+          <p class = "seller-name">${data.first_name} ${data.last_name}</p>
           <p class = "seller-username">${data.email}</p>
       </div>
       <i class="fa fa-times close-popup" aria-hidden="true"></i>
@@ -24,20 +22,20 @@ const displaymoreInfo = (data) => {
     <div class="line"></div>
     <div class="seller-more-info flex">
       <p class="info">Total Customers:</p>
-      <p class="specified-info">${data.items}.</p>
+      <p class="specified-info">${data.totalcustomers} Customers.</p>
     </div>
     <div class="seller-more-info flex">
       <p class="info">Total Items:</p>
-      <p class="specified-info">${data.total}.</p>
+      <p class="specified-info">${data.totalitems} Items.</p>
     </div>
     <div class="seller-more-info flex">
       <p class="info">Address:</p>
-      <p class="specified-info">Beirut.</p>
+      <p class="specified-info">${data.address}.</p>
     </div>
 
     <div class="seller-more-info ph-number flex">
       <p class="info">Phone Number:</p>
-      <p class="specified-info">+961 71487328.</p>
+      <p class="specified-info">${data.telephone}.</p>
     </div>
   </div>`;
   moreInfoSection.classList.remove('hidden');
@@ -150,6 +148,8 @@ return resp;
 
 // function to get all sellers
 const getSellers = () => {
+sellersCards.innerHTML = "";
+
 const data = {
   'token': token
 }
@@ -167,10 +167,26 @@ deleteBtn.forEach((item, i) => {
   });
 
 });
+const editSellerBtn = document.querySelectorAll('.edit-seller');
+editSellerBtn.forEach((item, i) => {
+  item.addEventListener("click", () => {
+    const seller_id = item.parentElement.parentElement.querySelector('.hidden-input').defaultValue;
+    getSellerInfo(seller_id);
+  });
+});
+const moreSellerInfo = document.querySelectorAll('.more-info');
+moreSellerInfo.forEach((item, i) => {
+  item.addEventListener('click', () => {
+    const seller_id = item.parentElement.querySelector('.hidden-input').defaultValue;
+    getmoreSellerInfo(seller_id);
 
-
+  });
+});
 
 });
+
+
+
 };
 getSellers();
 
