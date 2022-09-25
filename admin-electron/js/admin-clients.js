@@ -302,3 +302,8 @@ sellersPage.addEventListener("click", () => {
 statsPage.addEventListener("click", () => {
   changeTab(statsPage);
 });
+
+logoutContainer.addEventListener("click", () => {
+  localStorage.removeItem('token');
+  location.replace('login.html');
+});
