@@ -229,17 +229,18 @@ AddCategoryPopupBtn.addEventListener("click", addCategory);
 const discountCodeName = document.getElementById("discount-code-name");
 const discountCodeRate = document.getElementById("discount-code-rate");
 const discountCodeBtn = document.getElementById("add-discount-code-btn");
-
-
 const addDiscountCode = () => {
     const formData = new FormData();
     formData.append("discount_code", discountCodeName.value);
     formData.append("percentage", discountCodeRate.value);
     formData.append("seller_id", sellerID.value);
     formData.append("active", 1);
-
-
     axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/add_discount_code.php", formData)
         .then((response) => console.log(response))
+        discountCodeName.value = "";
+        discountCodeRate.value = "";
 }
 discountCodeBtn.addEventListener("click", addDiscountCode);
+
+
+
