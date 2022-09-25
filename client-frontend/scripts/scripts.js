@@ -386,7 +386,7 @@ const openProductPopup = (productId) => {
 
 const fillProductPopup = (container, product) => {
     let ppHolder = ``;
-    let fav = `<span class="material-symbols-outlined favorite" id="${product.id}">
+    let fav = `<span class="material-symbols-outlined favorite" id="${product.product_id}">
                     favorite
                 </span>`;
     let countToBuy = 1;
@@ -459,6 +459,7 @@ const fillProductPopup = (container, product) => {
     const decreaseCount = document.getElementsByClassName("decrease-count")[0];
     const addToWishlist = document.getElementsByClassName("add-to-wishlist")[0];
     const addToCart = document.getElementsByClassName("add-to-cart")[0];
+    const favorite = document.getElementsByClassName("favorite")[0];
     increaseCount.addEventListener("click", () => {
         if (countToBuy < increaseCount.id) {
             countToBuy++;
@@ -483,6 +484,17 @@ const fillProductPopup = (container, product) => {
     addToCart.addEventListener("click", () => {
         cart.push(addToCart.id);
     });
+    favorite.addEventListener("click", () => {
+        if (liked) {
+            liked = false;
+            favorite.classList.remove("purpule");
+            removeFavorite(favorite.id);
+        } else {
+            liked = true;
+            favorite.classList.add("purpule");
+            addFavorite(favorite.id);
+        }
+    });
 
 }
 
@@ -492,12 +504,37 @@ const checkIfUserLikes = (id) => {
     formData.append("token", localStorage.getItem("token"));
     axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-favorites-api.php", formData)
         .then((response) => {
+            let temp = false;
             for (const p of response.data) {
                 console.log(p.product_id + ":" + id);
                 if (p.product_id == id) {
                     liked = true;
+                    temp = true;
                 }
             }
+            if (!temp) {
+                liked = false;
+            }
         })
+        .catch((error) => console.log(error));
+}
+
+const addFavorite = (productId) => {
+    const formData1 = new FormData();
+    formData1.append("userId", localStorage.getItem("userId"));
+    formData1.append("productId", productId);
+    formData1.append("token", localStorage.getItem("token"));
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/add-favorites-api.php", formData1)
+        .then((response) => { })
+        .catch((error) => console.log(error));
+}
+
+const removeFavorite = (productId) => {
+    const formData2 = new FormData();
+    formData2.append("user_id", localStorage.getItem("userId"));
+    formData2.append("product_id", productId);
+    formData2.append("token", localStorage.getItem("token"));
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/remove-favorite-api.php", formData2)
+        .then((response) => { })
         .catch((error) => console.log(error));
 }

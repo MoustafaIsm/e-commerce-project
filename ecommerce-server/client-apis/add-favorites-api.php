@@ -6,10 +6,10 @@
     use Firebase\JWT\JWT;
     use Firebase\JWT\Key;
 
-    $userId = $_GET["userId"];
-    $productId = $_GET["productId"];
+    $userId = $_POST["userId"];
+    $productId = $_POST["productId"];
     
-    $token = $_GET["token"];
+    $token = $_POST["token"];
     JWT::decode($token, new Key('fgh676', 'HS256'));
 
     $query = $mysqli->prepare("INSERT INTO `favorite_products`(`user_id`, `product_id`) VALUES (?,?)");
