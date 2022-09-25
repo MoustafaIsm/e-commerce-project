@@ -33,7 +33,7 @@ const discountInput = document.getElementById("discount-input");
 const discountApplyBtn = document.getElementById("discount-apply-btn");
 
 // Edit profile popup
-const editProfileBtn = document.getElementById("edit-profile-btn");
+let editProfileBtn = document.getElementById("edit-profile-btn");
 const editProfilePopup = document.getElementById("profile-popup");
 const closeProfilePopup = document.getElementById("close-profile-popup");
 
@@ -93,6 +93,7 @@ const openDiscountInput = () => {
 const openProfilePopup = () => {
     editProfilePopup.classList.remove("hide");
     editProfilePopup.showModal();
+    fillUserInfoInputs();
 }
 
 const closeProfilePopupFun = () => {
@@ -226,6 +227,7 @@ const openPage = (pageToOpen) => {
 const fillPersonalInfo = () => {
     const userDetails = document.getElementById("user-details");
     const UserProfilePicture = document.getElementById("user-profile-picture");
+    userDetails.innerHTML = ``;
     let ppHolder = "";
     if (localStorage.getItem("profilePicture") != "NA") {
         ppHolder = localStorage.getItem("profilePicture");
@@ -235,5 +237,17 @@ const fillPersonalInfo = () => {
     <p class="bold-text">${localStorage.getItem("firstName") + " " + localStorage.getItem("last_name")}</p>
     <p>${localStorage.getItem("email")}</p>
     <p>Phone Number: ${localStorage.getItem("telephone")}</p>
-    <p>Address: ${localStorage.getItem("address")}</p>` + userDetails.innerHTML;
+    <p>Address: ${localStorage.getItem("address")}</p>`;
+}
+
+const fillUserInfoInputs = () => {
+    const firstNamePopupInput = document.getElementById("first-name-popup-input");
+    const lastNamePopupInput = document.getElementById("last-name-popup-input");
+    const phoneNumberInput = document.getElementById("phone-number-popup-input");
+    const addressPopupInput = document.getElementById("address-popup-input");
+
+    firstNamePopupInput.value = localStorage.getItem("firstName");
+    lastNamePopupInput.value = localStorage.getItem("last_name");
+    phoneNumberInput.value = localStorage.getItem("telephone");
+    addressPopupInput.value = localStorage.getItem("address");
 }

@@ -732,7 +732,7 @@ body {
 /* Edit profile popup */
 .edit-profile-wrapper {
     width: 700px;
-    height: 350px;
+    height: 400px;
     margin: auto;
     border: none;
     padding: 15px;
@@ -753,7 +753,7 @@ body {
 
 .profile-img-popup {
     width: 27%;
-    height: 63%;
+    height: 55%;
     background-color: antiquewhite;
     border-radius: 80%;
     position: relative;
