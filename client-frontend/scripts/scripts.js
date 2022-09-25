@@ -1,6 +1,8 @@
 /* Variables */
-const cart = [[]];
-let count = 0;
+const cart = [];
+const productAmount = [];
+let countInCart = 0;
+let totalCartCost = 0;
 let liked = false;
 // Nav buttons
 const discoverNavBtn = document.getElementById("discover-nav-btn");
@@ -50,6 +52,7 @@ const discoverCards = document.getElementById("discover-cards");
 const suggestedCards = document.getElementById("suggested-cards");
 const wishlistCards = document.getElementById("wishlist-cards");
 const cartCards = document.getElementById("cart-cards");
+const totalPrice = document.getElementById("total-price")
 
 //Temporary variable for testing
 const temp = document.getElementById("temp");
@@ -86,6 +89,7 @@ const openCartPage = () => {
     changeNavBtn("cart");
     openPage("cart");
     fillCartProducts();
+    displayTotalCost();
 }
 
 const openChatPage = () => {
@@ -360,13 +364,36 @@ const fillWishListProducts = () => {
 }
 
 const fillCartProducts = () => {
-    for (const item of cart) {
-        const formData = new FormData();
-        formData.append("token", localStorage.getItem("token"));
-        formData.append("product_id", item.productId);
-        axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-product-api.php", formData)
-            .then((response) => populateCartCards(cartCards, response.data))
-            .catch((error) => console.log(error));
+    cartCards.innerHTML = ``;
+    let i = 0;
+    for (const product of cart) {
+        console.log(product);
+        let ppHolder = ``;
+        if (product.product_picture != "NA") {
+            ppHolder = `<img src="${product.product_picture}" alt="">`;
+        }
+        cartCards.innerHTML += `
+        <div class="cart-card">
+            <!-- Product info -->
+            <div class="cart-product-info-wrapper">
+                <!-- Product image -->
+                <div class="cart-product-img">
+                    ${ppHolder}
+                </div>
+                <!-- Product details -->
+                <div class="cart-product-details">
+                    <p class="bold-text">${product.product_name}</p>
+                    <p> ${product.first_name + " " + product.last_name} </p>
+                    <p> ${product.category_name} </p>
+                </div>
+            </div>
+            <!-- Cost and count -->
+            <div class="count-cost-wrapper">
+                <p>amount: ${productAmount[i]} </p>
+                <p>cost: $ ${product.product_price} </p>
+            </div>
+        </div>`;
+        i++;
     }
 }
 
@@ -457,45 +484,19 @@ const populateWiishlistCards = (container, products) => {
     }
     for (const btn2 of addToCart) {
         btn2.addEventListener("click", () => {
-            cart[count]["count"] = 1;
-            cart[count]["productId"] = btn2.id;
-            count++;
+            const formData = new FormData();
+            formData.append("token", localStorage.getItem("token"));
+            formData.append("product_id", btn2.id);
+            axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-product-api.php", formData)
+                .then((response) => {
+                    cart.push(response.data);
+                    totalCartCost += response.data.product_price;
+                    productAmount.push(1);
+                })
+                .catch((error) => console.log(error));
         });
     }
 
-}
-
-const populateCartCards = (container, products) => {
-    container.innerHTML = ``;
-    itemCounter = 0;
-    for (const product of products) {
-        let ppHolder = ``;
-        if (product.product_picture != "NA") {
-            ppHolder = `<img src="${product.product_picture}" alt="">`;
-        }
-        container.innerHTML += `
-        <div class="cart-card">
-            <!-- Product info -->
-            <div class="cart-product-info-wrapper">
-                <!-- Product image -->
-                <div class="cart-product-img">
-                    ${ppHolder}
-                </div>
-                <!-- Product details -->
-                <div class="cart-product-details">
-                    <p class="bold-text">${product.product_name}</p>
-                    <p> ${product.first_name + " " + product.last_name} </p>
-                    <p> ${product.category_name} </p>
-                </div>
-            </div>
-            <!-- Cost and count -->
-            <div class="count-cost-wrapper">
-                <p>amount: ${cart[itemCounter]["count"]} </p>
-                <p>cost: $ ${product.product_price} </p>
-            </div>
-        </div>`;
-        itemCounter++;
-    }
 }
 
 const openProductPopup = (productId) => {
@@ -613,9 +614,9 @@ const fillProductPopup = (container, product) => {
             .catch((error) => console.log(error));
     });
     addToCart.addEventListener("click", () => {
-        cart[count]["count"] = countToBuy;
-        cart[count]["productId"] = addToCart.id;
-        count++;
+        productAmount.push(countToBuy);
+        cart.push(product);
+        totalCartCost += product.product_price * countToBuy;
     });
     favorite.addEventListener("click", () => {
         if (liked) {
@@ -690,4 +691,8 @@ const removeProductFromWishList = (id) => {
             openWishlistPage();
         })
         .catch((error) => console.log(error));
+}
+
+const displayTotalCost = () => {
+    totalPrice.textContent = "$" + totalCartCost;
 }
