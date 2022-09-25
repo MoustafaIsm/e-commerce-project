@@ -75,9 +75,7 @@ const signInUser = () => {
                 then((data) => {
                     if (data.ispresent == true) {
                         if (data.pass_valid == true) {
-                            if (remember.checked) {
-                                saveUserData(data.user);
-                            }
+                            saveUserData(data.user);
                             window.location.href = "./client.html";
                         } else
                             siginError.textContent = "Wrong password!";

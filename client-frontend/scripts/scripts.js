@@ -73,6 +73,7 @@ const openChatPage = () => {
 const openProfilePage = () => {
     changeNavBtn("profile");
     openPage("profile");
+    fillPersonalInfo();
 }
 
 const openBurgerMenu = () => {
@@ -220,4 +221,19 @@ const openPage = (pageToOpen) => {
         chatPage.classList.add("hide");
         profilePage.classList.remove("hide");
     }
+}
+
+const fillPersonalInfo = () => {
+    const userDetails = document.getElementById("user-details");
+    const UserProfilePicture = document.getElementById("user-profile-picture");
+    let ppHolder = "";
+    if (localStorage.getItem("profilePicture") != "NA") {
+        ppHolder = localStorage.getItem("profilePicture");
+    }
+    UserProfilePicture.style.backgroundImage = `url("${ppHolder}")`;
+    userDetails.innerHTML = `
+    <p class="bold-text">${localStorage.getItem("firstName") + " " + localStorage.getItem("last_name")}</p>
+    <p>${localStorage.getItem("email")}</p>
+    <p>Phone Number: ${localStorage.getItem("telephone")}</p>
+    <p>Address: ${localStorage.getItem("address")}</p>` + userDetails.innerHTML;
 }

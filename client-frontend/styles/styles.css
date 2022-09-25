@@ -625,6 +625,9 @@ body {
     height: 250px;
     background-color: antiquewhite;
     border-radius: 1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .user-details-wrapper {
