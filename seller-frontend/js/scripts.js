@@ -243,4 +243,17 @@ const addDiscountCode = () => {
 discountCodeBtn.addEventListener("click", addDiscountCode);
 
 
+// delete product
+const deleteProductBtn = document.getElementById("delete-product-btn");
+const deleteProductID = document.getElementById("product-id")
+const deleteProduct = () => {
+    const formData = new FormData();
+    formData.append("product_id", deleteProductID.value);
+    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/delete_product.php", formData)
+        .then((response) => console.log(response))
+        productPopup.close();
+}
+deleteProductBtn.addEventListener("click", deleteProduct);
 
+
+//advertise the product
