@@ -304,3 +304,12 @@ const saveUserData = (user) => {
     localStorage.setItem("last_name", user.last_name);
     localStorage.setItem("telephone", user.telephone);
 }
+
+// -------- function get date --------------
+
+function getCurrentDate() {
+    let today = new Date();
+    const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    return date + ' ' + time;
+}
