@@ -52,7 +52,7 @@ if ($array->num_rows > 0) {
         $payload = [
             "userId" => $user["user_id"],
             "email" => $user["email"],
-            "exp" => time() + 1000
+            "exp" => time() + 1000000
         ];
 
         $jwt = JWT::encode($payload, $key, 'HS256');

@@ -289,3 +289,22 @@ const sendUserData = (formData) => {
         .then((response) => updateLocalStorage())
         .catch((error) => console.log(error));
 }
+
+const updateLocalStorage = () => {
+    const formData = new FormData();
+    formData.append("token", localStorage.getItem("token"));
+    formData.append("userId", localStorage.getItem("userId"));
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-user-api.php", formData)
+        .then((response) => saveUserData(response.data[0]))
+        .catch((error) => console.log(error));
+}
+
+const saveUserData = (user) => {
+    localStorage.setItem("userId", user.user_id);
+    localStorage.setItem("email", user.email);
+    localStorage.setItem("profilePicture", user.profile_picture);
+    localStorage.setItem("address", user.address);
+    localStorage.setItem("firstName", user.first_name);
+    localStorage.setItem("last_name", user.last_name);
+    localStorage.setItem("telephone", user.telephone);
+}

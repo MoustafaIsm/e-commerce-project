@@ -10,7 +10,10 @@ include("../connection.php");
 $token = $_POST["token"];
 JWT::decode($token, new Key('fgh676', 'HS256'));
 
-$query = $mysqli->prepare("SELECT * FROM `users`");
+$userId = $_POST["userId"];
+
+$query = $mysqli->prepare("SELECT * FROM `users` WHERE `user_id`=?");
+$query->bind_param("i", $userId);
 $query -> execute();
 $array = $query->get_result();
 
