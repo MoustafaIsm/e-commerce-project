@@ -1,5 +1,6 @@
 //seller id
 const sellerID = 1
+const productID = 1
 // Side bar navigation buttons
 const productNavBtn=document.getElementById("product-nav-btn")
 const categoryNavBtn=document.getElementById("category-nav-btn")
@@ -196,7 +197,7 @@ if(event.target.files.length > 0){
 function enable(){
     document.getElementById("text-product-name").disabled = false;
     document.getElementById("text-product-price").disabled = false;
-    document.getElementById("text-product-category").disabled = false;
+    document.getElementById("text-product-stock").disabled = false;
     document.getElementById("text-product-description").disabled = false;
     document.getElementById("edit-prodcut-edit-btn").classList.add("hidden");
     document.getElementById("edit-prodcut-save-btn").classList.remove("hidden");
@@ -205,7 +206,7 @@ function enable(){
 function saveEdit(){
     document.getElementById("text-product-name").disabled = true;
     document.getElementById("text-product-price").disabled = true;
-    document.getElementById("text-product-category").disabled = true;
+    document.getElementById("text-product-stock").disabled = true;
     document.getElementById("text-product-description").disabled = true;
     document.getElementById("edit-prodcut-save-btn").classList.add("hidden");
     document.getElementById("edit-prodcut-edit-btn").classList.remove("hidden");
@@ -263,9 +264,31 @@ const adsProduct = () => {
     const formData = new FormData();
     formData.append("product_id", adsProductID.value);
     formData.append("ad_cost", 10);
-    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/delete_product.php", formData)
+    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/add_ads_to_products_api.php", formData)
         .then((response) => console.log(response))
         productPopup.close();
 }
 adsProductBtn.addEventListener("click", adsProduct);
 
+//edit the product
+const textProductName = document.getElementById("text-product-name");
+const textProductPrice = document.getElementById("text-product-price");
+const textProductStock = document.getElementById("text-product-stock");
+const textProductDescription = document.getElementById("text-product-description");
+const textProductSave = document.getElementById("edit-prodcut-save-btn");
+const saveProduct = () => {
+    const formData = new FormData();
+    formData.append("seller_id", sellerID.value);
+    formData.append("product_id", productID.value);
+    formData.append("product_name", textProductName.value);
+    formData.append("product_price", textProductPrice.value);
+    formData.append("description", textProductDescription.value);
+    formData.append("stock", textProductStock.value);
+    // formData.append("added_at", adsProductID.value);
+    // formData.append("viewing_count", adsProductID.value);
+    // formData.append("product_picture", adsProductID.value);
+    axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/update_product.php", formData)
+        .then((response) => console.log(response))
+        productPopup.close();
+}
+textProductSave.addEventListener("click", saveProduct);
