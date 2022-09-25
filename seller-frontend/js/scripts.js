@@ -1,5 +1,7 @@
 //seller id
-const sellerID = 1
+
+localStorage.setItem("userId",5)
+const sellerID = localStorage.getItem("userId")
 const productID = 1
 const connectionLink="http://localhost/e-commerce-project/ecommerce-server/seller-api/"
 // Side bar navigation buttons
@@ -17,7 +19,6 @@ const addCategoryBtn2=document.getElementById("add-category-button2")
 //popup close buttons
 const addProductClose=document.getElementById("add-product-close")
 const learnMoreClose=document.getElementById("learn-more-close")
-
 //Pages
 const productPage=document.getElementById("product-page")
 const categoryPage=document.getElementById("category-page")
@@ -63,8 +64,6 @@ const closeLearnMore = () =>{
 //listeners
 addProductClose.addEventListener("click",closeProductPopup)
 learnMoreClose.addEventListener("click",closeLearnMore)
-
-
 
 /* Eventlisteners functions */
 
@@ -220,8 +219,9 @@ const AddCategoryPopupBtn = document.getElementById("add-category-popup-btn");
 const AddCategoryPopupName = document.getElementById("add-category-popup-name");
 const addCategory = () => {
     const formData = new FormData();
-    formData.append("category_name", sellerID.value);
-    formData.append("seller_id", AddCategoryPopupName.value);
+    formData.append("token", localStorage.getItem("token"));
+    formData.append("category_name", AddCategoryPopupName.value);
+    formData.append("seller_id", sellerID );
     axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/add_categories.php", formData)
         .then((response) => console.log(response))
         addCategoryPopup.close();
@@ -234,9 +234,10 @@ const discountCodeRate = document.getElementById("discount-code-rate");
 const discountCodeBtn = document.getElementById("add-discount-code-btn");
 const addDiscountCode = () => {
     const formData = new FormData();
+    formData.append("token", localStorage.getItem("token"));
     formData.append("discount_code", discountCodeName.value);
     formData.append("percentage", discountCodeRate.value);
-    formData.append("seller_id", sellerID.value);
+    formData.append("seller_id", sellerID);
     formData.append("active", 1);
     axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/add_discount_code.php", formData)
         .then((response) => console.log(response))
@@ -247,11 +248,10 @@ discountCodeBtn.addEventListener("click", addDiscountCode);
 
 
 // delete product
-const deleteProductBtn = document.getElementById("delete-product-btn");
-const deleteProductID = document.getElementById("product-id")
+const deleteProductBtn = document.getElementsByClassName("deletee-product")[0];
 const deleteProduct = () => {
     const formData = new FormData();
-    formData.append("product_id", deleteProductID.value);
+    formData.append("product_id", deleteProductBtn.id);
     axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/delete_product.php", formData)
         .then((response) => console.log(response))
         productPopup.close();
@@ -260,11 +260,11 @@ deleteProductBtn.addEventListener("click", deleteProduct);
 
 
 //advertise the product
-const adsProductBtn = document.getElementById("ads-product-btn");
-const adsProductID = document.getElementById("product-id")
+const adsProductBtn = document.getElementsByClassName("adss-product")[0];
+// const adsProductID = document.getElementById("product-id")
 const adsProduct = () => {
     const formData = new FormData();
-    formData.append("product_id", adsProductID.value);
+    formData.append("product_id", adsProductBtn.id);
     formData.append("ad_cost", 10);
     axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/add_ads_to_products_api.php", formData)
         .then((response) => console.log(response))
@@ -277,24 +277,41 @@ const textProductName = document.getElementById("text-product-name");
 const textProductPrice = document.getElementById("text-product-price");
 const textProductStock = document.getElementById("text-product-stock");
 const textProductDescription = document.getElementById("text-product-description");
-const textProductSave = document.getElementById("edit-prodcut-save-btn");
+const textProductImg = document.getElementById("product-img-upload")
+// const textProductSave = document.getElementById("edit-prodcut-save-btn");
+const textProductSave = document.getElementsByClassName("savee-product")[0];
+//change img to base64
+if (textProductImg.files.length > 0) {
+    // User selected file
+    let fileToLoad = textProductImg.files[0];
+    // New BLOB
+    let fileReader = new FileReader();
+    // Convert to base64 after load
+    fileReader.onload = function (fileLoadedEvent) {
+        let fileInputBase64 = fileLoadedEvent.target.result;
+        formData.append("product_picture", fileInputBase64);
+    }
+    fileReader.readAsDataURL(fileToLoad);
+} else {
+    formData.append("product_picture", NA);
+}
+
 const saveProduct = () => {
     const formData = new FormData();
-    formData.append("seller_id", sellerID.value);
-    formData.append("product_id", productID.value);
+    formData.append("token", localStorage.getItem("token"));
+    formData.append("seller_id", sellerID);
+    formData.append("product_id", textProductSave.id);
     formData.append("product_name", textProductName.value);
     formData.append("product_price", textProductPrice.value);
     formData.append("description", textProductDescription.value);
     formData.append("stock", textProductStock.value);
-    // formData.append("added_at", adsProductID.value);
-    // formData.append("viewing_count", adsProductID.value);
-    // formData.append("product_picture", adsProductID.value);
+    formData.append("added_at", 2022-1-1);
+    formData.append("viewing_count", 2);
     axios.post("http://localhost/e-commerce-project/ecommerce-server/seller-api/update_product.php", formData)
         .then((response) => console.log(response))
         productPopup.close();
 }
 textProductSave.addEventListener("click", saveProduct);
-
 
 // save user to local storage
 const saveUserData = (user) => {
@@ -308,14 +325,23 @@ const saveUserData = (user) => {
 }
 
 // -------- function get date --------------
-
 function getCurrentDate() {
     let today = new Date();
     const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     return date + ' ' + time;
 }
+//-------------------------------------------
 
+//fill the product page
+const fillProducts = () => {
+    const formData = new FormData();
+    formData.append("token", localStorage.getItem("token"));
+    formData.append("seller_id", localStorage.getItem("userId"));
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-products-api.php", formData)
+        .then((response) => populateCards(discoverCards, response.data))
+        .catch((error) => console.log(error));
+}
 
 // function to fill the cards
 const populateCards = (container, products) => {
@@ -335,7 +361,7 @@ const populateCards = (container, products) => {
                 <p>Seller Name</p>
                 <p> Categories</p>
             </div>
-            <div class="card-learnmore">
+            <div class="card-learnmore learn-more-wrapper">
                 <p>Click to learn more</p>
             </div>
         </div>`;
@@ -348,6 +374,76 @@ const populateCards = (container, products) => {
         });
     }
 }
+
+const openProductPopup = (productId) => {
+    const popupProductDetails = document.getElementById("popup-img-and-details");
+    popupProductDetails.innerHTML = ``;
+    const formData = new FormData();
+    formData.append("token", localStorage.getItem("token"));
+    formData.append("product_id", productId);
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-all-seller-product.php", formData)
+        .then((response) => {
+            fillProductPopup(popupProductDetails, response.data[0]);
+        })
+        .catch((error) => console.log(error));
+    productPopup.showModal();
+    productPopup.classList.remove("hidden");
+}
+
+const fillProductPopup = (container, product) => {
+    let ppHolder = ``;
+    if (product.product_image != "NA") {
+        ppHolder = `<img src"${product.product_picture}" alt="" id="file-2-preview">`;
+    }
+    container.innerHTML = `
+    <div>
+        <span class="material-symbols-outlined" id="learn-more-close">
+            close
+        </span>
+        </div>
+        <div class="img-and-details" id="popup-img-and-details">
+            <div class="learn-more-popup-img">
+                ${ppHolder}
+                <label for="product-img-upload">
+                <span class="material-symbols-outlined">
+                    file_upload
+                </span>
+                </label>
+                <input type="file" id="product-img-upload" accept="image/*" class="hidden" onchange="showPreview2(event);">
+            </div>
+            <div class="learn-more-popup-details">
+                <p>Product Name</p>
+                <input type="text" id="text-product-name" disabled="true" value="${product.product_name}">
+                <p>Product Price</p>
+                <input type="text" id="text-product-price" placeholder="product price" disabled="true" value="${product.product_price}">
+                <p> Stock Quantity</p>
+                <input type="text" id="text-product-stock" placeholder="Quantity" disabled="true" value="${product.product_stock}">
+                <p> Description</p>
+                <input type="text" id="text-product-description" placeholder="Description of the product" disabled="true" value="${product.description}">
+            </div>
+        </div>
+        <div class="learn-more-popup-buttons">
+            <span class="material-symbols-outlined deletee-product" id="${product.product_id}">
+                delete
+            </span>
+            <span class="material-symbols-outlined adss-product" id="${product.product_id}">
+                ads_click
+            </span>
+            <div id="edit-prodcut-save-btn" class="hidden">
+            <span class="material-symbols-outlined savee-product" onclick="saveEdit()" id="${product.product_id}">
+                save
+            </span>
+            </div>
+            <div class="" id="edit-prodcut-edit-btn">
+            <span class="material-symbols-outlined" id="edit-prodcut-info" onclick="enable()">
+                border_color
+            </span>
+            </div>
+        </div>
+    `
+}
+
+
 
 // ---------- profile page ------------
 const firstNamePopupInput = document.getElementById("first-name-popup-input");
@@ -362,11 +458,10 @@ const fillUserInfoInputs = () => {
     addressPopupInput.value = localStorage.getItem("address");
 }
 
-
 //-------- discount page results ----------
 const discountCodeResults = () => {
     const formData = new FormData();
-    formData.append("seller_id", 5);
+    formData.append("seller_id", sellerID);
     formData.append("token", localStorage.getItem("token"));
     axios.post(connectionLink + "get_discount_seller_codes_api.php", formData)
         .then((response) => {
@@ -385,3 +480,4 @@ const discountCodeResults = () => {
         })
         .catch((error) => console.log(error));
 }
+//-----------------------------------------------

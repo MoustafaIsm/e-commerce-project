@@ -80,6 +80,18 @@ a{
     color: white;
 }
 
+.learn-more-wrapper {
+    align-self: center;
+    width: fit-content;
+    text-align: center;
+    text-decoration: underline;
+    color: #8367C7;
+}
+
+.learn-more-wrapper:hover {
+    cursor: pointer;
+    color: #493A6F;
+}
 
 /* ------------ side navigation bar -------------- */
 
@@ -273,7 +285,6 @@ flex-wrap: wrap;
     padding: 2%;
     font-size: 16px;
 }
-
 
 .dropdown-category{
     flex-basis: 73%;
@@ -517,7 +528,6 @@ flex-wrap: wrap;
     border-radius: 10px;
 }
 
-
 /* -------- revenue page --------- */
 .revenue-box{
     border: 1px solid #003945;
@@ -619,8 +629,6 @@ flex-wrap: wrap;
     flex-direction: column;
 }
 
-
-
 .learn-more-popup-details input{
     width: 100%;
     margin-bottom: 1rem;
@@ -686,12 +694,25 @@ flex-wrap: wrap;
     border-radius: 10px;
 }
 
-
 .add-btn-phone{
     padding: 5px;
     display: none;
 }
 
+.learn-more-wrapper {
+    align-self: center;
+    width: fit-content;
+    text-align: center;
+    text-decoration: underline;
+    color: #8367C7;
+}
+
+.learn-more-wrapper:hover {
+    cursor: pointer;
+    color: #493A6F;
+}
+
+/* ----------------- responsiveness for smaller screens ------------------- */
 @media screen and (max-width:850px) {
 
 .card{
@@ -715,6 +736,7 @@ flex-wrap: wrap;
 
 }
 
+/* ------------ for phones ------------ */
 @media screen and (max-width:650px) {
     
 .logo h1{
@@ -817,12 +839,9 @@ width: 60px;
     margin-top: 60px;
     }
 
-
-
 .discount-codes-details img{
     height: 30px;
     width: 30px;
-
 }
 
 .discount-codes-details input{
