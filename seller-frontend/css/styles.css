@@ -499,12 +499,15 @@ flex-wrap: wrap;
 .discount-codes-details img{
     height: 50px;
     width: 50px;
-    /* border-radius: 50%;
-    background-color: black; */
 }
 
 .discount-codes-details input{
-    width: 70%;
+    width: 60%;
+    padding: 5px;
+}
+
+.discount-codes-details input:last-child{
+    width: 10%;
     padding: 5px;
 }
 
@@ -735,14 +738,104 @@ flex-wrap: wrap;
 .nav-right a{
     display: none;
 }
+
+.img-and-details{
+    flex-direction: column;
+    align-items: center;
 }
 
+.learn-more-popup{
+width: 300px;
+text-align: center;
+}
+
+.add-button{
+    margin: auto;
+    text-align: center;
+}
+
+.learn-more-popup-img img{
+    width: 200px;
+    height: 120px;
+}
+
+.add-category-popup{
+    flex-direction: column;
+    width: 350px;
+    height: 200px;
+    padding: 10px;
+    align-items: center;
+}
+
+.add-category-popup input{
+    padding: 5px 10px;
+    flex-basis: 20%;
+}
+
+.chat-page-wrapper {
+    grid-template-columns: 90%;
+    width: 100%;
+    margin: 0;
+    /* border: 1px solid #003945; */
+}
+
+.chat-list-wrapper {
+width: 100%;
+border: 3px solid #003945;
+}
+
+.chat-messages {
+ border: 3px solid #003945;
+}
+
+.add-discount-card input{
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+
+.add-discount-card{
+    flex-direction: column;
+}
+
+.discount-page{
+    margin-left:0 ;
+}
+
+.main-bar{
+    margin-left: 15%;
+    margin-top: 60px;
+    }
 
 
 
+.discount-codes-details img{
+    height: 30px;
+    width: 30px;
 
+}
 
+.discount-codes-details input{
+    width: 70%;
+}
 
+.discount-codes-details input:last-child{
+    width: 30%;
+}
+
+.discount-codes-details{
+    flex-basis: 80%;
+}
+
+.revenue-card{
+    flex-direction: column;
+}
+
+.add-category-btn{
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+}
 
 
 

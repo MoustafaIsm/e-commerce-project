@@ -7,7 +7,9 @@ const revenueNavBtn=document.getElementById("revenue-nav-btn")
 const profileNavBtn=document.getElementById("profile-nav-btn")
 //top bar buttons
 const addProductBtn=document.getElementById("add-product-button")
+const addProductBtn2=document.getElementById("add-product-button2")
 const addCategoryBtn=document.getElementById("add-category-button")
+const addCategoryBtn2=document.getElementById("add-category-button2")
 //popup close buttons
 const addProductClose=document.getElementById("add-product-close")
 const learnMoreClose=document.getElementById("learn-more-close")
@@ -30,14 +32,20 @@ temp.addEventListener("click", () =>{
 
 
 const addProductPopup = document.getElementById("popup-add-more");
-const temp2 = document.getElementById("add-product-button");
-temp2.addEventListener("click", () =>{
+addProductBtn.addEventListener("click", () =>{
+    addProductPopup.showModal();
+})
+addProductBtn2.addEventListener("click", () =>{
     addProductPopup.showModal();
 })
 
+
 const addCategoryPopup = document.getElementById("add-category-popup");
-const temp3 = document.getElementById("add-category-button");
-temp3.addEventListener("click", () =>{
+// const temp3 = document.getElementById("add-category-button");
+addCategoryBtn.addEventListener("click", () =>{
+    addCategoryPopup.showModal();
+})
+addCategoryBtn2.addEventListener("click", () =>{
     addCategoryPopup.showModal();
 })
 
@@ -127,21 +135,48 @@ const openPage = (pageToOpen) => {
     profilePage.classList.add("hidden")
     addProductBtn.classList.add("hidden")
     addCategoryBtn.classList.add("hidden")
+    addCategoryBtn2.classList.add("hidden")
+    addProductBtn2.classList.remove("hidden")
+
+
 
     if (pageToOpen == "product") {
         productPage.classList.remove("hidden");
         addProductBtn.classList.remove("hidden")
+        addCategoryBtn2.classList.add("hidden")
+        addProductBtn2.classList.remove("hidden")
+        addCategoryBtn.classList.add("hidden")
+
+
+
     } else if (pageToOpen == "category") {
         categoryPage.classList.remove("hidden");
         addCategoryBtn.classList.remove("hidden")
+        addCategoryBtn2.classList.remove("hidden")
+        addProductBtn2.classList.add("hidden")
+        addProductBtn.classList.add("hidden")
+
+
     } else if (pageToOpen == "chat") {
         chatPage.classList.remove("hidden");
+        addProductBtn2.classList.add("hidden")
+        addCategoryBtn2.classList.add("hidden")
+
     } else if (pageToOpen == "discount") {
         discountPage.classList.remove("hidden");
+        addProductBtn2.classList.add("hidden")
+        addCategoryBtn2.classList.add("hidden")
+
     } else if (pageToOpen == "revenue") {
         revenuePage.classList.remove("hidden");
+        addProductBtn2.classList.add("hidden")
+        addCategoryBtn2.classList.add("hidden")
+
     } else if (pageToOpen == "profile") {
         profilePage.classList.remove("hidden");
+        addProductBtn2.classList.add("hidden")
+        addCategoryBtn2.classList.add("hidden")
+
     }
 }
 

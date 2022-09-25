@@ -9,13 +9,18 @@
 <body>
 <div class="topnav">
     <div class="logo">
-        <img src="./assets/logo.png" alt="">
+        <img src="./assets/purpule-logo.png" alt="">
         <h1>Dream Stop</h1>
     </div>
     <div class="nav-right">
     <button class="add-button add-btn-pc" id="add-product-button">Add Product  &#8853</button>
-    <button class="add-button hidden" id="add-category-button">Add Category  &#8853</button>
-    <div class="add-btn-phone" id="add-product-button">
+    <button class="add-button add-btn-pc" id="add-category-button">Add Category  &#8853</button>
+    <div class="add-btn-phone" id="add-product-button2">
+        <span class="material-symbols-outlined">
+            add_box
+        </span>
+    </div>
+    <div class="add-btn-phone" id="add-category-button2">
         <span class="material-symbols-outlined">
             add_box
         </span>
@@ -293,7 +298,7 @@
         <div class="discount-codes-details">
         <img src="./assets/discount-code.jpeg" alt="sale">
         <input type="text" placeholder="Discount Code">
-        <label> Rate</label>
+        <input type="text" placeholder="Rate">
         </div>
         <label> Date</label>
     </div>
@@ -301,7 +306,7 @@
         <div class="discount-codes-details">
         <img src="./assets/discount-code.jpeg" alt="sale">
         <input type="text" placeholder="Discount Code">
-        <label> Rate</label>
+        <input type="text" placeholder="Rate">
         </div>
         <label> Date</label>
     </div>
@@ -309,7 +314,7 @@
         <div class="discount-codes-details">
         <img src="./assets/discount-code.jpeg" alt="sale">
         <input type="text" placeholder="Discount Code">
-        <label> Rate</label>
+        <input type="text" placeholder="Rate">
         </div>
         <label> Date</label>
     </div>
@@ -355,28 +360,6 @@
 </section>
 
 </div>
-
-<!-- ----------- popup learn more --------- -->
-
-<!-- <dialog class="popup" id="popup-learn-more">
-    <div class="learnmore-popup">
-        <div class="card">
-            <div class="card-img">
-                <img src="" alt="Product image">
-            </div>
-            <div class="card-details">
-                <p> Product Name</p>
-                <p>Seller Name</p>
-                <p> Categories</p>
-            </div>
-            <div class="popup-buttons">
-                <img src="./assets/delete-icon.png" alt="delete">
-                <img src="./assets/ads-icon.png" alt="ads">
-                <img src="./assets/edit-icon.png" alt="edit">
-            </div>
-        </div>
-    </div>
-</dialog> -->
 
 <!-- --------- learn more---------- -->
 <dialog class="popup" id="popup-learn-more">
@@ -449,17 +432,17 @@
             </div>
             <div class="learn-more-popup-details">
                 <p>Product Name</p>
-                <input type="text" placeholder="product name">
+                <input type="text" placeholder="product name" id="add-product-name">
                 <p>Product Price</p>
-                <input type="text" placeholder="product price">
-                <p> Category</p>
-                <input type="text" placeholder="Category name">
+                <input type="text" placeholder="product price" id="add-product-price">
+                <p> Stocks Quantity</p>
+                <input type="text" placeholder="Stocks Quantity" id="add-product-stock">
                 <p> Description</p>
-                <input type="text" placeholder="Description of the product">
+                <input type="text" placeholder="Description of the product" id="add-product-description">
             </div>
         </div>
         <div class="learn-more-popup-buttons">
-            <button class="add-button"> Add Product</button>
+            <button class="add-button" id="add-product-button-popup"> Add Product</button>
         </div>
     </div>
 </dialog>
@@ -472,37 +455,6 @@
         <button class="add-button"> Add</button>
     </div>
 </dialog>
-
-<!-- --------- popup add product ---------------- -->
-<!-- <div class="popup hidden">
-    <div class="add-product-card">
-        <p>Add a product</p>
-        <div class="add-product-field">
-            <p> Product Name</p>
-            <input type = "text">
-        </div>
-        <div class="add-product-field">
-            <p> Product Price</p>
-            <input type = "text">
-        </div>
-        <div class="add-product-field">
-            <p> Product Category</p>
-            <div class="dropdown-category">
-                <button class="add-category-btn"> Choose Category  &#8681</button>
-                <div class="dropdown-content">
-                    <p> Sport</p>
-                    <p> Art</p>
-                    <p> Phones</p>
-                </div>
-            </div>
-        </div>
-        <div class="add-product-field">
-            <p> Product image</p>
-            <input type = "file">
-        </div>
-        <button class="popup-add-button"> Add</button>
-    </div>
-</div> -->
 
 <script src="./js/scripts.js"></script>
 </body>
