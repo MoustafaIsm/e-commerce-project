@@ -104,10 +104,18 @@ body {
     align-items: center;
     justify-content: center;
     width: 500px;
-    height: 400px;
+    height: 600px;
     padding: 15px;
     border-color: #8367C7;
     border-radius: 15px;
+}
+
+.signup-popup form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .signup-popup span {
@@ -617,6 +625,9 @@ body {
     height: 250px;
     background-color: antiquewhite;
     border-radius: 1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .user-details-wrapper {
@@ -721,7 +732,7 @@ body {
 /* Edit profile popup */
 .edit-profile-wrapper {
     width: 700px;
-    height: 350px;
+    height: 400px;
     margin: auto;
     border: none;
     padding: 15px;
@@ -742,7 +753,7 @@ body {
 
 .profile-img-popup {
     width: 27%;
-    height: 63%;
+    height: 55%;
     background-color: antiquewhite;
     border-radius: 80%;
     position: relative;
@@ -779,6 +790,9 @@ body {
 }
 
 /* Utilities */
+.purpule {
+    color: #8367C7;
+}
 .hide {
     display: none;
 }
@@ -871,6 +885,23 @@ body {
 }
 
 @media screen and (max-width:840px) {
+
+    .index-body-wrapper {
+        flex-direction: column;
+    }
+
+    .index-body-wrapper > div {
+        width: 100%;
+        align-items: center;
+    }
+
+    .form-wrapper {
+        width: 100%;
+    }
+
+    .page-content-wrapper form {
+        width: 70%;
+    }
 
     .title-wrapper {
         display: none;

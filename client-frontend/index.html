@@ -26,13 +26,14 @@
             <!-- Signin form -->
             <form>
                 <div class="form-wrapper">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                    <input type="email" placeholder="Email" id="email-signin" required>
+                    <input type="password" placeholder="Password" id="password-signin" required>
+                    <p id="sigin-error"></p>
                     <div class="remember-wrapper">
-                        <input type="checkbox" name="remember" id="remember">
+                        <input type="checkbox" name="remember" id="remember" checked>
                         <label for="remember"> Keep me logged in </label>
                     </div>
-                    <button class="btn btn-purpule"> SIGN IN </button>
+                    <button class="btn btn-purpule" type="button" id="signin-btn"> SIGN IN </button>
                 </div>
             </form>
             <!-- sign up -->
@@ -44,13 +45,19 @@
         <dialog class="signup-popup hide" id="signup-popup">
             <span class="material-symbols-outlined grey-background" id="close">close</span>
             <h1>Create a new account</h1>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Enter password again">
-            <button class="btn btn-purpule"> Sign up </button>
+            <form>
+                <input type="text" placeholder="First name" id="f-name-input" required>
+                <input type="text" placeholder="Last name" id="l-name-input" required>
+                <input type="number" placeholder="Phone number" id="phone-number" required>
+                <input type="email" placeholder="Email" id="email-input" required>
+                <input type="password" placeholder="Password" id="password-input" required>
+                <p id="error-output"></p>
+                <button class="btn btn-purpule" id="signup-btn" type="button"> Sign up </button>
+            </form>
         </dialog>
     </div>
     <script src="./scripts/index_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>

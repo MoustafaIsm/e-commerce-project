@@ -10,7 +10,7 @@ include("../connection.php");
 $token = $_POST["token"];
 JWT::decode($token, new Key('fgh676', 'HS256'));
 
-$query = $mysqli->prepare("SELECT p.product_id, p.product_name, u.first_name, u.last_name, c.category_name, p.stock, p.product_price FROM `products` AS p INNER JOIN `product_categories` AS pc INNER JOIN `categories` AS c INNER JOIN `users` AS u ON p.product_id=pc.product_id AND pc.category_id=c.category_id AND c.seller_id=u.user_id");
+$query = $mysqli->prepare("SELECT p.product_id, p.product_name, product_picture, u.first_name, u.last_name, c.category_name, p.stock, p.product_price FROM `products` AS p INNER JOIN `product_categories` AS pc INNER JOIN `categories` AS c INNER JOIN `users` AS u ON p.product_id=pc.product_id AND pc.category_id=c.category_id AND p.seller_id=u.user_id");
 $query -> execute();
 $array = $query->get_result();
 

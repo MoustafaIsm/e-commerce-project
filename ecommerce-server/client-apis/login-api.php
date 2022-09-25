@@ -1,4 +1,8 @@
 <?php
+
+header("Access-Control-Allow-Origin: http://127.0.0.1:5500 ");
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
+
 require __DIR__ . '/vendor/autoload.php';
 
 use Firebase\JWT\JWT;
@@ -11,9 +15,9 @@ include("../connection.php");
 $email = $_POST["email"];
 $password = $_POST["password"];
 
-// hashing the password
-// $password = hash("sha256", $_POST["password"]);
-// $password .= "a";
+//hashing the password
+$password = hash("sha256", $_POST["password"]);
+$password .= "a";
 
 // getting the query result
 $query = $mysqli->prepare("SELECT * FROM `users` where `email`=?");
@@ -48,7 +52,7 @@ if ($array->num_rows > 0) {
         $payload = [
             "userId" => $user["user_id"],
             "email" => $user["email"],
-            "exp" => time() + 1000
+            "exp" => time() + 1000000
         ];
 
         $jwt = JWT::encode($payload, $key, 'HS256');
