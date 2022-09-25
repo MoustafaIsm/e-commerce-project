@@ -628,3 +628,15 @@ const increaseViewCount = (productId) => {
         .then((response) => { })
         .catch((error) => console.log(error));
 }
+
+const removeProductFromWishList = (id) => {
+    const formData = new FormData();
+    formData.append("user_id", localStorage.getItem("userId"));
+    formData.append("product_id", id);
+    formData.append("token", localStorage.getItem("token"));
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/remove-item-from-wishlist-api.php", formData)
+        .then((response) => {
+            openWishlistPage();
+        })
+        .catch((error) => console.log(error));
+}
