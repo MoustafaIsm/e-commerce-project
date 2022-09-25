@@ -26,6 +26,20 @@ const chatPage = document.getElementById("chat-page")
 const discountPage = document.getElementById("discount-page")
 const revenuePage = document.getElementById("revenue-page")
 const profilePage = document.getElementById("profile-page")
+//logout
+const logOut = document.getElementById("logout-btn");
+//main function
+const topFiveContainer=document.getElementById("top-five-container")
+const categoryContainer=document.getElementById("category-container")
+const otherProducts = document.getElementById("other-products")
+const addProductPopupBtn =document.getElementById("add-product-button-popup")
+const discountCode =document.getElementById("discount-codes")
+//add product
+const addProductName = document.getElementById("add-product-name");
+const addProductPrice = document.getElementById("add-product-price");
+const addProductDescription = document.getElementById("add-product-description");
+const addProductStock = document.getElementById("add-product-stock");
+const addProductImg = document.getElementById("add-product-img-upload")
 
 //test function for pressing learn more
 const productPopup = document.getElementById("popup-learn-more");
@@ -61,11 +75,52 @@ const closeLearnMore = () => {
     productPopup.close();
 }
 
+//add product function
+const addUserData = () => {
+    const formData = new FormData();
+    formData.append("token", localStorage.getItem("token"));
+    if (addProductImg.files.length > 0) {
+        // User selected file
+        let fileToLoad = addProductImg.files[0];
+        // New BLOB
+        let fileReader = new FileReader();
+        // Convert to base64 after load
+        fileReader.onload = function (fileLoadedEvent) {
+            let fileInputBase64 = fileLoadedEvent.target.result;
+            formData.append("product_picture", fileInputBase64);
+        }
+        fileReader.readAsDataURL(fileToLoad);
+    } else {
+        formData.append("product_picture", "NA");
+    }
+    formData.append("product_name", addProductName.value);
+    formData.append("product_price", addProductPrice.value);
+    formData.append("stock", addProductStock.value);
+    formData.append("description", addProductDescription.value);
+    formData.append("viewing_count", 2);
+    formData.append("seller_id", sellerID);
+    formData.append("added_at", 2022-1-1);
+    formData.append("stock", 3);
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/add_product_api.php", formData)
+        .then((response) => console.log(response))
+}
+//add product
+
 //listeners
 addProductClose.addEventListener("click", closeProductPopup)
 learnMoreClose.addEventListener("click", closeLearnMore)
+addProductPopupBtn.addEventListener("click", addUserData);
+
+
 
 /* Eventlisteners functions */
+
+const logoutUser = () => {
+    localStorage.clear();
+    window.open("http://localhost/SEF/e-commerce-project/client-frontend/index.html")
+}
+
+logOut.addEventListener("click",logoutUser)
 
 const openProductPage = () => {
     changeNavBtn("product");
@@ -97,6 +152,28 @@ const openProfilePage = () => {
     openPage("profile");
 }
 
+
+//fill top five categories
+const fillTopFiveProducts = () => {
+    const formData = new FormData();
+    formData.append("token", localStorage.getItem("token"));
+    formData.append("seller_id", localStorage.getItem("userId"));
+    // formData.append("seller_id", 6);
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/get_all_seller_products.php", formData)
+        .then((response) => populateCards(topFiveContainer, response.data))
+        .catch((error) => console.log(error));
+}
+
+
+const fillCategoryProducts = () => {
+    const formData = new FormData();
+    formData.append("token", localStorage.getItem("token"));
+    // formData.append("seller_id", localStorage.getItem("userId"));
+    formData.append("seller_id", 6);
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/get_all_seller_products.php", formData)
+        .then((response) => populateCards(categoryContainer, response.data))
+        .catch((error) => console.log(error));
+}
 
 /* Eventlisteners */
 
@@ -135,6 +212,7 @@ const discountCodeResults = () => {
     formData.append("token", localStorage.getItem("token"));
     axios.post(connectionLink + "get_discount_seller_codes_api.php", formData)
         .then((response) => {
+            // discountCode.innerHTML=``
             for (const p of response.data) {
                 discountPage.innerHTML += `
                 <div class="discount-codes">
@@ -180,6 +258,8 @@ const openPage = (pageToOpen) => {
         addCategoryBtn2.classList.add("hidden")
         addProductBtn2.classList.remove("hidden")
         addCategoryBtn.classList.add("hidden")
+        fillTopFiveProducts();
+        fillotherProducts();
 
     } else if (pageToOpen == "category") {
         categoryPage.classList.remove("hidden");
@@ -187,6 +267,7 @@ const openPage = (pageToOpen) => {
         addCategoryBtn2.classList.remove("hidden")
         addProductBtn2.classList.add("hidden")
         addProductBtn.classList.add("hidden")
+        fillCategoryProducts();
 
     } else if (pageToOpen == "chat") {
         chatPage.classList.remove("hidden");
@@ -292,7 +373,7 @@ const deleteProduct = () => {
         .then((response) => console.log(response))
     productPopup.close();
 }
-deleteProductBtn.addEventListener("click", deleteProduct);
+// deleteProductBtn.addEventListener("click", deleteProduct);
 
 
 //advertise the product
@@ -306,7 +387,7 @@ const adsProduct = () => {
         .then((response) => console.log(response))
     productPopup.close();
 }
-adsProductBtn.addEventListener("click", adsProduct);
+// adsProductBtn.addEventListener("click", adsProduct);
 
 //edit the product
 const textProductName = document.getElementById("text-product-name");
@@ -316,7 +397,9 @@ const textProductDescription = document.getElementById("text-product-description
 const textProductImg = document.getElementById("product-img-upload")
 // const textProductSave = document.getElementById("edit-prodcut-save-btn");
 const textProductSave = document.getElementsByClassName("savee-product")[0];
-//change img to base64
+
+const saveProduct = () => {
+    //change img to base64
 if (textProductImg.files.length > 0) {
     // User selected file
     let fileToLoad = textProductImg.files[0];
@@ -332,7 +415,6 @@ if (textProductImg.files.length > 0) {
     formData.append("product_picture", NA);
 }
 
-const saveProduct = () => {
     const formData = new FormData();
     formData.append("token", localStorage.getItem("token"));
     formData.append("seller_id", sellerID);
@@ -347,7 +429,7 @@ const saveProduct = () => {
         .then((response) => console.log(response))
     productPopup.close();
 }
-textProductSave.addEventListener("click", saveProduct);
+// textProductSave.addEventListener("click", saveProduct);
 
 // save user to local storage
 const saveUserData = (user) => {
@@ -370,12 +452,13 @@ function getCurrentDate() {
 //-------------------------------------------
 
 //fill the product page
-const fillProducts = () => {
+const fillotherProducts = () => {
     const formData = new FormData();
     formData.append("token", localStorage.getItem("token"));
-    formData.append("seller_id", localStorage.getItem("userId"));
-    axios.post("http://localhost/SEF/SEF/e-commerce-project/ecommerce-server/client-apis/get-products-api.php", formData)
-        .then((response) => populateCards(discoverCards, response.data))
+    // formData.append("seller_id", localStorage.getItem("userId"));
+    formData.append("seller_id", 5);
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/get_all_seller_products.php", formData)
+        .then((response) => populateCards(otherProducts, response.data))
         .catch((error) => console.log(error));
 }
 
@@ -394,8 +477,8 @@ const populateCards = (container, products) => {
             </div>
             <div class="card-details">
                 <p> ${product.product_name} </p>
-                <p>Seller Name</p>
-                <p> Categories</p>
+                <p>${product.stock}</p>
+                <p> ${product.product_price}</p>
             </div>
             <div class="card-learnmore learn-more-wrapper">
                 <p>Click to learn more</p>
@@ -417,7 +500,7 @@ const openProductPopup = (productId) => {
     const formData = new FormData();
     formData.append("token", localStorage.getItem("token"));
     formData.append("product_id", productId);
-    axios.post("http://localhost/SEF/SEF/e-commerce-project/ecommerce-server/client-apis/get-all-seller-product.php", formData)
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/seller-api/get-all-seller-products.php", formData)
         .then((response) => {
             fillProductPopup(popupProductDetails, response.data[0]);
         })
@@ -480,7 +563,5 @@ const fillProductPopup = (container, product) => {
 }
 
 
-
-
-
 //-----------------------------------------------
+

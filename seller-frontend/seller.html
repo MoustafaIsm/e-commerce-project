@@ -25,7 +25,7 @@
             add_box
         </span>
     </div>
-    <a>Name </a>
+    <a>Ramzi </a>
     <img src="./assets/random-profile.jpeg" id="profile-nav-btn">
     </div>
 </div>
@@ -67,7 +67,7 @@
 
 <section class="products" id="product-page">
     <h2>Top Five Products</h2>
-    <div class = "cards-container">
+    <div class = "cards-container" id="top-five-container">
         <div class="card">
             <div class="card-img">
                 <img src="" alt="Product image">
@@ -136,7 +136,7 @@
     </div>
     <hr>
     <h2>Other Products</h2>
-    <div class="cards-container">
+    <div class="cards-container" id="other-products">
         <div class="card">
             <div class="card-img">
                 <img src="" alt="Product image">
@@ -181,8 +181,8 @@
 
 <!-- --------- Categories Page ------------ -->
 <section class="products hidden" id="category-page">
-    <h2>Category 1</h2>
-    <div class = "cards-container">
+    <h2>Sport</h2>
+    <div class = "cards-container" id="category-container">
         <div class="card">
             <div class="card-img">
                 <img src="" alt="Product image">
@@ -296,7 +296,7 @@
     </div>
     <div class="line-devider"></div>
     <h2> Your Discount Codes</h2>
-    <div class="discount-codes">
+    <div class="discount-codes" id="discount-codes">
         <div class="discount-codes-details">
         <img src="./assets/discount-code.jpeg" alt="sale">
         <input type="text" placeholder="Discount Code" id="discount-code-get-name" value="ABC" disabled>
@@ -340,6 +340,7 @@
             <input type="text" placeholder="Last Name" id="last-name-popup-input" disabled>
             <input type="number" placeholder="Phone number" id="phone-number-popup-input" disabled>
             <input type="text" placeholder="Address" id="address-popup-input" disabled>
+            <button class="add-btn" id="logout-btn"> logout </button>
         </div>
     </div>
 </section>
