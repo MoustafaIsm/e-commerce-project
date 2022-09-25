@@ -1,5 +1,9 @@
 <?php
+header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Headers:*");
 require __DIR__ . '/vendor/autoload.php';
+$data = json_decode(file_get_contents("php://input"));
+
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -7,9 +11,9 @@ use Firebase\JWT\Key;
 
 include("../connection.php");
 
-//getting the data from the frontend 
-$email = $_GET["email"];
-$password = $_GET["password"];
+//getting the data from the frontend
+$email = $data->email;
+$password = $data->password;
 
 // hashing the password
 // $password = hash("sha256", $_POST["password"]);
@@ -31,7 +35,7 @@ if ($array->num_rows > 0) {
     // Fetching the user
     $user = $array->fetch_assoc();
 
-    // fetching the data base password 
+    // fetching the data base password
     $data_base_pass = $user['password'];
 
     //  Check for the validity of input password
@@ -48,7 +52,7 @@ if ($array->num_rows > 0) {
         $payload = [
             "userId" => $user["user_id"],
             "email" => $user["email"],
-            "exp" => time() + 1000
+            "exp" => time() + 1000000
         ];
 
         $jwt = JWT::encode($payload, $key, 'HS256');
