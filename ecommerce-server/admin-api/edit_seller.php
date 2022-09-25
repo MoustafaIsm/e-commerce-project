@@ -22,12 +22,17 @@ $address = $data->address;
 $telephone = $data->telephone;
 
 
+if($password == ""){
+  $query = "UPDATE `users` SET `first_name` = ? ,`last_name` = ? ,`email` = ?,`address` = ?,`telephone` = ?  WHERE users.user_id = ?  and users.role_id = 3";
+  $query1 = $mysqli->prepare($query);
+  $query1->bind_param("ssssii", $first_name, $last_name , $email , $address , $telephone,$user_id);
+}
 
-
-
+else{
 $query = "UPDATE `users` SET  `password` = ? ,`first_name` = ? ,`last_name` = ? ,`email` = ?,`address` = ?,`telephone` = ?  WHERE users.user_id = ?  and users.role_id = 3";
 $query1 = $mysqli->prepare($query);
 $query1->bind_param("sssssii",$password, $first_name, $last_name , $email , $address , $telephone,$user_id);
+}
 
 if($query1->execute()){
   $response1["success"] = true;
