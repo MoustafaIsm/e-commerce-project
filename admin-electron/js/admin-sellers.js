@@ -67,7 +67,7 @@ seller_id.value = `${data.user_id}`;
 clientInfo.appendChild(seller_id);
 
 const clientProfile = document.createElement('img');
-clientProfile.src=`assets/${data.profile_picture}`;
+clientProfile.src=`${data.profile_picture}`;
 clientProfile.classList.add('client-pp');
 clientInfo.appendChild(clientProfile);
 
