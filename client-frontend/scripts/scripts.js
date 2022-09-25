@@ -46,6 +46,7 @@ const saveProfileData = document.getElementById("save-btn");
 
 const favoritesCards = document.getElementById("favorites-cards");
 const discoverCards = document.getElementById("discover-cards");
+const suggestedCards = document.getElementById("suggested-cards");
 
 //Temporary variable for testing
 const temp = document.getElementById("temp");
@@ -60,6 +61,7 @@ if (typeof editProfilePopup.showModal !== 'function') {
 
 window.onload = () => {
     fillDiscoverProducts();
+    fillSuggestedProducts();
 }
 
 /* Eventlisteners functions */
@@ -68,6 +70,7 @@ const openDiscoverPage = () => {
     changeNavBtn("discover");
     openPage("discover");
     fillDiscoverProducts();
+    fillSuggestedProducts();
 }
 
 const openWishlistPage = () => {
@@ -334,6 +337,14 @@ const fillDiscoverProducts = () => {
         .catch((error) => console.log(error));
 }
 
+const fillSuggestedProducts = () => {
+    const formData = new FormData();
+    formData.append("token", localStorage.getItem("token"));
+    axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/get-products-with-ads.php", formData)
+        .then((response) => populateCards(suggestedCards, response.data))
+        .catch((error) => console.log(error));
+}
+
 const populateCards = (container, products) => {
     container.innerHTML = ``;
     for (const product of products) {
@@ -545,6 +556,6 @@ const increaseViewCount = (productId) => {
     formData.append("product_id", productId);
     formData.append("token", localStorage.getItem("token"));
     axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/increase-product-view-count.php", formData)
-        .then((response) => console.log(response))
+        .then((response) => { })
         .catch((error) => console.log(error));
 }
