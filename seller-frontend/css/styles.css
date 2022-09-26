@@ -198,6 +198,11 @@ flex-wrap: wrap;
     color:#003945
 }
 
+.products h2, .revenue-page h2{
+    text-align: center;
+    padding: 1rem;
+    color:#003945
+}
 
 /* -------- popup box --------- */
 .popup{
@@ -434,6 +439,7 @@ flex-wrap: wrap;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
+    margin: 0 5px;
 }
 
 .user-sent-message > p:first-child {
@@ -448,6 +454,7 @@ flex-wrap: wrap;
     background-color: rgb(203, 203, 203);
     display: flex;
     flex-direction: column;
+    margin: 0 5px;
 }
 
 .user-recieved-message > p:first-child {
@@ -456,6 +463,14 @@ flex-wrap: wrap;
 
 .user-recieved-message > p:last-child {
     align-self: flex-end;
+}
+
+.chat-client-name p{
+    background-color: #003945;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 /* ------- discount page ------------ */
@@ -467,8 +482,8 @@ flex-wrap: wrap;
 }
 
 .add-discount-card{
-    padding: 2rem;
-    width: 80%;
+    padding: 0.5rem 1rem;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     border: 1px solid #003945;
@@ -476,18 +491,23 @@ flex-wrap: wrap;
     border-radius: 10px;
     align-items: center;
     background-color: white;
-    margin: auto;
+    margin: auto 0;
 }
 
 .add-discount-card p{
     color:#003945;
+    font-weight: bold;
 }
 
 .add-discount-card input{
-    padding: 5px 1rem;
+    padding: 5px 2rem;
     border: 1px solid #003945;
     border-radius: 10px;
-    margin: 2%;
+    color: #003945;
+}
+
+.add-discount-card label{
+    color: #003945;
 }
 
 .discount-codes{
@@ -534,7 +554,7 @@ flex-wrap: wrap;
     box-shadow: 0px 0px 5px 0.5px #003945;
     width: 70%;
     height: 40%;
-    margin: 10% auto;
+    margin: auto;
     position: fixed;
     border-radius: 20px;    
 }
@@ -804,13 +824,12 @@ text-align: center;
 .chat-page-wrapper {
     grid-template-columns: 90%;
     width: 100%;
-    margin: 0;
-    /* border: 1px solid #003945; */
 }
 
 .chat-list-wrapper {
 width: 100%;
 border: 3px solid #003945;
+margin-top: 10rem;
 }
 
 .chat-messages {
