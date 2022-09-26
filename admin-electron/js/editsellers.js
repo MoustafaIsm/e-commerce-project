@@ -1,6 +1,6 @@
 const editSellerSection = document.querySelector('.edit-seller-section');
-const editUrl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/edit_seller.php";
-const sellerInfoAPI = "http://localhost/e-commerce-project/ecommerce-server/admin-api/get-seller.php";
+const editUrl = "http://localhost/SEF/e-commerce-project/ecommerce-server/admin-api/edit_seller.php";
+const sellerInfoAPI = "http://localhost/SEF/e-commerce-project/ecommerce-server/admin-api/get-seller.php";
 // function to display Edit Seller Section
 const displayEditSeller = (data) => {
 let editsellerProfile = `<div class="edit-seller-info flex column">
@@ -13,27 +13,27 @@ let editsellerProfile = `<div class="edit-seller-info flex column">
 <div class="line"></div>
 <div class="seller-changes flex column">
   <div class="change-inputs flex column">
-    <label class="change-label" for="edited-fname">First Name:</label>
+    <label class="change-label" for="edited-fname">First Name</label>
     <input type="text" name="fname" id="edited-fname" class = "change-input" value=${data.first_name}>
   </div>
   <div class="change-inputs flex column">
-    <label class="change-label" for="edited-lname">Last Name:</label>
+    <label class="change-label" for="edited-lname">Last Name</label>
     <input type="text" name="fname" id="edited-lname" class = "change-input" value=${data.last_name}>
   </div>
   <div class="change-inputs flex column">
-    <label class="change-label" for="edited-email">Email:</label>
+    <label class="change-label" for="edited-email">Email</label>
     <input type="email" name="fname" id="edited-email" class = "change-input" value=${data.email}>
   </div>
   <div class="change-inputs flex column">
-    <label class="change-label" for="edited-phone-nb">Phone Number:</label>
+    <label class="change-label" for="edited-phone-nb">Phone Number</label>
     <input type="text" name="fname" id="edited-phone-nb" class = "change-input" value=${data.telephone}>
   </div>
   <div class="change-inputs flex column">
-    <label class="change-label" for="edited-address">Address:</label>
+    <label class="change-label" for="edited-address">Address</label>
     <input type="text" name="fname" id="edited-address" class = "change-input" value=${data.address}>
   </div>
   <div class="change-inputs flex column">
-    <label class="change-label" for="edited-password">New Password:</label>
+    <label class="change-label" for="edited-password">New Password</label>
     <input type="password" name="fname" id="edited-password" class = "change-input" value="">
   </div>
 </div>
@@ -113,7 +113,7 @@ let changed ={
   'first_name': fullNameInput.value,
   'last_name': lastNameInput.value,
   'email' : emailInput.value,
-  'phone_number' : phoneInput.value,
+  'telephone' : phoneInput.value,
   'address' :addressInput.value,
   'password' : passInput.value
 }

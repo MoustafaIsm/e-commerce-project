@@ -3,7 +3,7 @@ const moreInfoSection = document.querySelector('.sellers-more-section');
 const newsellerSection = document.querySelector('.add-seller-section');
 const closeNewsellerSection = document.querySelector('.close-newseller');
 const newSellerbtn = document.getElementById('newseller');
-const sellersUrl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/get-sellers-api.php";
+const sellersUrl = "http://localhost/SEF/e-commerce-project/ecommerce-server/admin-api/get-sellers-api.php";
 
 
 

@@ -1,4 +1,4 @@
-const deleteUrl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/delete_seller.php";
+const deleteUrl = "http://localhost/SEF/e-commerce-project/ecommerce-server/admin-api/delete_seller.php";
 
 // function to fetch delete seller API
 const fetchdeleteSeller = (url, data) => {

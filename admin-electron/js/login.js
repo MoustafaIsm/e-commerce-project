@@ -3,7 +3,7 @@ const passInput = document.getElementById('password-input');
 const loginBtn = document.getElementById('login');
 
 
-const url = 'http://localhost/e-commerce-project/ecommerce-server/admin-api/login_api.php';
+const url = 'http://localhost/SEF/e-commerce-project/ecommerce-server/admin-api/login_api.php';
 // Function to fetch login API
 const fetchLoginAPI = (url, loginData) => {
   const resp =  axios.post(url, loginData);

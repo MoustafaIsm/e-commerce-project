@@ -15,11 +15,12 @@ const sellerstab = document.querySelector('.sellers-tab');
 const statstab = document.querySelector('.stats-page');
 const token = localStorage.getItem('token');
 const admin_id = localStorage.getItem('admin_id');
-const activeurl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/get_not_baned_clients.php";
-const bannedurl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/get_baned_clients.php";
-const banUrl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/add-remove-baned-client-api.php";
+const activeurl = "http://localhost/SEF/e-commerce-project/ecommerce-server/admin-api/get_not_baned_clients.php";
+const bannedurl = "http://localhost/SEF/e-commerce-project/ecommerce-server/admin-api/get_baned_clients.php";
+const banUrl = "http://localhost/SEF/e-commerce-project/ecommerce-server/admin-api/add-remove-baned-client-api.php";
 let banned = false;
 clientsPage.classList.add('active');
+
 
 // function to create client cards dynamicly
 const createCards = (data, banned, clientscards) => {
@@ -158,6 +159,7 @@ banBtn.forEach((button, j) => {
   });
 });
 });
+
 };
 
 // function to get all banned clients
@@ -183,6 +185,8 @@ const getBannedClients =  () => {
     });
   });
   });
+
+
 };
  getActiveClients();
  getBannedClients();
@@ -193,6 +197,7 @@ const fetchBanAPI = (url, data) => {
 return resp;
 
 };
+
 
 // function to unban clients
 const unbanClient =  (client_id) => {

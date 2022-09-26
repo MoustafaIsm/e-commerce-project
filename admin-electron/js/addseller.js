@@ -1,6 +1,6 @@
 const saveseller = document.querySelector('.save-newseller');
 const error = document.querySelector('.error');
-const addsellerUrl = "http://localhost/e-commerce-project/ecommerce-server/admin-api/add_seller.php";
+const addsellerUrl = "http://localhost/SEF/e-commerce-project/ecommerce-server/admin-api/add_seller.php";
 
 
 // function to fetch add sellers api
@@ -14,6 +14,7 @@ return resp;
 const addSeller =  (data) => {
 
 const addResponse = fetchaddSeller(addsellerUrl, data).then((result) => {
+  console.log(result);
   sellersCards.innerHTML = '';
    getSellers();
    const inputs = newsellerSection.querySelectorAll('.change-input');
@@ -50,7 +51,7 @@ let year = date.getFullYear();
 let currentDate = `${year}-${month}-${day}`;
 console.log(currentDate);
     const data = {
-      'token':token,
+      'token': token,
       'password': password,
       'email': email,
       'address': address,
