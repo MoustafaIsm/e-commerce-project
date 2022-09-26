@@ -574,7 +574,7 @@ const fillProductPopup = (container, product) => {
             </div>
             <!-- Discription -->
             <div>
-                <p class="bold-text"> Discription: </p>
+                <p class="bold-text"> Description: </p>
                 <p> ${product.description} </p>
             </div>
             <!-- Favorite -->
