@@ -201,7 +201,6 @@ burgerProfileNavBtn.addEventListener("click", openProfilePage);
 
 closeProductPopup.addEventListener("click", closeProductPopupFun);
 
-textBtn.addEventListener("click", openDiscountInput);
 discountApplyBtn.addEventListener("click", applyDiscountCode);
 
 editProfileBtn.addEventListener("click", openProfilePopup);
