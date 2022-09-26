@@ -110,8 +110,6 @@
                         </div> -->
                     </div>
                 </div>
-                <!-- Divider -->
-                <div class="divider"></div>
                 <!-- Discover -->
                 <div class="discover-wrapper">
                     <!-- Titile -->
@@ -136,68 +134,89 @@
                 <p class="bold-text section-title cart-title">Your cart: </p>
                 <!-- Content -->
                 <div class="cart-cards-wrapper" id="cart-cards"></div>
+                <div class="cart-card">
+                    <div class="discount-wrapper">
+                        <div>
+                            <label for="dicount-input">Discount Code</label>
+                            <input type="text" placeholder="Discount code" id="discount-input">
+                        </div>
+                        <button class="btn btn-purpule " id="discount-apply-btn"> Apply </button>
+                    </div>
+                </div>
                 <!-- Total price -->
                 <div class="price-buy-wrapper">
                     <div class="total-price-wrapper">
-                        <p>Total price:</p>
-                        <p id="total-price">$123</p>
-                    </div>
-                    <!-- Buy button and discount -->
-                    <div class="buy-btn-discount-wrapper">
-                        <button class="btn btn-purpule" id="add-cart"> Buy </button>
-                        <div class="discount-wrapper">
-                            <p id="open-discount-input">Do you have a discount code ?</p>
-                            <input type="text" placeholder="Discount code" class="hide" id="discount-input">
-                            <button class="btn btn-purpule hide" id="discount-apply-btn"> Apply </button>
+                        <div>
+                            <p>Total price:</p>
+                            <p id="total-price">$123</p>
+                        </div>
+                        <div class="buy-btn-discount-wrapper">
+                            <button class="btn btn-purpule" id="add-cart"> Buy </button>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- Chat page -->
             <section class="chat-page-wrapper hide" id="chat-page">
-                <!-- Chat list -->
-                <div class="chat-list-wrapper">
-                    <div class="chat-list-item grey-background">
-                        <!-- Seller image -->
-                        <div class="seller-img-wrapper">
+                <!-- Titile -->
+                <p class="bold-text section-title cart-title">Chat: </p>
+                <!-- Content -->
+                <div class="chat-content-wrapper">
+                    <!-- Chat list -->
+                    <div class="chat-list-wrapper">
+                        <div class="chat-list-item grey-background">
+                            <!-- Seller image -->
+                            <div class="seller-img-wrapper">
 
-                        </div>
-                        <!-- Seller name and last message -->
-                        <div class="seller-info-last-message">
-                            <p>Seller name</p>
-                            <p>lastest message</p>
-                        </div>
-                        <!-- Date -->
-                        <div class="messgae-date">
-                            <p>24-06</p>
+                            </div>
+                            <!-- Seller name and last message -->
+                            <div class="seller-info-last-message">
+                                <p>Seller name</p>
+                                <p>lastest message</p>
+                            </div>
+                            <!-- Date -->
+                            <div class="messgae-date">
+                                <p>24-06</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Chat -->
-                <div class="chat-messages">
-                    <!-- Message writing -->
-                    <div class="message-input-wrapper">
-                        <form>
-                            <input type="text">
-                            <button class="btn btn-purpule send-btn ">
-                                <span class="material-symbols-outlined">
-                                    send
-                                </span>
-                            </button>
-                        </form>
-                    </div>
-                    <div class="messages-wrapper">
-                        <div class="user-recieved-message">
-                            <p>Seller:</p>
-                            <p>Yes i do, how many do you want?</p>
-                            <p>25-6</p>
-                        </div>
-                        <div class="user-sent-message">
-                            <p>You:</p>
-                            <p>Do you still have product 1?</p>
-                            <p>25-6</p>
-                        </div>
+                    <!-- Chat -->
+                    <div class="chat-messages">
+                        <!-- Seller -->
+                        <div class="chat-title">
+                            <!-- Seller image -->
+                            <div class="seller-img-wrapper">
 
+                            </div>
+                            <!-- Seller name and last message -->
+                            <div class="seller-info-last-message">
+                                <p>Seller name</p>
+                            </div>
+                        </div>
+                        <!-- Message writing -->
+                        <div class="message-input-wrapper">
+                            <form>
+                                <input type="text">
+                                <button class="btn btn-purpule send-btn ">
+                                    <span class="material-symbols-outlined">
+                                        send
+                                    </span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="messages-wrapper">
+                            <div class="user-recieved-message">
+                                <p>Seller:</p>
+                                <p>Yes i do, how many do you want?</p>
+                                <p>25-6</p>
+                            </div>
+                            <div class="user-sent-message">
+                                <p>You:</p>
+                                <p>Do you still have product 1?</p>
+                                <p>25-6</p>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </section>
@@ -214,11 +233,10 @@
                         <div id="user-details" class="user-details-wrapper">
 
                         </div>
-                        <button class="btn btn-purpule" id="edit-profile-btn" type="button">Edit Profile</button>
-                        <button type="button" class="btn btn-purpule" id="logout-btn">Logout</button>
-                        <button type="button" class="btn btn-purpule" id="send-voucher"> Send Voucher </button>
-                        <input type="email" id="voucher-email-input" class="hide" placeholder="Email">
-                        <input type="number" id="voucher-amount-input" class="hide" placeholder="Amount">
+                        <div class="profile-btns-wrapper">
+                            <button class="btn btn-purpule" id="edit-profile-btn" type="button">Edit Profile</button>
+                            <button type="button" class="btn btn-purpule" id="logout-btn">Logout</button>
+                        </div>
                     </div>
                 </div>
                 <!-- Divider -->
@@ -226,7 +244,7 @@
                 <!-- Favorites -->
                 <div class="favorites-wrapper">
                     <!-- Titile -->
-                    <p class="bold-text section-title">Favorites: </p>
+                    <p class="bold-text section-title"> Favorites: </p>
                     <!-- Content -->
                     <div class="favorites-cards-wrapper" id="favorites-cards">
                     </div>
@@ -248,6 +266,7 @@
             <dialog class="edit-profile-wrapper hide" id="profile-popup">
                 <!-- Close button -->
                 <div>
+                    <h3>Edit Profile</h3>
                     <span class="material-symbols-outlined grey-background" id="close-profile-popup">
                         close
                     </span>

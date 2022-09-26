@@ -55,7 +55,6 @@ const cartCards = document.getElementById("cart-cards");
 const totalPrice = document.getElementById("total-price")
 
 const logoutBtn = document.getElementById("logout-btn");
-const sendVoucher = document.getElementById("send-voucher");
 const addCart = document.getElementById("add-cart");
 
 // If a browser doesn't support the dialog, then hide it
@@ -169,28 +168,6 @@ const logoutUser = () => {
     window.location.href = "./index.html";
 }
 
-const openVoucherInput = () => {
-    const voucherInput = document.getElementById("voucher-email-input");
-    const voucherAmountInput = document.getElementById("voucher-amount-input");
-    voucherInput.classList.toggle("hide");
-    voucherAmountInput.classList.toggle("hide");
-    voucherInput.addEventListener((e) => {
-        if (voucherInput.value != "" && voucherAmountInput.value != "" && e.key === 'Enter') {
-            const formData = new FormData();
-            formData.append("from_user_id", localStorage.getItem("userId"));
-            formData.append("token", localStorage.getItem("token"));
-            formData.append("to_user_email", voucherInput.value);
-            formData.append("voucher_amount", voucherAmountInput.value);
-            axios.post("http://localhost/SEF/e-commerce-project/ecommerce-server/client-apis/add-voucher-api.php", formData)
-                .then((response) => {
-                    voucherInput.classList.toggle("hide");
-                    voucherAmountInput.classList.toggle("hide");
-                })
-                .catch((error) => console.log(error));
-        }
-    });
-}
-
 const addCartOfUser = () => {
     const formData = new FormData();
     formData.append("userId", localStorage.getItem("userId"));
@@ -224,7 +201,6 @@ burgerProfileNavBtn.addEventListener("click", openProfilePage);
 
 closeProductPopup.addEventListener("click", closeProductPopupFun);
 
-textBtn.addEventListener("click", openDiscountInput);
 discountApplyBtn.addEventListener("click", applyDiscountCode);
 
 editProfileBtn.addEventListener("click", openProfilePopup);
@@ -232,7 +208,6 @@ closeProfilePopup.addEventListener("click", closeProfilePopupFun);
 saveProfileData.addEventListener("click", saveEditedUserData);
 
 logoutBtn.addEventListener("click", logoutUser);
-sendVoucher.addEventListener("click", openVoucherInput);
 addCart.addEventListener("click", addCartOfUser);
 
 /* Helper functions */
@@ -436,14 +411,14 @@ const fillCartProducts = () => {
                 <!-- Product details -->
                 <div class="cart-product-details">
                     <p class="bold-text">${product.product_name}</p>
-                    <p> ${product.first_name + " " + product.last_name} </p>
+                    <p>By: ${product.first_name + " " + product.last_name} </p>
                     <p> ${product.category_name} </p>
                 </div>
             </div>
             <!-- Cost and count -->
             <div class="count-cost-wrapper">
                 <p>amount: ${productAmount[i]} </p>
-                <p>cost: $ ${product.product_price} </p>
+                <p class="bold-text">cost: $ ${product.product_price} </p>
             </div>
         </div>`;
         i++;
@@ -593,7 +568,7 @@ const fillProductPopup = (container, product) => {
         <div class="popup-product-info">
             <!-- Name seller category -->
             <div>
-                <p class="bold-text"> ${product.product_name} </p>
+                <p class="bold-text product-popup-title"> ${product.product_name} </p>
                 <p> ${product.first_name + " " + product.last_name} </p>
                 <p> ${product.category_name} </p>
             </div>
@@ -616,7 +591,7 @@ const fillProductPopup = (container, product) => {
         </div>
         <!-- Price -->
         <div>
-            <p>Price: $ ${product.product_price}</p>
+            <p class="bold-text product-popup-price">Price: $ ${product.product_price}</p>
         </div>
         <!-- Items to buy -->
         <div class="popup-items-to-buy">

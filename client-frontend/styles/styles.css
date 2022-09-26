@@ -26,10 +26,21 @@ body {
 .index-body-wrapper {
     display: flex;
     background-color: #F9F9F9;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 .index-body-wrapper > div {
     width: 50vw;
+}
+
+.main-logo {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* sign in form */
@@ -40,25 +51,36 @@ body {
     margin-left: 30px;
 }
 
-.page-content-wrapper > h1 {
+.page-content-wrapper  h1 {
     margin: 15px 10px;
+    text-align: center;
+    align-items: center;
 }
 
 .form-wrapper {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    padding: 20px 0px;
+    width: 80%;
+    padding: 20px 20px;
     background-color: #FFFFFF;
     border: 1px solid #8367C7;
     border-radius: 15px;
 }
 
 .form-wrapper > input {
-    margin: 15px 10px;
+    margin: 0px 10px 10px 10px;
     padding: 10px 10px;
     border: 2px solid #8367C7;
     border-radius: 15px;
+    width: 100%;
+}
+
+.form-wrapper > label {
+    margin: 0px 13px;
+}
+
+.form-wrapper h3 {
+    text-align: center;
 }
 
 .form-wrapper > button {
@@ -102,32 +124,49 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     width: 500px;
-    height: 600px;
-    padding: 15px;
+    height: 550px;
     border-color: #8367C7;
     border-radius: 15px;
+}
+
+.signup-popup h1 {
+    margin: 10px 0px;
 }
 
 .signup-popup form {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+}
+
+.signup-popup form > label {
+    align-self: flex-start !important;
+    margin: 0px 6%;
 }
 
 .signup-popup span {
     align-self: self-end;
+    margin: 10px 10px;
 }
 
 .signup-popup input {
     width: 90%;
-    margin: 15px 10px;
+    margin: 0px 0px 15px 0px;
     padding: 10px 10px;
     border: 2px solid #8367C7;
     border-radius: 15px;
+    align-self: center;
+}
+
+.signup-popup form > p {
+    align-self: flex-start !important;
+    margin: 0px 6%;
+}
+
+.signup-popup button {
+    align-self: center;
 }
 
 /* Client main page */
@@ -368,6 +407,7 @@ body {
     column-gap: 25px;
     row-gap: 25px;
     justify-content: center;
+    align-items: center;
 }
 
 .wishlist-product-card-footer {
@@ -414,7 +454,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    margin: 5px 5%;
+    margin: 5px 80px;
     box-shadow: 0px 0px 5px 0.5px #8367C7;
 }
 
@@ -452,7 +492,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 0% 10%;
+    padding: 0% 80px;
     position: fixed;
     bottom: 0;
     background-color: #F9F9F9;
@@ -463,8 +503,13 @@ body {
     display: flex;
     justify-content: space-between;
     font-size: 20px;
-    margin: 0px 5%;
+    margin: 10px 5%;
     width: 100%;
+}
+
+.total-price-wrapper > div:first-child {
+    display: flex;
+    font-weight: bold;
 }
 
 .buy-btn-discount-wrapper {
@@ -475,8 +520,10 @@ body {
 
 .discount-wrapper {
     margin: 5px 0px;
+    padding: 10px;
     display: flex;
-    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .discount-wrapper > p {
@@ -489,7 +536,7 @@ body {
     color: #493A6F;
 }
 
-.discount-wrapper > input {
+.discount-wrapper input {
     margin: 0px 10px;
     padding: 10px 10px;
     border: 2px solid #8367C7;
@@ -498,11 +545,14 @@ body {
 
 /* Chat page */
 .chat-page-wrapper {
+    margin-top: 90px;
+}
+
+.chat-content-wrapper {
     display: grid;
     grid-template-columns: 50% 50%;
-    height: 85vh;
-    margin: 15px 30px;
-    margin-top: 80px;
+    height: 78vh;
+    margin: 15px 80px;
 }
 
 .chat-list-wrapper {
@@ -511,6 +561,8 @@ body {
     flex-direction: column;
     overflow: scroll;
     border-right: 2px solid #8367C7;
+    background-color: #FFFFFF;
+    margin-right: 50px;
 }
 
 .chat-list-item {
@@ -540,18 +592,31 @@ body {
 }
 
 .chat-messages {
+    margin-left: 50px;
     overflow: scroll;
     position: relative;
     display: flex;
     flex-direction: column;
     border-bottom: 2px solid #8367C7;
     border-left: 2px solid #8367C7;
+    background-color: #FFFFFF;
 }
 
 .message-input-wrapper {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+.chat-title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #8367C7;
+    color: #FFFFFF;
+    padding: 5px;
 }
 
 .message-input-wrapper > form {
@@ -576,14 +641,20 @@ body {
 }
 
 .messages-wrapper {
+    margin-top: 60px;
     display: flex;
     flex-direction: column-reverse;
 }
 
 .user-sent-message {
+    padding: 5px 5px;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
+}
+
+.user-sent-message p {
+    margin-bottom: 5px;
 }
 
 .user-sent-message > p:first-child {
@@ -595,9 +666,14 @@ body {
 }
 
 .user-recieved-message {
+    padding: 5px 5px;
     background-color: rgb(203, 203, 203);
     display: flex;
     flex-direction: column;
+}
+
+.user-recieved-message p {
+    margin-bottom: 5px;
 }
 
 .user-recieved-message > p:first-child {
@@ -657,6 +733,15 @@ body {
     border-radius: 15px;
 }
 
+.profile-btns-wrapper {
+    align-self: flex-end;
+    display: flex;
+}
+
+.profile-btns-wrapper > button {
+    margin: 0px 15px;
+}
+
 .favorites-wrapper {
     display: flex;
     flex-direction: column;
@@ -714,6 +799,14 @@ body {
     margin-bottom: 5px;
 }
 
+.product-popup-title {
+    font-size: xx-large;
+}
+
+.product-popup-price {
+    font-size: x-large;
+}
+
 .popup-product-cost-stock-wrapper {
     margin-top: 10px;
     width: 100%;
@@ -742,7 +835,7 @@ body {
 /* Edit profile popup */
 .edit-profile-wrapper {
     width: 700px;
-    height: 400px;
+    height: 410px;
     margin: auto;
     border: none;
     padding: 15px;
@@ -753,7 +846,10 @@ body {
 }
 
 .edit-profile-wrapper > div:first-child {
-    text-align: end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .profile-popup-wrapper {
@@ -814,7 +910,7 @@ body {
 .section-title {
     align-self: flex-start;
     font-size: 30px;
-    margin: 20px 40px;
+    margin: 20px 80px;
 }
 
 .btn {
@@ -953,6 +1049,15 @@ body {
 
     .profile-popup-inputs {
         width: 80%;
+    }
+
+    .discount-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .discount-wrapper button {
+        margin: 10px;
     }
 }
 
