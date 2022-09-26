@@ -26,10 +26,21 @@ body {
 .index-body-wrapper {
     display: flex;
     background-color: #F9F9F9;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 .index-body-wrapper > div {
     width: 50vw;
+}
+
+.main-logo {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* sign in form */
@@ -40,25 +51,36 @@ body {
     margin-left: 30px;
 }
 
-.page-content-wrapper > h1 {
+.page-content-wrapper  h1 {
     margin: 15px 10px;
+    text-align: center;
+    align-items: center;
 }
 
 .form-wrapper {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    padding: 20px 0px;
+    width: 80%;
+    padding: 20px 20px;
     background-color: #FFFFFF;
     border: 1px solid #8367C7;
     border-radius: 15px;
 }
 
 .form-wrapper > input {
-    margin: 15px 10px;
+    margin: 0px 10px 10px 10px;
     padding: 10px 10px;
     border: 2px solid #8367C7;
     border-radius: 15px;
+    width: 100%;
+}
+
+.form-wrapper > label {
+    margin: 0px 13px;
+}
+
+.form-wrapper h3 {
+    text-align: center;
 }
 
 .form-wrapper > button {
@@ -102,32 +124,49 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     width: 500px;
-    height: 600px;
-    padding: 15px;
+    height: 550px;
     border-color: #8367C7;
     border-radius: 15px;
+}
+
+.signup-popup h1 {
+    margin: 10px 0px;
 }
 
 .signup-popup form {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+}
+
+.signup-popup form > label {
+    align-self: flex-start !important;
+    margin: 0px 6%;
 }
 
 .signup-popup span {
     align-self: self-end;
+    margin: 10px 10px;
 }
 
 .signup-popup input {
     width: 90%;
-    margin: 15px 10px;
+    margin: 0px 0px 15px 0px;
     padding: 10px 10px;
     border: 2px solid #8367C7;
     border-radius: 15px;
+    align-self: center;
+}
+
+.signup-popup form > p {
+    align-self: flex-start !important;
+    margin: 0px 6%;
+}
+
+.signup-popup button {
+    align-self: center;
 }
 
 /* Client main page */
@@ -368,6 +407,7 @@ body {
     column-gap: 25px;
     row-gap: 25px;
     justify-content: center;
+    align-items: center;
 }
 
 .wishlist-product-card-footer {
@@ -414,7 +454,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    margin: 5px 5%;
+    margin: 5px 80px;
     box-shadow: 0px 0px 5px 0.5px #8367C7;
 }
 
@@ -452,7 +492,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 0% 10%;
+    padding: 0% 80px;
     position: fixed;
     bottom: 0;
     background-color: #F9F9F9;
@@ -465,6 +505,11 @@ body {
     font-size: 20px;
     margin: 0px 5%;
     width: 100%;
+}
+
+.total-price-wrapper > div:first-child {
+    display: flex;
+    font-weight: bold;
 }
 
 .buy-btn-discount-wrapper {
@@ -498,11 +543,14 @@ body {
 
 /* Chat page */
 .chat-page-wrapper {
+    margin-top: 90px;
+}
+
+.chat-content-wrapper {
     display: grid;
     grid-template-columns: 50% 50%;
     height: 85vh;
-    margin: 15px 30px;
-    margin-top: 80px;
+    margin: 15px 80px;
 }
 
 .chat-list-wrapper {
@@ -657,6 +705,15 @@ body {
     border-radius: 15px;
 }
 
+.profile-btns-wrapper {
+    align-self: flex-end;
+    display: flex;
+}
+
+.profile-btns-wrapper > button {
+    margin: 0px 15px;
+}
+
 .favorites-wrapper {
     display: flex;
     flex-direction: column;
@@ -712,6 +769,14 @@ body {
 
 .popup-product-info > div > p {
     margin-bottom: 5px;
+}
+
+.product-popup-title {
+    font-size: xx-large;
+}
+
+.product-popup-price {
+    font-size: x-large;
 }
 
 .popup-product-cost-stock-wrapper {
@@ -814,7 +879,7 @@ body {
 .section-title {
     align-self: flex-start;
     font-size: 30px;
-    margin: 20px 40px;
+    margin: 20px 80px;
 }
 
 .btn {
