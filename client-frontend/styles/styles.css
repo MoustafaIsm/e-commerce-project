@@ -551,7 +551,7 @@ body {
 .chat-content-wrapper {
     display: grid;
     grid-template-columns: 50% 50%;
-    height: 85vh;
+    height: 78vh;
     margin: 15px 80px;
 }
 
@@ -561,6 +561,8 @@ body {
     flex-direction: column;
     overflow: scroll;
     border-right: 2px solid #8367C7;
+    background-color: #FFFFFF;
+    margin-right: 50px;
 }
 
 .chat-list-item {
@@ -590,18 +592,31 @@ body {
 }
 
 .chat-messages {
+    margin-left: 50px;
     overflow: scroll;
     position: relative;
     display: flex;
     flex-direction: column;
     border-bottom: 2px solid #8367C7;
     border-left: 2px solid #8367C7;
+    background-color: #FFFFFF;
 }
 
 .message-input-wrapper {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+.chat-title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #8367C7;
+    color: #FFFFFF;
+    padding: 5px;
 }
 
 .message-input-wrapper > form {
@@ -626,14 +641,20 @@ body {
 }
 
 .messages-wrapper {
+    margin-top: 60px;
     display: flex;
     flex-direction: column-reverse;
 }
 
 .user-sent-message {
+    padding: 5px 5px;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
+}
+
+.user-sent-message p {
+    margin-bottom: 5px;
 }
 
 .user-sent-message > p:first-child {
@@ -645,9 +666,14 @@ body {
 }
 
 .user-recieved-message {
+    padding: 5px 5px;
     background-color: rgb(203, 203, 203);
     display: flex;
     flex-direction: column;
+}
+
+.user-recieved-message p {
+    margin-bottom: 5px;
 }
 
 .user-recieved-message > p:first-child {
@@ -809,7 +835,7 @@ body {
 /* Edit profile popup */
 .edit-profile-wrapper {
     width: 700px;
-    height: 400px;
+    height: 410px;
     margin: auto;
     border: none;
     padding: 15px;
@@ -820,7 +846,10 @@ body {
 }
 
 .edit-profile-wrapper > div:first-child {
-    text-align: end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .profile-popup-wrapper {
